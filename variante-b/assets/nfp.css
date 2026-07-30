@@ -1,0 +1,552 @@
+/* ============================================================================
+   NatureFlow Pets · Shop-Entwurf „Naturmanufaktur" (Richtung B) — Fassung B2
+   Vorlagen: nfp-gelenk-konzept-b-naturmanufaktur-packshot.png (Verpackung)
+             v2-shop-B1-naturmanufaktur-fullbleed.png (Shop-Design)
+   Aufgebaut nach: Master-SOP Conversion & Retention (Shopify D2C) v2.0
+   ALLE Farben sind pixelgenau aus den beiden Vorlagen gemessen, nicht geschätzt
+   (Messprotokoll und Kontrastwerte am Ende der Datei).
+   ============================================================================ */
+
+/* ---------- 1. Tokens (gemessen aus den Referenzen) ---------- */
+:root{
+  --green-900:#122D24;   /* Headline-Grün, gemessen aus „Unsere Produkte" */
+  --green-800:#1C4036;   /* Trust-Bar / Footer, gemessen aus der Vorlage */
+  --green-700:#25493C;
+  --band:#3E5A46;        /* Etiketten-Band der Verpackung */
+  --gold:#C9A159;        /* EINZIGE Primär-CTA-Farbe, gemessen aus dem Knopf */
+  --gold-hover:#D5B071;
+  --gold-line:#C8A96A;   /* Botanik-Linien */
+  --gold-light:#E3C88C;  /* Gold als TEXT auf Grün */
+  --gold-deep:#6E5311;   /* Gold als TEXT auf Creme */
+  --cream:#F5EDE0;       /* Sektionsflächen, gemessen */
+  --cream-deep:#EFE3D0;
+  --card:#FBF8F3;        /* Karten / heller Grund, gemessen */
+  --ink:#23281F;
+  --ink-soft:#5B6257;
+  --line:#E2D7C4;
+  --line-strong:#CDBEA3;
+
+  --ff-head:'Figtree','Segoe UI',system-ui,-apple-system,sans-serif; /* PLATZHALTER – finale Headline-Schrift wählt Kai */
+  --ff-body:'Inter','Helvetica Neue',system-ui,-apple-system,sans-serif;
+
+  --sp-1:.5rem; --sp-2:1rem; --sp-3:1.5rem; --sp-4:2.25rem;
+  --sp-5:3.5rem; --sp-6:5rem;
+  --r-sm:8px; --r-md:14px; --r-lg:22px; --r-xl:30px;
+  --wrap:1280px; --hdr-h:78px;
+  --shadow-md:0 18px 40px -30px rgba(18,45,36,.5);
+  --shadow-lg:0 30px 60px -34px rgba(18,45,36,.55);
+  --ease:cubic-bezier(.22,.7,.3,1);
+}
+
+/* ---------- 2. Reset ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--hdr-h) + 1rem)}
+body{margin:0;background:var(--card);color:var(--ink);font-family:var(--ff-body);
+  font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,svg,video{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+h1,h2,h3,h4{font-family:var(--ff-head);font-weight:800;line-height:1.09;letter-spacing:-.015em;margin:0;color:var(--green-900)}
+h1{font-size:clamp(2.4rem,4.8vw,4rem)}
+h2{font-size:clamp(1.85rem,3.1vw,2.7rem)}
+h3{font-size:1.2rem;letter-spacing:-.01em}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(1.15rem,4vw,2.5rem)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:1rem;top:1rem;z-index:120;background:var(--green-800);color:var(--card);padding:.75rem 1.25rem;border-radius:var(--r-sm)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:2px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+main,header,footer,.drawer,.toast{position:relative}
+
+/* ---------- 3. Typo-Hilfen ---------- */
+.eyebrow{font-family:var(--ff-head);font-weight:800;font-size:.8125rem;letter-spacing:.17em;text-transform:uppercase}
+.eyebrow--gold{color:var(--gold-light)}
+.eyebrow--deep{color:var(--gold-deep)}
+.lead{font-size:1.125rem;color:var(--ink-soft)}
+.sec--green .lead{color:#D8E2D8}
+.center{text-align:center}
+.center .sec__head{margin-inline:auto}
+
+/* ---------- 4. Botanik: die Naturmanufaktur-Signatur ---------- */
+/* Große Blatt-/Muschel-Ranken links und rechts wie in der Shop-Vorlage */
+.botanic{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+.botanic svg{position:absolute;color:var(--gold-line);opacity:.4}
+.botanic .b-l{left:-70px;top:3%;width:min(390px,28vw);transform:rotate(8deg)}
+.botanic .b-r{right:-90px;top:10%;width:min(420px,30vw);transform:scaleX(-1) rotate(6deg)}
+.botanic .b-b{right:5%;bottom:-70px;width:min(260px,19vw);transform:rotate(-24deg);opacity:.3}
+.sec>.wrap{position:relative;z-index:1}
+/* Zierlinie mit Muschel */
+.orn-rule{display:flex;align-items:center;gap:1.1rem;color:var(--gold-deep)}
+.orn-rule::before,.orn-rule::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--line-strong),transparent)}
+.orn-rule svg{width:54px;height:27px;flex:none}
+.sec--green .orn-rule{color:var(--gold-light)}
+.sec--green .orn-rule::before,.sec--green .orn-rule::after{background:linear-gradient(90deg,transparent,rgba(227,200,140,.5),transparent)}
+/* feine Goldlinie als Trenner in Karten (aus der Vorlage) */
+.hair{height:1px;background:linear-gradient(90deg,transparent,var(--gold-line),transparent);margin:1rem 0}
+
+/* ---------- 5. Buttons (SOP A2.2: genau EINE Primär-CTA-Farbe) ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;
+  font-family:var(--ff-head);font-weight:800;font-size:1rem;min-height:52px;
+  padding:.95rem 1.9rem;border-radius:99px;border:2px solid transparent;cursor:pointer;
+  transition:transform .18s var(--ease),background .2s,color .2s,border-color .2s;text-align:center}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn svg{width:18px;height:18px;flex:none}
+.btn--primary{background:var(--gold);color:var(--green-900);box-shadow:0 10px 26px -14px rgba(201,161,89,.9)}
+.btn--primary:hover{background:var(--gold-hover)}
+.btn--ghost{border-color:var(--green-800);color:var(--green-800)}
+.btn--ghost:hover{background:var(--green-800);color:var(--card)}
+.btn--ghost-light{border-color:rgba(251,248,243,.55);color:var(--card)}
+.btn--ghost-light:hover{border-color:var(--card);background:rgba(251,248,243,.12)}
+.btn--block{width:100%}
+.btn--sm{min-height:44px;padding:.6rem 1.15rem;font-size:.875rem}
+
+/* ---------- 6. Trust-Bar (wie Vorlage: mittig, Punkt-Trenner) ---------- */
+.trustbar{background:var(--green-800);color:var(--card);font-size:.8125rem;position:relative;z-index:1}
+.trustbar__in{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
+  gap:.3rem 1.4rem;padding:.7rem 0}
+.trustbar li{display:flex;align-items:center;gap:.5rem;font-weight:500}
+.trustbar li+li::before{content:"·";color:var(--gold-light);margin-right:1.4rem}
+.trustbar svg{width:15px;height:15px;color:var(--gold-light);flex:none}
+
+/* ---------- 7. Header: über dem Hero transparent, danach fest ---------- */
+.hdr{position:sticky;top:0;z-index:50;background:var(--card);border-bottom:1px solid var(--line);
+  transition:background .3s var(--ease),border-color .3s,box-shadow .25s}
+.hdr.is-stuck{box-shadow:0 8px 30px -24px rgba(18,45,36,.55)}
+.hdr__in{display:flex;align-items:center;gap:var(--sp-3);height:var(--hdr-h)}
+.brand{position:relative;display:block;width:196px;height:22px;flex:none}
+.brand img{position:absolute;inset:0;width:196px;transition:opacity .3s var(--ease)}
+.brand .lg-cream{opacity:0}
+.nav{margin-left:auto}
+.nav ul{display:flex;gap:1.7rem;font-weight:600;font-size:.9375rem}
+.nav a{display:inline-block;padding:.35rem 0;border-bottom:2px solid transparent;transition:border-color .2s,color .2s}
+.nav a:hover,.nav a[aria-current="page"]{border-color:var(--gold)}
+.hdr__act{display:flex;align-items:center;gap:.35rem}
+.iconbtn{background:none;border:0;padding:.6rem;cursor:pointer;position:relative;border-radius:99px;
+  min-width:44px;min-height:44px;display:grid;place-items:center;transition:background .2s}
+.iconbtn:hover{background:rgba(18,45,36,.07)}
+.iconbtn svg{width:22px;height:22px}
+.badge{position:absolute;top:2px;right:2px;background:var(--green-800);color:var(--card);
+  font-family:var(--ff-head);font-size:.625rem;font-weight:800;min-width:19px;height:19px;
+  border-radius:99px;display:grid;place-items:center;padding:0 4px}
+.badge[hidden]{display:none}
+.burger{display:none}
+
+/* Über dem Hero: transparent mit heller Schrift (wie in der Shop-Vorlage).
+   Der Header bleibt dabei `sticky` und wird NICHT auf absolute umgestellt –
+   ein Positionswechsel beim Scrollen ruckelt. Stattdessen zieht der Hero sich
+   per negativem oberen Rand unter den Header (.hero--under-hdr). */
+.hdr--over{background:transparent;border-bottom-color:transparent}
+.hdr--over .nav a,.hdr--over .iconbtn{color:var(--card)}
+.hdr--over .iconbtn:hover{background:rgba(251,248,243,.16)}
+.hdr--over .badge{background:var(--card);color:var(--green-900)}
+.hdr--over .lg-green{opacity:0}
+.hdr--over .lg-cream{opacity:1}
+.hdr--over.is-stuck{background:var(--card);border-bottom-color:var(--line)}
+.hdr--over.is-stuck .nav a,.hdr--over.is-stuck .iconbtn{color:var(--ink)}
+.hdr--over.is-stuck .lg-green{opacity:1}
+.hdr--over.is-stuck .lg-cream{opacity:0}
+.hdr--over.is-stuck .badge{background:var(--green-800);color:var(--card)}
+
+/* ---------- 8. HERO · Full-Bleed Emotion (Layout der Vorlage) ---------- */
+.hero{position:relative;min-height:clamp(560px,84vh,780px);display:grid;align-items:center;
+  isolation:isolate;overflow:hidden}
+.hero--under-hdr{margin-top:calc(-1 * var(--hdr-h))}
+.hero__media{position:absolute;inset:0;z-index:-2}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:68% 50%}
+/* Scrim: links dunkel für den Text, oben dunkel für die Navigation.
+   Werte aus der Pixelmessung, nicht geschätzt (s. Protokoll unten). */
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(90deg,rgba(20,36,26,.90) 0%,rgba(20,36,26,.84) 34%,rgba(20,36,26,.52) 56%,rgba(20,36,26,.14) 78%,rgba(20,36,26,.04) 100%),
+  linear-gradient(180deg,rgba(20,36,26,.80) 0%,rgba(20,36,26,.62) 10%,rgba(20,36,26,.30) 22%,rgba(20,36,26,.10) 30%,transparent 38%)}
+/* .hero__in ist ein .wrap: max-width hier würde den Block als Grid-Item mittig
+   setzen. Deshalb width:100% und Begrenzung auf die Kinder. */
+.hero__in{width:100%;padding-block:calc(var(--hdr-h) + clamp(2.5rem,7vh,5rem)) clamp(3rem,7vh,5rem);color:var(--card)}
+.hero__in>*{max-width:36rem}
+.hero h1{color:var(--card);margin:1.1rem 0 0;text-shadow:0 2px 22px rgba(14,26,18,.35)}
+.hero__sub{margin-top:1.3rem;font-size:clamp(1.05rem,1.5vw,1.25rem);line-height:1.55;color:#EEF2EA}
+.hero__cta{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2.1rem}
+.hero__proof{margin-top:1.6rem;font-size:.9375rem;color:#EEF2EA;display:flex;align-items:center;gap:.6rem}
+.hero__proof b{font-family:var(--ff-head);font-weight:800;color:#fff}
+.hero__proof svg{width:19px;height:19px;color:var(--gold-light);flex:none}
+
+/* ---------- 9. Sektionen ---------- */
+.sec{padding-block:var(--sp-6);position:relative;overflow:hidden}
+.sec--cream{background:var(--cream)}
+.sec--card{background:var(--card)}
+.sec--green{background:var(--green-800);color:var(--card)}
+.sec--green h2,.sec--green h3{color:var(--card)}
+.sec--tight{padding-block:var(--sp-5)}
+.sec__head{max-width:64ch;position:relative}
+.sec__head h2{margin-top:.85rem}
+.sec__head p{margin-top:1.05rem}
+
+/* ---------- 10. USP-Band (Vorlage: mittig, Goldlinien-Icon, Headline) ---------- */
+.usp{background:var(--cream);border-block:1px solid var(--line)}
+.usp__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(2rem,5vw,4rem);padding-block:var(--sp-5)}
+.usp__i{text-align:center;display:grid;justify-items:center;gap:1.1rem}
+.usp__i svg{width:56px;height:56px;color:var(--gold-line);stroke-width:1.2}
+.usp__i h3{font-size:1.1875rem;max-width:16ch;line-height:1.25}
+
+/* ---------- 11. Produktkarten (Vorlage: Bild, Goldlinie, „Name – Preis") ---------- */
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:1.35rem;margin-top:var(--sp-4)}
+.prods--3{grid-template-columns:repeat(3,1fr)}
+.prod{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  overflow:hidden;display:flex;flex-direction:column;transition:transform .22s var(--ease),box-shadow .22s;position:relative}
+.prod:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.prod__fig{background:var(--cream);aspect-ratio:1/1;position:relative;display:block;overflow:hidden;margin:.7rem .7rem 0;border-radius:var(--r-md)}
+.prod__fig img{width:100%;height:100%;object-fit:cover;transition:opacity .35s var(--ease),transform .5s var(--ease)}
+.prod__fig img.alt{position:absolute;inset:0;opacity:0}
+.prod:hover .prod__fig img.alt{opacity:1}
+.prod:hover .prod__fig img.main{transform:scale(1.03)}
+.chip{position:absolute;top:.8rem;left:.8rem;z-index:2;font-family:var(--ff-head);font-weight:800;
+  font-size:.6875rem;letter-spacing:.09em;text-transform:uppercase;padding:.38rem .7rem;border-radius:99px;
+  background:var(--gold);color:var(--green-900)}
+.chip--soft{background:var(--card);color:var(--green-800);border:1px solid var(--line-strong)}
+.prod__b{padding:1rem 1.3rem 1.4rem;display:flex;flex-direction:column;flex:1;text-align:center}
+.prod__ing{font-size:.8125rem;color:var(--ink-soft);margin-top:.35rem;line-height:1.45}
+.prod__title{font-family:var(--ff-head);font-weight:800;font-size:1.0625rem;color:var(--green-900);
+  line-height:1.3;margin-top:.15rem}
+.prod__title .dash{color:var(--gold-deep);margin-inline:.35rem}
+.prod__unit{font-size:.75rem;color:var(--ink-soft);margin-top:.3rem}
+.prod__cta{margin-top:auto;padding-top:1rem}
+.prod__cta .btn{width:100%}
+
+/* ---------- 12. Wirkstoff-Transparenz ---------- */
+.trans{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.tbl{width:100%;border-collapse:collapse;font-size:.9375rem;margin-top:var(--sp-3)}
+.tbl caption{text-align:left;padding-bottom:.7rem}
+.tbl th,.tbl td{text-align:left;padding:.9rem .5rem;border-bottom:1px solid rgba(227,200,140,.24)}
+.tbl thead th{font-family:var(--ff-head);font-weight:800;font-size:.75rem;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--gold-light);border-bottom-color:rgba(227,200,140,.42)}
+.tbl td{color:#D8E2D8}
+.tbl td:first-child{font-weight:600;color:var(--card)}
+.tbl td:last-child,.tbl th:last-child{text-align:right;white-space:nowrap}
+.open{color:#F2CFC5;font-weight:600}
+.warnbox{background:rgba(251,248,243,.07);border:1px solid rgba(227,200,140,.32);
+  border-radius:var(--r-md);padding:1.45rem 1.55rem;margin-top:var(--sp-3)}
+.warnbox p{font-size:.9375rem;color:#D8E2D8;margin-top:.55rem}
+.figframe{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg)}
+.figframe img{width:100%;height:auto}
+
+/* ---------- 13. Schritte / Split ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.35rem;margin-top:var(--sp-4)}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.8rem 1.65rem}
+.step__n{font-family:var(--ff-head);font-weight:900;font-size:.75rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold-deep)}
+.step h3{margin-top:.7rem}
+.step p{font-size:.9375rem;color:var(--ink-soft);margin-top:.55rem;line-height:1.6}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.split--rev>*:first-child{order:2}
+
+/* ---------- 14. Platzhalter ---------- */
+.ph{border:2px dashed var(--line-strong);border-radius:var(--r-md);
+  background:repeating-linear-gradient(45deg,rgba(201,161,89,.06) 0 12px,transparent 12px 24px),var(--cream);
+  display:grid;place-items:center;align-content:center;gap:.7rem;text-align:center;
+  padding:clamp(1.4rem,4vw,2.5rem) 1.3rem}
+.ph__i{font-family:var(--ff-head);font-weight:800;font-size:.75rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold-deep)}
+.ph h3{max-width:28ch;font-size:1.0625rem}
+.ph p{font-size:.875rem;color:var(--ink-soft);max-width:46ch}
+.sec--green .ph{border-color:rgba(227,200,140,.4);
+  background:repeating-linear-gradient(45deg,rgba(227,200,140,.06) 0 12px,transparent 12px 24px),rgba(251,248,243,.04)}
+.sec--green .ph__i{color:var(--gold-light)}
+.sec--green .ph p{color:#D8E2D8}
+.note{font-size:.875rem;color:var(--ink-soft);border-left:2px solid var(--gold);padding-left:1rem;max-width:76ch}
+.sec--green .note{color:#D8E2D8;border-color:var(--gold-light)}
+
+/* ---------- 15. Garantie ---------- */
+.guar{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(1.5rem,4vw,3rem);align-items:center;
+  background:var(--green-800);color:var(--card);border-radius:var(--r-xl);padding:clamp(2rem,4vw,3.25rem);
+  position:relative;overflow:hidden}
+.guar__badge{width:118px;height:118px;border-radius:50%;border:2px solid var(--gold-light);
+  display:grid;place-items:center;text-align:center;font-family:var(--ff-head);font-weight:900;
+  line-height:1.05;color:var(--gold-light);flex:none}
+.guar__badge b{display:block;font-size:2.1rem}
+.guar__badge span{font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase}
+.guar h2{font-size:clamp(1.5rem,2.4vw,2.1rem)}
+.guar p{margin-top:.75rem;color:#D8E2D8;max-width:58ch}
+
+/* ---------- 16. FAQ ---------- */
+.faq{max-width:880px;margin-top:var(--sp-4)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:1.35rem 3rem 1.35rem 0;font-family:var(--ff-head);
+  font-weight:800;font-size:1.0625rem;color:var(--green-900);position:relative;min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:.4rem;top:50%;width:11px;height:11px;
+  border-right:2px solid var(--gold-deep);border-bottom:2px solid var(--gold-deep);
+  transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
+.faq .faq__a{padding:0 2rem 1.4rem 0;color:var(--ink-soft)}
+
+/* ---------- 17. Newsletter ---------- */
+.nl{background:var(--cream);border:1px solid var(--line);border-radius:var(--r-xl);
+  padding:clamp(2rem,4vw,3.25rem);display:grid;grid-template-columns:1.05fr .95fr;
+  gap:clamp(2rem,4vw,3.5rem);align-items:center;position:relative;overflow:hidden}
+.nl form{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.35rem}
+.nl input[type=email]{flex:1;min-width:220px;min-height:52px;padding:.85rem 1.15rem;
+  border:1px solid var(--line-strong);border-radius:99px;background:var(--card);font:inherit;font-size:1rem}
+.nl__legal{font-size:.8125rem;color:var(--ink-soft);margin-top:.85rem}
+.nl__ok{margin-top:1rem;font-weight:600;color:var(--green-800);display:flex;gap:.5rem;align-items:center}
+.nl__ok svg{width:20px;height:20px}
+
+/* ---------- 18. Footer ---------- */
+.ft{background:var(--green-800);color:#D8E2D8;padding-block:var(--sp-5) var(--sp-3);font-size:.9375rem}
+.ft__grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:clamp(2rem,4vw,3rem)}
+.ft img.logo{width:196px;margin-bottom:1.1rem}
+.ft h4{font-family:var(--ff-head);font-weight:800;font-size:.8125rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--gold-light);margin-bottom:.95rem}
+.ft li+li{margin-top:.55rem}
+.ft a:hover{color:var(--card);text-decoration:underline;text-underline-offset:3px}
+.pay{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}
+.pay span{border:1px solid rgba(227,200,140,.35);border-radius:6px;padding:.35rem .6rem;
+  font-size:.75rem;font-weight:600;color:#EEF2EA}
+.ft__bot{margin-top:var(--sp-4);padding-top:1.4rem;border-top:1px solid rgba(227,200,140,.22);
+  display:flex;flex-wrap:wrap;gap:.75rem 2rem;justify-content:space-between;font-size:.8125rem}
+
+/* ---------- 19. Warenkorb-Drawer (SOP B4.4) ---------- */
+.scrim{position:fixed;inset:0;background:rgba(18,45,36,.5);opacity:0;visibility:hidden;
+  transition:opacity .28s,visibility .28s;z-index:90}
+.scrim[data-open="true"]{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(430px,100vw);background:var(--card);z-index:100;
+  display:flex;flex-direction:column;transform:translateX(102%);visibility:hidden;
+  transition:transform .32s var(--ease),visibility .32s;box-shadow:var(--shadow-lg)}
+.drawer[data-open="true"]{transform:none;visibility:visible}
+.drawer__hd{display:flex;align-items:center;justify-content:space-between;padding:1.3rem 1.4rem;border-bottom:1px solid var(--line)}
+.drawer__hd h2{font-size:1.25rem}
+.drawer__body{flex:1;overflow-y:auto;padding:1.3rem 1.4rem}
+.drawer__ft{border-top:1px solid var(--line);padding:1.3rem 1.4rem;background:var(--cream)}
+.ship{margin-bottom:1.15rem}
+.ship__txt{font-size:.875rem;margin-bottom:.5rem;display:flex;gap:.5rem;align-items:center}
+.ship__txt b{color:var(--green-800)}
+.ship__txt svg{width:17px;height:17px;color:var(--gold-deep);flex:none}
+.ship__bar{height:8px;border-radius:99px;background:var(--cream-deep);overflow:hidden}
+.ship__fill{height:100%;background:linear-gradient(90deg,var(--band),var(--green-800));width:0;transition:width .45s var(--ease)}
+.ci{display:grid;grid-template-columns:74px 1fr auto;gap:.9rem;padding:.95rem 0;border-bottom:1px solid var(--line)}
+.ci__fig{background:var(--cream);border-radius:var(--r-sm);overflow:hidden;aspect-ratio:1/1}
+.ci__fig img{width:100%;height:100%;object-fit:cover}
+.ci h3{font-size:.9375rem;line-height:1.3}
+.ci__var{font-size:.8125rem;color:var(--ink-soft);margin-top:.2rem}
+.ci__price{font-family:var(--ff-head);font-weight:800;color:var(--green-900);margin-top:.35rem;font-size:.9375rem}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line-strong);border-radius:99px;overflow:hidden;margin-top:.45rem}
+.qty button{width:32px;height:32px;background:none;border:0;cursor:pointer;font-size:1.05rem;
+  line-height:1;display:grid;place-items:center;color:var(--green-800)}
+.qty button:hover{background:var(--cream)}
+.qty span{min-width:26px;text-align:center;font-size:.875rem;font-weight:600}
+.ci__rm{background:none;border:0;cursor:pointer;color:var(--ink-soft);font-size:.75rem;
+  text-decoration:underline;padding:.3rem 0;align-self:start;min-height:44px}
+.sum{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.35rem}
+.sum b{font-family:var(--ff-head);font-size:1.35rem;color:var(--green-900)}
+.sum--sm{font-size:.875rem;color:var(--ink-soft)}
+.drawer__note{font-size:.75rem;color:var(--ink-soft);margin-top:.8rem;text-align:center}
+.empty{text-align:center;padding:2.5rem 1rem;color:var(--ink-soft)}
+.empty svg{width:52px;height:52px;color:var(--line-strong);margin:0 auto 1rem}
+.xsell{margin-top:1.5rem;padding-top:1.35rem;border-top:1px solid var(--line)}
+.xsell h3{font-size:.8125rem;letter-spacing:.11em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:.85rem}
+.xsell__i{display:grid;grid-template-columns:52px 1fr auto;gap:.75rem;align-items:center;padding:.6rem 0}
+.xsell__i img{border-radius:6px;background:var(--cream)}
+.xsell__i p{font-size:.875rem;line-height:1.3}
+.xsell__i span{font-size:.8125rem;color:var(--ink-soft)}
+
+/* ---------- 20. Toast ---------- */
+.toast{position:fixed;left:50%;bottom:1.5rem;transform:translate(-50%,140%);background:var(--green-800);
+  color:var(--card);padding:.9rem 1.35rem;border-radius:99px;font-weight:600;font-size:.9375rem;
+  z-index:110;display:flex;align-items:center;gap:.6rem;box-shadow:var(--shadow-lg);
+  transition:transform .32s var(--ease)}
+.toast[data-show="true"]{transform:translate(-50%,0)}
+.toast svg{width:19px;height:19px;color:var(--gold-light)}
+
+/* ---------- 21. Listing ---------- */
+.crumb{font-size:.8125rem;color:var(--ink-soft);padding-block:1.1rem}
+.crumb a:hover{text-decoration:underline}
+.crumb span{margin-inline:.4rem;color:var(--line-strong)}
+.toolbar{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;
+  margin-top:var(--sp-3);padding-bottom:1.15rem;border-bottom:1px solid var(--line)}
+.filters{display:flex;flex-wrap:wrap;gap:.5rem}
+.fchip{border:1px solid var(--line-strong);background:var(--card);border-radius:99px;
+  padding:.55rem 1.05rem;font-size:.875rem;font-weight:600;cursor:pointer;min-height:44px;
+  transition:background .2s,color .2s,border-color .2s}
+.fchip:hover{border-color:var(--green-700)}
+.fchip[aria-pressed="true"]{background:var(--green-800);color:var(--card);border-color:var(--green-800)}
+.sortbox{display:flex;align-items:center;gap:.55rem;font-size:.875rem;color:var(--ink-soft)}
+.sortbox select{min-height:44px;border:1px solid var(--line-strong);border-radius:99px;
+  padding:.5rem 1rem;background:var(--card);font:inherit;font-size:.875rem;cursor:pointer}
+.count{font-size:.875rem;color:var(--ink-soft);margin-top:1.15rem}
+
+/* ---------- 22. PDP ---------- */
+.pdp{display:grid;grid-template-columns:1.12fr .88fr;gap:clamp(2rem,4vw,4rem);align-items:start;padding-bottom:var(--sp-5)}
+.gal__main{background:var(--cream);border-radius:var(--r-lg);overflow:hidden;aspect-ratio:1/1;position:relative;cursor:zoom-in}
+.gal__main img{width:100%;height:100%;object-fit:cover}
+.gal__zoom{position:absolute;right:1rem;bottom:1rem;background:rgba(251,248,243,.94);
+  border:1px solid var(--line);border-radius:99px;padding:.5rem .9rem;font-size:.75rem;
+  font-weight:700;display:flex;gap:.4rem;align-items:center;pointer-events:none}
+.gal__zoom svg{width:15px;height:15px}
+.gal__thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:.65rem;margin-top:.7rem}
+.gal__thumbs button{padding:0;border:2px solid transparent;border-radius:var(--r-sm);overflow:hidden;
+  background:var(--cream);cursor:pointer;aspect-ratio:1/1;transition:border-color .2s}
+.gal__thumbs button[aria-current="true"]{border-color:var(--green-800)}
+.gal__thumbs img{width:100%;height:100%;object-fit:cover}
+.buy{position:sticky;top:calc(var(--hdr-h) + 1.25rem)}
+.buy__cat{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gold-deep);font-family:var(--ff-head)}
+.buy h1{font-size:clamp(1.8rem,2.9vw,2.45rem);margin-top:.5rem}
+.buy__rate{display:flex;align-items:center;gap:.5rem;margin-top:.85rem;font-size:.875rem;
+  background:none;border:0;padding:0;cursor:pointer;color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px}
+.stars{display:inline-flex;gap:1px;color:var(--line-strong)}
+.stars svg{width:14px;height:14px}
+.needs-data{font-size:.75rem;color:var(--gold-deep);font-weight:700;font-family:var(--ff-head)}
+.buy__price{display:flex;align-items:baseline;gap:.75rem;margin-top:1.15rem;flex-wrap:wrap}
+.price{font-family:var(--ff-head);font-weight:800;font-size:2.1rem;color:var(--green-900);line-height:1.15}
+.buy__unit{font-size:.875rem;color:var(--ink-soft)}
+.buy__tax{font-size:.75rem;color:var(--ink-soft);margin-top:.3rem}
+.vars{display:grid;gap:.6rem;margin-top:1.5rem}
+.vars>p{font-size:.8125rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-soft);font-family:var(--ff-head)}
+.var{display:flex;align-items:center;gap:.9rem;border:2px solid var(--line);border-radius:var(--r-md);
+  padding:.95rem 1.1rem;cursor:pointer;background:var(--card);transition:border-color .2s,background .2s;
+  position:relative;min-height:52px}
+.var:hover{border-color:var(--line-strong)}
+.var input{position:absolute;opacity:0;pointer-events:none}
+.var__dot{width:20px;height:20px;border-radius:50%;border:2px solid var(--line-strong);flex:none;
+  display:grid;place-items:center;transition:border-color .2s}
+.var__dot::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--green-800);
+  transform:scale(0);transition:transform .2s var(--ease)}
+.var:has(input:checked){border-color:var(--green-800);background:#fff}
+.var:has(input:checked) .var__dot{border-color:var(--green-800)}
+.var:has(input:checked) .var__dot::after{transform:scale(1)}
+.var__t{flex:1}
+.var__t b{font-family:var(--ff-head);font-size:1rem}
+.var__t span{display:block;font-size:.8125rem;color:var(--ink-soft);margin-top:.1rem}
+.var__p{text-align:right;font-family:var(--ff-head);font-weight:800;color:var(--green-900)}
+.var__p small{display:block;font-family:var(--ff-body);font-size:.75rem;font-weight:600;color:var(--ink-soft)}
+.var__tag{position:absolute;top:-10px;right:12px;background:var(--gold);color:var(--green-900);
+  font-family:var(--ff-head);font-weight:800;font-size:.625rem;letter-spacing:.08em;
+  text-transform:uppercase;padding:.2rem .55rem;border-radius:99px}
+.buy__row{display:flex;gap:.7rem;margin-top:1.5rem;align-items:stretch}
+.qty--lg{margin-top:0;border-radius:var(--r-md);border-width:2px}
+.qty--lg button{width:46px;height:100%;min-height:52px;font-size:1.2rem}
+.qty--lg span{min-width:34px;font-size:1rem}
+.micro{display:grid;gap:.55rem;margin-top:1.1rem}
+.micro li{display:flex;gap:.6rem;align-items:flex-start;font-size:.875rem;color:var(--ink-soft)}
+.micro svg{width:17px;height:17px;color:var(--gold-deep);flex:none;margin-top:.15rem}
+.usps{display:grid;gap:.6rem;margin-top:1.6rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.usps li{display:flex;gap:.7rem;align-items:flex-start;font-size:.9375rem}
+.usps svg{width:19px;height:19px;color:var(--gold-deep);flex:none;margin-top:.15rem}
+.acc{margin-top:1.75rem;border-top:1px solid var(--line)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc summary{cursor:pointer;list-style:none;padding:1.15rem 2.5rem 1.15rem 0;font-family:var(--ff-head);
+  font-weight:800;font-size:.9875rem;color:var(--green-900);position:relative;min-height:44px}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary::after{content:"";position:absolute;right:.3rem;top:50%;width:10px;height:10px;
+  border-right:2px solid var(--gold-deep);border-bottom:2px solid var(--gold-deep);
+  transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+.acc details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
+.acc__b{padding:0 1rem 1.35rem 0;font-size:.9375rem;color:var(--ink-soft)}
+.acc__b table{width:100%;border-collapse:collapse;font-size:.875rem}
+.acc__b td{padding:.5rem 0;border-bottom:1px solid var(--line)}
+.acc__b td:last-child{text-align:right;font-weight:600;color:var(--green-900)}
+.satc{position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--card);
+  border-top:1px solid var(--line);padding:.7rem clamp(1rem,4vw,1.25rem);display:none;gap:.8rem;
+  align-items:center;box-shadow:0 -12px 32px -26px rgba(18,45,36,.6)}
+.satc__p{font-family:var(--ff-head);font-weight:800;color:var(--green-900);line-height:1.15;font-size:1.0625rem}
+.satc__p small{display:block;font-family:var(--ff-body);font-size:.6875rem;font-weight:600;color:var(--ink-soft)}
+.satc .btn{flex:1}
+
+/* ---------- 23. Entwurfs-Bänder ---------- */
+.draftbar{background:#3A2E12;color:#F7ECD2;font-size:.8125rem;text-align:center;padding:.6rem 1rem;position:relative;z-index:70}
+.draftbar b{color:#fff}
+.legend{background:#3A2E12;color:#F7ECD2}
+.legend h2{font-size:1.45rem;color:#fff}
+.legend ul{margin-top:1.2rem;padding-left:1.2rem;font-size:.9375rem;line-height:1.7;list-style:disc}
+.legend li+li{margin-top:.4rem}
+.legend b{color:#fff}
+
+/* ---------- 24. Responsive ---------- */
+@media (max-width:1100px){
+  .prods,.prods--3{grid-template-columns:repeat(2,1fr)}
+  .ft__grid{grid-template-columns:1fr 1fr}
+  .pdp{grid-template-columns:1fr;gap:2rem}
+  .buy{position:static}
+}
+@media (max-width:900px){
+  .usp__grid{grid-template-columns:1fr;gap:2rem}
+  .trans,.split,.steps,.nl{grid-template-columns:1fr}
+  .split--rev>*:first-child{order:0}
+  .guar{grid-template-columns:1fr;text-align:center;justify-items:center}
+  /* Klappmenü als Dropdown UNTER dem Header – NIE position:fixed in einem
+     Element mit backdrop-filter/filter (Containing-Block-Falle). */
+  .nav{position:absolute;top:100%;left:0;right:0;margin:0;background:var(--card);
+       border-bottom:1px solid var(--line);padding:1.4rem clamp(1.15rem,4vw,2.5rem) 1.9rem;
+       max-height:calc(100vh - var(--hdr-h));overflow-y:auto;box-shadow:var(--shadow-md);
+       opacity:0;visibility:hidden;transform:translateY(-8px);
+       transition:opacity .22s var(--ease),transform .22s var(--ease),visibility .22s}
+  .nav[data-open="true"]{opacity:1;visibility:visible;transform:none}
+  .nav ul{flex-direction:column;gap:1.2rem;font-size:1.1875rem;font-family:var(--ff-head);font-weight:800}
+  .hdr--over .nav a{color:var(--ink)}
+  .burger{display:grid}
+  .satc{display:flex}
+  body.has-satc{padding-bottom:84px}
+  /* Hero: Text liegt unter dem Motiv → Scrim vertikal, Motiv nach oben */
+  .hero::before{background:linear-gradient(0deg,rgba(20,36,26,.97) 0%,rgba(20,36,26,.95) 56%,rgba(20,36,26,.9) 72%,rgba(20,36,26,.72) 86%,rgba(20,36,26,.5) 100%)}
+  .hero__media img{object-position:72% 22%}
+  .botanic .b-l,.botanic .b-r{width:210px;opacity:.2}
+}
+@media (max-width:760px){
+  .tbl thead{display:none}
+  .tbl,.tbl tbody,.tbl tr,.tbl td,.tbl caption{display:block;width:100%}
+  .tbl tr{padding:.85rem 0;border-bottom:1px solid rgba(227,200,140,.24)}
+  .tbl td{border:0;padding:.1rem 0;text-align:left;white-space:normal}
+  .tbl td:first-child{font-weight:700;font-size:1rem}
+  .tbl td:nth-child(2){font-size:.875rem;color:#BBC9BA}
+  .tbl td:last-child{text-align:left;margin-top:.2rem;font-weight:600}
+  .tbl td:last-child::before{content:"Menge: ";color:#BBC9BA;font-weight:400}
+}
+@media (max-width:640px){
+  .prods,.prods--3{grid-template-columns:1fr}
+  .ft__grid{grid-template-columns:1fr}
+  .sec{padding-block:var(--sp-5)}
+  .brand,.brand img{width:158px}
+  /* Auf 414 px ragte die Icon-Reihe 5 px aus dem Viewport (gemessen 419 statt
+     414). Auf schmalen Schirmen bleiben deshalb nur Burger und Warenkorb;
+     Suche und Konto wandern ins Menü. Zusätzlich engere Abstände. */
+  .hdr__in{gap:.5rem}
+  .hdr__act{gap:0}
+  .hdr__act .iconbtn:not([data-cart-open]){display:none}
+  .trustbar__in{gap:.25rem .9rem;font-size:.75rem}
+  .trustbar li+li::before{margin-right:.9rem}
+  .toolbar{flex-direction:column;align-items:stretch}
+  .drawer{width:100vw}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+}
+
+/* ============================================================================
+   MESSPROTOKOLL (30.07.2026)
+
+   A) Farben pixelgenau aus den Vorlagen entnommen, nicht geschätzt:
+      Shop-Vorlage v2-shop-B1: Trust-Bar #1C4036 · Sektionsfläche #F5EDE0 ·
+      Karte #FBF8F3 · CTA-Gold #C9A159 · Headline-Grün #122D24
+      Packshot-Vorlage: Karton-Creme #E2CFB7 · Etiketten-Band #4B624E ·
+      Muschel-Grün #36533F · Deckel #203828 · Hintergrund #F3E9D8
+
+   B) Kontraste (WCAG 2.1, gerechnet):
+      Grün #122D24 auf Creme #F5EDE0 .......... 12,67:1  AAA
+      Grün #122D24 auf Karte #FBF8F3 .......... 13,90:1  AAA
+      Ink #23281F auf Creme ................... 12,96:1  AAA
+      Ink-soft #5B6257 auf Creme ...............  5,43:1  AA
+      Ink-soft #5B6257 auf Karte ...............  5,95:1  AA
+      Grün #122D24 auf Gold #C9A159 (CTA) ......  6,12:1  AA
+      Karte #FBF8F3 auf Grün #1C4036 .......... 10,80:1  AAA
+      #D8E2D8 auf #1C4036 ......................  8,60:1  AAA
+      Hellgold #E3C88C auf #1C4036 .............  7,03:1  AA
+      Tiefgold #6E5311 auf Creme ...............  6,21:1  AA
+      NICHT verwendet: Weiß auf Gold (2,41:1),
+      Gold #C9A159 als Text auf Creme (2,07:1) – beide fallen durch.
+
+   C) Hero-Text über dem Foto: separat gemessen, indem der Text ausgeblendet
+      und der HELLSTE Hintergrundpixel im Textrechteck gerechnet wurde
+      (Median täuscht). Werte im Log-Eintrag zur Fassung B2.
+   ============================================================================ */
