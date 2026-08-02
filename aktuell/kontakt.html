@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontakt &amp; Beratung &ndash; NatureFlow Pets</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Interner Design-Entwurf: Kontaktseite mit Beratungsformular, Fassung B4.4. Kein Livegang.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/nfp.css">
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="orn-mussel" viewBox="0 0 120 60">
+      <g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+        <path d="M4 38C14 14 46 2 76 5c24 2 40 14 40 25 0 12-26 27-60 27C26 57 7 48 4 38Z"/>
+        <path d="M16 36C26 17 52 8 76 11"/><path d="M26 41C36 24 60 15 86 18"/>
+        <path d="M38 47C48 32 70 23 96 25"/><path d="M50 52C60 40 80 32 104 33"/>
+        <path d="M4 38c4-4 8-5 12-5"/>
+      </g>
+    </symbol>
+    <symbol id="usp-hand" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3.2 14.2c1.6 4.1 5 6.2 8.8 6.2s7.2-2.1 8.8-6.2"/>
+        <path d="M12 12.4c0-4.2 2.6-7.3 6.3-8.4 0 4.2-2.1 7.8-6.3 8.4Z"/>
+        <path d="M12 12.4c0-3.1-2.1-5.7-5.2-6.8 0 3.6 2 6.2 5.2 6.8Z"/>
+      </g>
+    </symbol>
+    <symbol id="usp-mortar" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4.6 12h14.8c0 4.6-3.4 7.7-7.4 7.7S4.6 16.6 4.6 12Z"/>
+        <path d="M2.9 12h18.2"/><path d="M17.2 3.3l-1.6 1.7"/><path d="M9.2 11.6l6.4-6.6"/>
+      </g>
+    </symbol>
+    <symbol id="usp-sprout" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 20.5V8.8"/><path d="M6 20.5h12"/>
+        <path d="M12 12.2c-4.1 0-6.7-2.6-7.2-6.7 4.1.5 6.7 3.1 7.2 6.7Z"/>
+        <path d="M12 10.2c4.1 0 6.7-2.6 7.2-6.7-4.1.5-6.7 3.1-7.2 6.7Z"/>
+      </g>
+    </symbol>
+    <symbol id="ic-vet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-2.9 8.1-7 10-4.1-1.9-7-5.5-7-10V6l7-3z"/><path d="M9.5 12.2l1.9 1.9 3.6-3.9"/></g></symbol>
+    <symbol id="ic-return" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.8 4.2v4.2h-4.2"/></g></symbol>
+    <symbol id="ic-paw" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 15.5c-1.9 0-3.6 1-4.4 2.5-.6 1.2.3 2.5 1.6 2.5h5.6c1.3 0 2.2-1.3 1.6-2.5-.8-1.5-2.5-2.5-4.4-2.5z"/><circle cx="6.2" cy="10.4" r="2.2"/><circle cx="17.8" cy="10.4" r="2.2"/><circle cx="9.6" cy="6.2" r="2.1"/><circle cx="14.4" cy="6.2" r="2.1"/></g></symbol>
+    <symbol id="ic-truck" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></g></symbol>
+    <symbol id="ic-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></g></symbol>
+    <symbol id="ic-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5 11-11"/></g></symbol>
+    <symbol id="ic-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></g></symbol>
+    <symbol id="ic-cart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1.1 12.2a1.8 1.8 0 0 1-1.8 1.6H8.9a1.8 1.8 0 0 1-1.8-1.6L6 7z"/><path d="M9.2 7V5.6a2.8 2.8 0 0 1 5.6 0V7"/></g></symbol>
+    <symbol id="ic-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></g></symbol>
+    <symbol id="ic-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.7"/><path d="M4.8 20a7.2 7.2 0 0 1 14.4 0"/></g></symbol>
+    <symbol id="ic-burger" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></g></symbol>
+    <symbol id="ic-close" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></g></symbol>
+    <symbol id="ic-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3l2.6 5.6 6.1.8-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L3.3 9.4l6.1-.8L12 3z"/></symbol>
+    <symbol id="ic-zoom" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.6v4.8M8.6 11h4.8"/></g></symbol>
+    <symbol id="ic-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.8 7l8.2 6 8.2-6"/></g></symbol>
+    <symbol id="ic-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3.5h3l1.5 4-2.2 1.4a12 12 0 0 0 5.4 5.4l1.4-2.2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z"/></g></symbol>
+    <symbol id="ic-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12.6c0 4-3.8 7.2-8.5 7.2a10 10 0 0 1-2.9-.4L4.2 21l1.3-3.6a6.8 6.8 0 0 1-2-4.8c0-4 3.8-7.2 8.5-7.2s8.5 3.2 8.5 7.2Z"/></g></symbol>
+    <symbol id="ic-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.2A2 2 0 0 1 6 3.4h5.2v17H6a2 2 0 0 0-2 1.8V5.2Z"/><path d="M20 5.2a2 2 0 0 0-2-1.8h-5.2v17H18a2 2 0 0 1 2 1.8V5.2Z"/></g></symbol>
+    <symbol id="ic-flask" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3h5"/><path d="M10.4 3v6.1L5.2 18a2 2 0 0 0 1.7 3h10.2a2 2 0 0 0 1.7-3l-5.2-8.9V3"/><path d="M7.6 14.5h8.8"/></g></symbol>
+    <symbol id="ic-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.2V12l3.2 2"/></g></symbol>
+    <symbol id="ic-repeat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5A4.5 4.5 0 0 1 8.5 4h11"/><path d="M16.5 1.2 19.8 4l-3.3 2.8"/><path d="M20 15.5a4.5 4.5 0 0 1-4.5 4.5h-11"/><path d="M7.5 22.8 4.2 20l3.3-2.8"/></g></symbol>
+  </defs>
+</svg>
+
+<div class="draftbar">
+  <b>Interner Design-Entwurf</b> &middot; Richtung B &bdquo;Naturmanufaktur&ldquo;, Fassung B4.4 &middot; Kontaktseite &middot; Formular, Servicewege und die drei h&auml;ufigsten Anliegen &middot; Stand 31.07.2026 &middot; kein Livegang
+</div>
+
+<div class="trustbar">
+  <div class="wrap"><ul class="trustbar__in">
+    <li><svg><use href="#ic-vet"/></svg> Mit Tier&auml;rzten entwickelt</li>
+    <li>120 Tage Geld-zur&uuml;ck-Garantie</li>
+    <li>4,82 von 5 Sternen aus &uuml;ber 72.000 Bewertungen</li>
+  </ul></div>
+</div>
+
+<header class="hdr" data-hdr>
+  <div class="wrap hdr__in">
+    <a class="brand" href="index.html" aria-label="NatureFlow Pets &ndash; zur Startseite">
+      <img class="lg-green" src="img/logo-green.svg" alt="NatureFlow Pets" width="196" height="22">
+      <img class="lg-cream" src="img/logo-cream.svg" alt="" width="196" height="22">
+    </a>
+    <button class="iconbtn burger" data-burger aria-expanded="false" aria-controls="nav" aria-label="Men&uuml; &ouml;ffnen"><svg><use href="#ic-burger"/></svg></button>
+    <nav class="nav" id="nav" data-nav aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="sortiment.html">Produkte</a></li>
+        <li><a href="produkt-gelenk-tabletten.html">Gelenkgesundheit</a></li>
+        <li><a href="wissenschaft.html">Wissenschaft</a></li>
+        <li><a href="blog.html">Ratgeber</a></li>
+        <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="hdr__act">
+      <button class="iconbtn" aria-label="Suche"><svg><use href="#ic-search"/></svg></button>
+      <button class="iconbtn" aria-label="Konto"><svg><use href="#ic-user"/></svg></button>
+      <button class="iconbtn" data-cart-open aria-label="Warenkorb &ouml;ffnen">
+        <svg><use href="#ic-cart"/></svg><span class="badge" data-cart-count hidden>0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="phead">
+  <div class="orn-layer" aria-hidden="true"><img class="orn--tr orn--soft" src="img/orn-leaves-right.svg" alt="" style="height:min(520px,100%)"></div>
+  <div class="wrap">
+    <nav class="crumb" aria-label="Sie sind hier"><a href="index.html">Start</a><span>&rsaquo;</span>Kontakt</nav>
+    <p class="eyebrow eyebrow--gold" style="margin-top:1.2rem">Wir sind erreichbar</p>
+    <h1>Kontakt &amp; Beratung</h1>
+    <p class="lead">Bei uns antwortet ein Mensch, der Hunde kennt &ndash; kein Chatbot und kein Textbaustein. Wenn Sie unsicher sind, welches Produkt passt oder wie zu dosieren ist, schreiben Sie uns Gewicht und Alter Ihres Hundes dazu. Dann k&ouml;nnen wir konkret antworten statt allgemein.</p>
+  </div>
+</section>
+
+<!-- Kontaktwege + Formular -->
+<section class="sec sec--card">
+  <div class="wrap contact">
+    <div>
+      <p class="eyebrow eyebrow--deep">So erreichen Sie uns</p>
+      <h2>Drei Wege, einer davon reicht</h2>
+      <div class="chans">
+        <div class="chan">
+          <span class="chan__ic"><svg><use href="#ic-mail"/></svg></span>
+          <div>
+            <h3>E-Mail</h3>
+            <p>Der zuverl&auml;ssigste Weg, besonders bei Fragen zu Dosierung, Bestellung oder Abo. Wir antworten werktags in der Regel innerhalb eines Arbeitstages.</p>
+            <p style="margin-top:.5rem"><a class="lnk" href="mailto:hallo@natureflow-pets.com">hallo@natureflow-pets.com</a></p>
+          </div>
+        </div>
+        <div class="chan">
+          <span class="chan__ic"><svg><use href="#ic-phone"/></svg></span>
+          <div>
+            <h3>Telefon</h3>
+            <p>Wenn es schneller gehen soll oder die Frage komplizierter ist, als sie sich tippen l&auml;sst. Halten Sie Gewicht und Alter Ihres Hundes bereit &ndash; und die Bestellnummer, falls es um eine Lieferung geht.</p>
+            <div class="hours">
+              <dl>
+                <dt>Montag &ndash; Freitag</dt><dd>9:00 &ndash; 17:00 Uhr</dd>
+                <dt>Samstag, Sonntag</dt><dd>geschlossen</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+        <div class="chan">
+          <span class="chan__ic"><svg><use href="#ic-chat"/></svg></span>
+          <div>
+            <h3>Bestellung, Abo und R&uuml;cksendung selbst regeln</h3>
+            <p>Lieferintervall &auml;ndern, Abo pausieren, Adresse korrigieren, R&uuml;cksendung anmelden: Das geht im Kundenkonto rund um die Uhr und ist meistens schneller, als uns zu schreiben.</p>
+            <p style="margin-top:.5rem"><a class="lnk" href="#abo">Zu den Abo-Fragen</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:var(--sp-3)">
+        <h3><svg><use href="#ic-vet"/></svg> Eine Grenze, die wir einhalten</h3>
+        <p>Wir beraten zu Produkten, Mengen und Anwendung. Wir stellen keine Diagnosen und empfehlen nichts, was eine tier&auml;rztliche Untersuchung ersetzen soll. Wenn Ihre Schilderung nach Schmerz oder akuter Lahmheit klingt, werden wir Ihnen genau das schreiben &ndash; auch wenn dann vielleicht keine Bestellung dabei herauskommt.</p>
+      </div>
+    </div>
+
+    <form class="form form--on-cream" data-contact novalidate>
+      <p class="eyebrow eyebrow--deep">Schreiben Sie uns</p>
+      <h2 style="font-size:clamp(1.4rem,2.2vw,1.85rem);margin-top:.7rem">Beratung anfragen</h2>
+      <p class="lead" style="margin-top:.7rem;font-size:1rem">Je konkreter die Angaben zum Hund, desto konkreter die Antwort.</p>
+
+      <div class="row row--2">
+        <div class="fld">
+          <label for="k-name">Ihr Name</label>
+          <input id="k-name" name="name" type="text" required autocomplete="name" placeholder="Vor- und Nachname">
+        </div>
+        <div class="fld">
+          <label for="k-mail">E-Mail-Adresse</label>
+          <input id="k-mail" name="email" type="email" required autocomplete="email" placeholder="ihre@email.de">
+        </div>
+      </div>
+
+      <div class="row row--2">
+        <div class="fld">
+          <label for="k-thema">Worum geht es?</label>
+          <select id="k-thema" name="thema" required>
+            <option value="">Bitte w&auml;hlen</option>
+            <option>Produktberatung &amp; Dosierung</option>
+            <option>Frage zu einer Bestellung</option>
+            <option>Abo &auml;ndern, pausieren oder beenden</option>
+            <option>R&uuml;cksendung &amp; 120-Tage-Garantie</option>
+            <option>Zusammensetzung, Charge oder Analytik</option>
+            <option>Etwas anderes</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label for="k-best">Bestellnummer <span style="font-weight:400;color:var(--ink-soft)">(falls vorhanden)</span></label>
+          <input id="k-best" name="bestellnummer" type="text" placeholder="z.&nbsp;B. 10245">
+        </div>
+      </div>
+
+      <div class="row row--2">
+        <div class="fld">
+          <label for="k-gewicht">Gewicht des Hundes</label>
+          <input id="k-gewicht" name="gewicht" type="text" placeholder="z.&nbsp;B. 28 kg">
+          <span class="hint">Wir brauchen es f&uuml;r jede Dosierungsfrage.</span>
+        </div>
+        <div class="fld">
+          <label for="k-alter">Alter und Rasse</label>
+          <input id="k-alter" name="alter" type="text" placeholder="z.&nbsp;B. 9 Jahre, Labrador">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="fld">
+          <label for="k-text">Ihre Nachricht</label>
+          <textarea id="k-text" name="nachricht" required placeholder="Was ist Ihnen an Ihrem Hund aufgefallen? Seit wann? Geben Sie schon etwas?"></textarea>
+        </div>
+      </div>
+
+      <p class="form__legal">Wir verwenden Ihre Angaben ausschlie&szlig;lich, um Ihre Anfrage zu beantworten. Eine Weitergabe an Dritte findet nicht statt. Weitere Informationen in der Datenschutzerkl&auml;rung.</p>
+      <p style="margin-top:1.2rem"><button class="btn btn--primary btn--block" type="submit">Anfrage senden</button></p>
+      <p class="form__ok" data-contact-ok hidden><svg><use href="#ic-check"/></svg> <span>Danke, Ihre Anfrage ist angekommen. Im Entwurf wird noch nichts versendet &ndash; im Livebetrieb erhalten Sie hier eine Best&auml;tigung und werktags innerhalb eines Arbeitstages eine Antwort.</span></p>
+    </form>
+  </div>
+</section>
+
+<!-- Versand & Rückgabe -->
+<section class="sec sec--cream" id="versand">
+  <div class="wrap split">
+    <div class="figframe">
+      <img src="img/kontakt-desk.webp" alt="Heller Schreibtisch mit Headset und Notizbuch, darunter liegt ein Hund" width="1600" height="1062" loading="lazy">
+    </div>
+    <div>
+      <p class="eyebrow eyebrow--deep">Versand &amp; R&uuml;ckgabe</p>
+      <h2>Was Sie zur Lieferung wissen m&uuml;ssen</h2>
+      <ul class="usps" style="border:0;padding-top:1.3rem">
+        <li><svg><use href="#ic-truck"/></svg> <span><b>Lieferzeit 1&ndash;3 Werktage</b> innerhalb Deutschlands. Bestellungen bis 14 Uhr gehen in der Regel am selben Tag raus.</span></li>
+        <li><svg><use href="#ic-check"/></svg> <span><b>Versandkostenfrei ab 40 &euro;</b> Bestellwert &ndash; im Abo unabh&auml;ngig vom Bestellwert immer.</span></li>
+        <li><svg><use href="#ic-lock"/></svg> <span><b>Zahlung</b> per Rechnung, PayPal, SEPA-Lastschrift, Kreditkarte oder Klarna.</span></li>
+        <li><svg><use href="#ic-return"/></svg> <span><b>R&uuml;cksendung</b> melden Sie im Kundenkonto oder per E-Mail an &ndash; Sie bekommen ein Etikett und m&uuml;ssen nichts vorstrecken.</span></li>
+      </ul>
+      <div class="orn-rule" style="margin-top:var(--sp-4)"><svg><use href="#orn-mussel"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- Garantie -->
+<section class="sec sec--card" id="garantie">
+  <div class="wrap">
+    <div class="guar">
+      <div class="orn-layer" aria-hidden="true"><img class="orn--br orn--soft" src="img/orn-mussel-lg.svg" alt="" style="width:min(300px,34vw);transform:rotate(8deg)"></div>
+      <div class="guar__badge"><span><b>120</b>Tage</span></div>
+      <div>
+        <h2>Die 120-Tage-Garantie im Klartext</h2>
+        <p>Wenn Sie nach vier Monaten keinen Unterschied an Ihrem Hund bemerken, bekommen Sie Ihr Geld zur&uuml;ck &ndash; auch bei ge&ouml;ffneter und teilweise verbrauchter Packung. Sie brauchen keinen Grund zu nennen und nichts nachzuweisen. Eine Mail an unser Postfach gen&uuml;gt; die Erstattung geht auf denselben Weg zur&uuml;ck, auf dem Sie bezahlt haben.</p>
+      </div>
+      <a class="btn btn--primary" href="mailto:hallo@natureflow-pets.com">Erstattung anfragen</a>
+    </div>
+  </div>
+</section>
+
+<!-- Abo -->
+<section class="sec sec--cream" id="abo">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="eyebrow eyebrow--deep">Abo verwalten</p>
+      <h2>Alles, was Sie am Abo &auml;ndern k&ouml;nnen</h2>
+      <p class="lead">Ein Abo, das man nur per Telefon k&uuml;ndigen kann, ist kein Service, sondern eine Falle. Hier steht, wie es bei uns funktioniert.</p>
+    </div>
+    <div class="faq">
+      <details open><summary>Wie &auml;ndere ich das Lieferintervall?</summary>
+        <p class="faq__a">Im Kundenkonto unter &bdquo;Meine Abos&ldquo;. W&auml;hlbar sind 4, 6, 8 und 12 Wochen. Die &Auml;nderung gilt ab der n&auml;chsten Lieferung &ndash; wenn Sie sie noch vor dem Versandtermin vornehmen, auch schon f&uuml;r diese.</p></details>
+      <details><summary>Kann ich eine Lieferung verschieben oder pausieren?</summary>
+        <p class="faq__a">Ja, beides und beliebig oft. Verschieben Sie den n&auml;chsten Termin um einige Tage oder Wochen, oder pausieren Sie das Abo ganz, ohne es zu beenden. Wir erinnern Sie drei Tage vor jeder Lieferung per E-Mail &ndash; bis dahin ist jede &Auml;nderung m&ouml;glich.</p></details>
+      <details><summary>Wie k&uuml;ndige ich?</summary>
+        <p class="faq__a">Mit einem Klick im Kundenkonto, ohne Frist und ohne Mindestlaufzeit. Wir fragen nicht nach einem Grund und schicken auch keine R&uuml;ckhol-Mail hinterher. Falls Sie lieber schreiben: eine Zeile an unser Postfach reicht.</p></details>
+      <details><summary>Was kostet das Abo und was spare ich?</summary>
+        <p class="faq__a">Jede Lieferung kostet dauerhaft 10 % weniger als der Einzelkauf und ist immer versandkostenfrei &ndash; auch unter 40 &euro;. Der Rabatt gilt nicht nur f&uuml;r die erste Lieferung, sondern f&uuml;r jede.</p></details>
+      <details><summary>Kann ich Menge oder Produkt im Abo wechseln?</summary>
+        <p class="faq__a">Ja. Sie k&ouml;nnen die Packungsgr&ouml;&szlig;e &auml;ndern, die St&uuml;ckzahl anpassen oder ein anderes Produkt aufnehmen. Praktisch ist das, wenn Ihr Hund zu- oder abnimmt und sich die Tagesmenge &auml;ndert.</p></details>
+      <details><summary>Gilt die 120-Tage-Garantie auch im Abo?</summary>
+        <p class="faq__a">Ja, unver&auml;ndert. Die Garantie h&auml;ngt am Produkt, nicht an der Kaufart.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- Wo wir sitzen -->
+<section class="sec sec--card">
+  <div class="wrap split split--rev">
+    <div>
+      <p class="eyebrow eyebrow--deep">Wer dahintersteht</p>
+      <h2>NatureFlow Pets, Ratzeburg</h2>
+      <p class="lead" style="margin-top:1.15rem">NatureFlow Pets ist eine Marke der BEMS Ventures GmbH mit Sitz im Raum Ratzeburg in Schleswig-Holstein. Entwickelt wird hier, produziert wird in Deutschland. Die vollst&auml;ndigen Angaben zu Firmierung, Vertretungsberechtigten und Registereintrag finden Sie im Impressum.</p>
+      <p style="margin-top:1.1rem;color:var(--ink-soft)">Wenn Sie eine Frage haben, die &uuml;ber den Support hinausgeht &ndash; zu Zusammensetzung, Lieferanten, einer Charge oder einer Kooperation &ndash; schreiben Sie es einfach ins Formular. Solche Anfragen landen direkt bei den Leuten, die es beantworten k&ouml;nnen.</p>
+      <p style="margin-top:1.8rem"><a class="btn btn--ghost" href="wissenschaft.html">Wie wir mit Wirkstoffen umgehen <svg><use href="#ic-arrow"/></svg></a></p>
+    </div>
+    <div class="figframe">
+      <img src="img/ueber-uns-see.webp" alt="Zwei Menschen gehen mit ihren Hunden im Abendlicht &uuml;ber einen Holzsteg am Ratzeburger See" width="1600" height="1062" loading="lazy">
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ft">
+  <div class="orn-layer" aria-hidden="true"><img class="orn--br orn--faint" src="img/orn-kelp.svg" alt="" style="height:min(420px,80%)"></div>
+  <div class="wrap">
+    <div class="ft__grid">
+      <div>
+        <img class="logo" src="img/logo-cream.svg" alt="NatureFlow Pets" width="196" height="22">
+        <p>Hundegesundheit aus Ratzeburg. Wissenschaftlich fundiert, warm erkl&auml;rt, ehrlich deklariert.</p>
+        <p style="margin-top:1rem;color:var(--gold-light);font-weight:600">4,82 von 5 Sternen &middot; &uuml;ber 72.000 Bewertungen</p>
+        <div class="pay"><span>Kauf auf Rechnung</span><span>PayPal</span><span>SEPA</span><span>Kreditkarte</span><span>Klarna</span></div>
+      </div>
+      <div><h4>Produkte</h4><ul>
+        <li><a href="sortiment.html">Alle Produkte</a></li>
+        <li><a href="produkt-gelenk-tabletten.html">Gelenk-Tabletten</a></li>
+        <li><a href="sortiment.html">Verdauung &amp; Immunsystem</a></li>
+        <li><a href="sortiment.html">Ruhe &amp; Nerven</a></li>
+      </ul></div>
+      <div><h4>Wissen</h4><ul>
+        <li><a href="wissenschaft.html">Wirkstoffe &amp; Studienlage</a></li>
+        <li><a href="blog.html">Ratgeber</a></li>
+        <li><a href="index.html#manufaktur">Verpackung &amp; Material</a></li>
+        <li><a href="index.html#ueber-uns">&Uuml;ber uns</a></li>
+      </ul></div>
+      <div><h4>Service</h4><ul>
+        <li><a href="kontakt.html">Kontakt &amp; Beratung</a></li>
+        <li><a href="kontakt.html#versand">Versand &amp; R&uuml;ckgabe</a></li>
+        <li><a href="kontakt.html#garantie">120-Tage-Garantie</a></li>
+        <li><a href="kontakt.html#abo">Abo verwalten</a></li>
+      </ul></div>
+    </div>
+    <div class="ft__bot">
+      <span>&copy; 2026 NatureFlow Pets &middot; Ein Unternehmen der BEMS Ventures GmbH</span>
+      <span>Mit Tier&auml;rzten entwickelt &middot; 120 Tage Geld-zur&uuml;ck-Garantie &middot; Made in Germany</span>
+      <span><a href="https://natureflow-pets.com/policies/legal-notice">Impressum</a> &middot; <a href="https://natureflow-pets.com/policies/privacy-policy">Datenschutz</a> &middot; <a href="https://natureflow-pets.com/policies/terms-of-service">AGB</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="scrim" data-scrim></div>
+<aside class="drawer" data-drawer aria-hidden="true" aria-label="Warenkorb">
+  <div class="drawer__hd">
+    <h2>Dein Warenkorb</h2>
+    <button class="iconbtn" data-drawer-close aria-label="Warenkorb schlie&szlig;en"><svg><use href="#ic-close"/></svg></button>
+  </div>
+  <div class="drawer__body" data-cart-body></div>
+  <div class="drawer__ft" data-cart-foot hidden>
+    <div class="ship">
+      <p class="ship__txt" data-ship-txt></p>
+      <div class="ship__bar"><div class="ship__fill" data-ship-fill></div></div>
+    </div>
+    <div class="sum"><span>Zwischensumme</span><b data-subtotal>0,00 &euro;</b></div>
+    <p class="sum sum--sm"><span>Versand</span><span>wird im Checkout berechnet</span></p>
+    <button class="btn btn--primary btn--block" type="button" data-checkout style="margin-top:.9rem">Zur Kasse</button>
+    <p class="drawer__note">Inkl. MwSt. &middot; Keine versteckten Kosten &middot; 120 Tage R&uuml;ckgaberecht</p>
+  </div>
+</aside>
+
+<div class="toast" data-toast data-show="false"><svg><use href="#ic-check"/></svg><span data-toast-msg></span></div>
+
+<!-- ===== Beratungs-Rechner =====================================================
+     Der Inhalt wird aus assets/nfp-dialoge.js erzeugt: Die Fragen liegen dort
+     als Daten, damit sich Reihenfolge und Wortlaut ändern lassen, ohne das
+     Markup anzufassen. Hier steht nur das Gerüst. -->
+<dialog class="dlg" data-wiz aria-labelledby="wiz-titel">
+  <div class="dlg__in" tabindex="-1" autofocus>
+    <div class="dlg__hd">
+      <div>
+        <p class="eyebrow eyebrow--deep">Beratung in einer Minute</p>
+        <h2 id="wiz-titel">Was passt zu deinem Hund?</h2>
+        <div data-wiz-progress></div>
+      </div>
+      <button class="iconbtn dlg__x" type="button" data-dlg-close aria-label="Beratung schlie&szlig;en"><svg><use href="#ic-close"/></svg></button>
+    </div>
+    <div class="dlg__body" data-wiz-body></div>
+    <div class="dlg__ft" data-wiz-ft></div>
+  </div>
+</dialog>
+
+<!-- ===== Abo-Hinweis beim Einmalkauf ========================================
+     Erscheint einmal je Sitzung. Bewusst ohne Countdown und ohne Schuldsprache;
+     beide Knöpfe sind gleichwertig erreichbar. -->
+<dialog class="dlg" data-aboad aria-labelledby="aboad-titel">
+  <div class="dlg__in" tabindex="-1" autofocus>
+    <div class="dlg__hd">
+      <div>
+        <p class="eyebrow eyebrow--deep">Kurz bevor du weitergehst</p>
+        <h2 id="aboad-titel">Im Abo w&auml;re das g&uuml;nstiger</h2>
+        <p data-aboad-produkt></p>
+      </div>
+      <button class="iconbtn dlg__x" type="button" data-dlg-close aria-label="Hinweis schlie&szlig;en"><svg><use href="#ic-close"/></svg></button>
+    </div>
+    <div class="dlg__body">
+      <div class="aboad__num">
+        <div class="aboad__c"><b data-aboad-einzel></b><span>Einmalkauf</span></div>
+        <div class="aboad__c aboad__c--hi"><b data-aboad-abo></b><span>im Abo, dauerhaft &minus;10 %</span></div>
+        <div class="aboad__c"><b data-aboad-jahr></b><span><b style="font-weight:600">Ersparnis pro Jahr</b><br data-aboad-jahrbr><span data-aboad-jahrtext></span></span></div>
+      </div>
+      <p class="rec__lead" style="margin-top:1.2rem" data-aboad-versand></p>
+      <ul class="aboad__list">
+        <li><svg><use href="#ic-check"/></svg> <span>10 % auf <b>jede</b> Lieferung &ndash; kein Lockangebot nur f&uuml;r die erste Bestellung</span></li>
+        <li><svg><use href="#ic-repeat"/></svg> <span>Intervall &auml;ndern, verschieben, pausieren oder k&uuml;ndigen &ndash; jederzeit im Kundenkonto, ohne Frist</span></li>
+        <li><svg><use href="#ic-clock"/></svg> <span>Erinnerung drei Tage vor jeder Lieferung, damit nichts &uuml;berrascht</span></li>
+        <li><svg><use href="#ic-return"/></svg> <span>Die 120-Tage-Garantie gilt im Abo genauso</span></li>
+      </ul>
+      <div class="aboad__iv">
+        <p>Wie oft soll geliefert werden?</p>
+        <div class="ivals" role="radiogroup" aria-label="Lieferintervall f&uuml;rs Abo">
+          <label class="ival"><input type="radio" name="aboad-iv" value="4"><span>alle 4 Wochen</span></label>
+          <label class="ival"><input type="radio" name="aboad-iv" value="6" checked><span>alle 6 Wochen</span></label>
+          <label class="ival"><input type="radio" name="aboad-iv" value="8"><span>alle 8 Wochen</span></label>
+          <label class="ival"><input type="radio" name="aboad-iv" value="12"><span>alle 12 Wochen</span></label>
+        </div>
+      </div>
+      <p class="aboad__fine">Warum wir das zeigen: Eine Gelenkkur wirkt erst nach drei bis sechs Wochen. Wer nach der ersten Packung aufh&ouml;rt, weil das Nachbestellen untergeht, hat das Geld f&uuml;r die erste Packung umsonst ausgegeben. Deshalb dieser Hinweis &ndash; und deshalb l&auml;sst sich das Abo mit einem Klick wieder beenden.</p>
+    </div>
+    <div class="dlg__ft">
+      <button class="btn btn--ghost" type="button" data-aboad-no>Einmalig kaufen</button>
+      <button class="btn btn--primary" type="button" data-aboad-yes>Aufs Abo wechseln</button>
+    </div>
+  </div>
+</dialog>
+
+<script src="assets/nfp.js"></script>
+<script src="assets/nfp-dialoge.js"></script>
+</body>
+</html>

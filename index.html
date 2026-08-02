@@ -4,76 +4,125 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>NatureFlow Pets – Shop-Entwürfe zur Abstimmung</title>
+<title>NatureFlow Pets – neuer Shop-Entwurf</title>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--green:#1C4036;--dark:#122D24;--cream:#F5EDE0;--card:#FBF8F3;--gold:#C9A159;--ink:#23281F;--soft:#5B6257;--line:#E2D7C4}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.65}
 .wrap{max-width:960px;margin:0 auto;padding:clamp(1.5rem,5vw,3.5rem) clamp(1.15rem,4vw,2rem)}
-h1,h2,h3{font-family:Figtree,system-ui,sans-serif;font-weight:800;color:var(--dark);line-height:1.1;margin:0}
+h1,h2,h3{font-family:Figtree,system-ui,sans-serif;font-weight:800;color:var(--dark);line-height:1.15;margin:0}
 h1{font-size:clamp(1.9rem,4vw,2.8rem)}
 h2{font-size:1.25rem}
+h3{font-size:1rem}
 .bar{background:#3A2E12;color:#F7ECD2;font-size:.8125rem;text-align:center;padding:.65rem 1rem}
 .bar b{color:#fff}
 .lead{font-size:1.0625rem;color:var(--soft);margin-top:1rem}
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2.25rem}
-.c{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:1.6rem;display:flex;flex-direction:column}
-.c h2{margin-bottom:.5rem}
-.c p{font-size:.9375rem;color:var(--soft);margin:0}
-.c ul{margin:.9rem 0 0;padding-left:1.15rem;font-size:.9375rem;color:var(--soft)}
-.c li+li{margin-top:.3rem}
-.btns{margin-top:1.4rem;display:grid;gap:.5rem}
-a.btn{display:flex;align-items:center;justify-content:center;gap:.5rem;min-height:48px;border-radius:99px;
-  font-family:Figtree,sans-serif;font-weight:800;font-size:.9375rem;text-decoration:none;border:2px solid transparent}
+.eyebrow{display:block;font-family:Figtree,sans-serif;font-weight:800;font-size:.75rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+.c{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(1.3rem,3vw,1.9rem);display:flex;flex-direction:column}
+.c > p{font-size:.9375rem;color:var(--soft);margin:.5rem 0 0}
+.feature{margin-top:2.25rem;border-color:var(--gold)}
+.pages{list-style:none;margin:1.35rem 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.55rem}
+.pages a{display:flex;align-items:center;min-height:46px;padding:.55rem .95rem;gap:.55rem;
+  background:#fff;border:1px solid var(--line);border-radius:12px;text-decoration:none;
+  color:var(--dark);font-size:.9375rem;font-weight:500}
+.pages a:hover{border-color:var(--gold)}
+.pages .num{display:inline-block;min-width:1.5rem;font-family:Figtree,sans-serif;font-weight:800;color:var(--gold);font-size:.8125rem}
+.btns{margin-top:1.5rem;display:grid;gap:.5rem;max-width:24rem}
+a.btn{display:flex;align-items:center;justify-content:center;gap:.5rem;min-height:50px;border-radius:99px;
+  font-family:Figtree,sans-serif;font-weight:800;font-size:1rem;text-decoration:none;border:2px solid transparent}
 a.p{background:var(--gold);color:var(--dark)}
-a.g{border-color:var(--green);color:var(--green)}
+a.g{border-color:var(--green);color:var(--green);font-size:.9375rem;min-height:46px}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.15rem;padding:0;list-style:none}
+.tags li{display:inline-block;background:#EFE6D6;border-radius:99px;padding:.28rem .7rem;font-size:.8125rem;color:var(--green)}
+.archive{margin-top:2.5rem}
+.acards{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1.1rem}
+.acards .c{padding:1.35rem}
 .note{margin-top:2.25rem;font-size:.875rem;color:var(--soft);border-left:2px solid var(--gold);padding-left:1rem}
 .note b{color:var(--dark)}
+.note + .note{margin-top:1.25rem}
 footer{margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid var(--line);font-size:.8125rem;color:var(--soft)}
-@media(max-width:720px){.cards{grid-template-columns:1fr}}
+@media(max-width:720px){.pages,.acards{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="bar"><b>Interne Design-Entwürfe</b> · NatureFlow Pets · Rebranding Gelenk-Tabletten · Stand 30.07.2026 · kein Livegang</div>
+<div class="bar"><b>Interner Entwurf</b> · NatureFlow Pets · Rebranding „Naturmanufaktur“ · Stand 01.08.2026 · noch nicht live</div>
 <div class="wrap">
-  <h1>Zwei Shop-Entwürfe zur Abstimmung</h1>
-  <p class="lead">Beide Fassungen sind inhaltlich identisch und vollständig bedienbar – Warenkorb, Varianten, Filter und Produktseite funktionieren. Der einzige Unterschied sind die <b>botanischen Ornamente</b> im Layout.</p>
 
-  <div class="cards">
-    <div class="c">
-      <h2>Variante A · mit Ornamenten</h2>
-      <p>Botanische Akzente als Design-Element – wechselnde Motive an wechselnden Positionen.</p>
-      <ul>
-        <li>Grünlippmuschel, Kelp, Blattzweig, Girlande</li>
-        <li>Ecke, Seitenfläche, waagerechter Streifen</li>
-        <li>Mehrere Abschnitte bleiben bewusst ruhig</li>
-      </ul>
-      <div class="btns">
-        <a class="btn p" href="variante-a/index.html">Startseite ansehen →</a>
-        <a class="btn g" href="variante-a/produkt-gelenk-tabletten.html">Produktseite</a>
-        <a class="btn g" href="variante-a/sortiment.html">Sortiment</a>
-      </div>
+  <h1>Der neue Shop – zum Durchklicken</h1>
+  <p class="lead">Ein vollständig bedienbarer Entwurf des neuen Auftritts: <b>18 Seiten</b> mit Warenkorb, Varianten,
+  Filtern, Beratungs-Rechner und allen sieben Produktseiten. Am besten am Handy <em>und</em> am Rechner ansehen –
+  das Layout ist für beides gebaut.</p>
+
+  <div class="c feature">
+    <span class="eyebrow">Aktueller Stand · 01.08.2026</span>
+    <h2>Shop-Entwurf „Naturmanufaktur“</h2>
+    <p>Startseite, Sortiment, sieben Produktseiten, Wissenschaft, Blog mit sechs Artikeln und Kontakt.
+    Echte Produktdaten, echte Preise und Grundpreise.</p>
+
+    <ul class="tags">
+      <li>Warenkorb mit Gratisversand-Fortschritt</li>
+      <li>Beratung nach Gewicht &amp; Alter</li>
+      <li>Abo-Hinweis beim Einzelkauf</li>
+      <li>Vollständige Deklaration je Produkt</li>
+    </ul>
+
+    <div class="btns">
+      <a class="btn p" href="aktuell/index.html">Startseite öffnen →</a>
     </div>
-    <div class="c">
-      <h2>Variante B · ohne Ornamente</h2>
-      <p>Dieselbe Gestaltung, aber ohne botanische Flächen – ruhiger und reduzierter.</p>
-      <ul>
-        <li>Fokus allein auf Produkt und Typografie</li>
-        <li>Ornament nur als schmale Zierlinie</li>
-        <li>Zum direkten Vergleich mit Variante A</li>
-      </ul>
-      <div class="btns">
-        <a class="btn p" href="variante-b/index.html">Startseite ansehen →</a>
-        <a class="btn g" href="variante-b/produkt-gelenk-tabletten.html">Produktseite</a>
-        <a class="btn g" href="variante-b/sortiment.html">Sortiment</a>
+
+    <h3 style="margin-top:1.9rem">Direkt zu einzelnen Seiten</h3>
+    <ul class="pages">
+      <li><a href="aktuell/index.html"><span class="num">01</span>Startseite</a></li>
+      <li><a href="aktuell/sortiment.html"><span class="num">02</span>Sortiment</a></li>
+      <li><a href="aktuell/produkt-gelenk-tabletten.html"><span class="num">03</span>Gelenk-Tabletten</a></li>
+      <li><a href="aktuell/produkt-gruenlippmuschelpulver.html"><span class="num">04</span>Grünlippmuschelpulver</a></li>
+      <li><a href="aktuell/produkt-gelenk-kollagen.html"><span class="num">05</span>Gelenk Kollagen</a></li>
+      <li><a href="aktuell/produkt-gelenkoel.html"><span class="num">06</span>Gelenköl</a></li>
+      <li><a href="aktuell/produkt-teufelskralle-liquid.html"><span class="num">07</span>Teufelskralle Liquid</a></li>
+      <li><a href="aktuell/produkt-relax-calm-tabletten.html"><span class="num">08</span>Relax Calm</a></li>
+      <li><a href="aktuell/produkt-praebiotikum-probiotikum.html"><span class="num">09</span>Prä- &amp; Probiotikum</a></li>
+      <li><a href="aktuell/wissenschaft.html"><span class="num">10</span>Wissenschaft</a></li>
+      <li><a href="aktuell/blog.html"><span class="num">11</span>Blog-Übersicht</a></li>
+      <li><a href="aktuell/kontakt.html"><span class="num">12</span>Kontakt &amp; Über uns</a></li>
+    </ul>
+  </div>
+
+  <div class="archive">
+    <h2>Ältere Fassung: Ornamente ja oder nein</h2>
+    <p class="lead" style="margin-top:.5rem">Die Gegenüberstellung vom 30.07. bleibt erreichbar – dort ging es allein
+    um die botanischen Ornamente. Beide Fassungen haben nur drei Seiten und sind inhaltlich überholt.</p>
+    <div class="acards">
+      <div class="c">
+        <h3>Variante A · mit Ornamenten</h3>
+        <p>Botanische Akzente an wechselnden Positionen.</p>
+        <div class="btns" style="margin-top:1rem">
+          <a class="btn g" href="variante-a/index.html">Ansehen</a>
+        </div>
+      </div>
+      <div class="c">
+        <h3>Variante B · ohne Ornamente</h3>
+        <p>Dieselbe Gestaltung, ruhiger und reduzierter.</p>
+        <div class="btns" style="margin-top:1rem">
+          <a class="btn g" href="variante-b/index.html">Ansehen</a>
+        </div>
       </div>
     </div>
   </div>
 
-  <p class="note"><b>Was echt ist und was nicht:</b> Produktnamen, Preise, Größen und Grundpreise sind die echten Shop-Daten. <b>Alle Produktbilder sind KI-Konzeptbilder</b> des geplanten Verpackungsdesigns – keine Fotos existierender Verpackungen und keine Druckvorlagen. Kundenstimmen und Team-Porträts sind bewusst als leere Flächen markiert: erfundene Bewertungen sind rechtlich ausgeschlossen, und für echte Personen setzen wir keine KI-Gesichter ein.</p>
+  <p class="note"><b>Was echt ist und was nicht:</b> Produktnamen, Preise, Größen, Grundpreise und die Deklarationen
+  sind die echten Shop-Daten. <b>Alle Produktbilder sind KI-Konzeptbilder</b> des geplanten Verpackungsdesigns –
+  keine Fotos existierender Verpackungen und keine Druckvorlagen. Team-Porträts und einzelne Bewertungs-Flächen sind
+  bewusst als Platzhalter markiert: erfundene Bewertungen sind rechtlich ausgeschlossen, und für echte Personen setzen
+  wir keine KI-Gesichter ein.</p>
 
-  <footer>NatureFlow Pets · Ein Unternehmen der BEMS Ventures GmbH · Interner Entwurf, nicht zur Veröffentlichung</footer>
+  <p class="note"><b>Noch offen:</b> Verpackungs-Machart, Rezeptur-Angaben in Milligramm, Abo-Konditionen,
+  Headline-Schrift, echte Fotos und Bewertungen. Die Seiten sind für Suchmaschinen gesperrt, solange der Entwurf
+  nicht freigegeben ist.</p>
+
+  <footer>NatureFlow Pets · Ein Unternehmen der BEMS Ventures GmbH · Interner Entwurf, Stand 01.08.2026</footer>
 </div>
 </body>
 </html>
