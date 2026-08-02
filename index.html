@@ -7,7 +7,9 @@
 <title>NatureFlow Pets – neuer Shop-Entwurf</title>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--green:#1C4036;--dark:#122D24;--cream:#F5EDE0;--card:#FBF8F3;--gold:#C9A159;--ink:#23281F;--soft:#5B6257;--line:#E2D7C4}
+:root{--green:#1C4036;--dark:#122D24;--cream:#F5EDE0;--card:#FBF8F3;--gold:#C9A159;--ink:#23281F;--soft:#5B6257;--line:#E2D7C4;
+  /* Gold trägt als Textfarbe nur 2,3:1 auf Creme – für Text daher ein abgedunkelter Ton (gemessen 5,6:1). */
+  --gold-ink:#7F5E20}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.65}
@@ -20,7 +22,7 @@ h3{font-size:1rem}
 .bar b{color:#fff}
 .lead{font-size:1.0625rem;color:var(--soft);margin-top:1rem}
 .eyebrow{display:block;font-family:Figtree,sans-serif;font-weight:800;font-size:.75rem;letter-spacing:.09em;
-  text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+  text-transform:uppercase;color:var(--gold-ink);margin-bottom:.5rem}
 .c{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:clamp(1.3rem,3vw,1.9rem);display:flex;flex-direction:column}
 .c > p{font-size:.9375rem;color:var(--soft);margin:.5rem 0 0}
 .feature{margin-top:2.25rem;border-color:var(--gold)}
@@ -29,7 +31,7 @@ h3{font-size:1rem}
   background:#fff;border:1px solid var(--line);border-radius:12px;text-decoration:none;
   color:var(--dark);font-size:.9375rem;font-weight:500}
 .pages a:hover{border-color:var(--gold)}
-.pages .num{display:inline-block;min-width:1.5rem;font-family:Figtree,sans-serif;font-weight:800;color:var(--gold);font-size:.8125rem}
+.pages .num{display:inline-block;min-width:1.5rem;font-family:Figtree,sans-serif;font-weight:800;color:var(--gold-ink);font-size:.8125rem}
 .btns{margin-top:1.5rem;display:grid;gap:.5rem;max-width:24rem}
 a.btn{display:flex;align-items:center;justify-content:center;gap:.5rem;min-height:50px;border-radius:99px;
   font-family:Figtree,sans-serif;font-weight:800;font-size:1rem;text-decoration:none;border:2px solid transparent}
