@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="assets/nfp.css">
 </head>
 <body class="has-satc">
@@ -73,9 +74,10 @@
 
 <div class="trustbar">
   <div class="wrap"><ul class="trustbar__in">
-    <li><svg><use href="#ic-vet"/></svg> Mit Tier&auml;rzten entwickelt</li>
-    <li>120 Tage Geld-zur&uuml;ck-Garantie</li>
-    <li>4,82 von 5 Sternen aus &uuml;ber 72.000 Bewertungen</li>
+    <li><i class="fa-solid" style="font-family:'Font Awesome 6 Free';font-weight:900;font-style:normal;margin-right:.35em" aria-hidden="true">&#xf1b0;</i>Mit Tier&auml;rzten entwickelt</li>
+    <li><i class="fa-solid" style="font-family:'Font Awesome 6 Free';font-weight:900;font-style:normal;margin-right:.35em" aria-hidden="true">&#xf2ea;</i>120 Tage Geld-zur&uuml;ck-Garantie</li>
+    <li><i class="fa-solid" style="font-family:'Font Awesome 6 Free';font-weight:900;font-style:normal;margin-right:.35em" aria-hidden="true">&#xf0c0;</i>&Uuml;ber 350.000 zufriedene Kunden</li>
+    <li><i class="fa-solid" style="font-family:'Font Awesome 6 Free';font-weight:900;font-style:normal;margin-right:.35em" aria-hidden="true">&#xf005;</i>Ebenfalls bei Amazon bewertet</li>
   </ul></div>
 </div>
 
@@ -89,7 +91,7 @@
     <nav class="nav" id="nav" data-nav aria-label="Hauptnavigation">
       <ul>
         <li><a href="sortiment.html" aria-current="page">Produkte</a></li>
-        <li><a href="produkt-gelenk-tabletten.html">Gelenkgesundheit</a></li>
+        <!-- <li><a href="produkt-gelenk-tabletten.html">Gelenkgesundheit</a></li> -->
         <li><a href="wissenschaft.html">Wissenschaft</a></li>
         <li><a href="blog.html">Ratgeber</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
@@ -186,7 +188,7 @@
           <label>
             <input type="radio" name="pmode" value="sub">
             <span class="var__dot" aria-hidden="true"></span>
-            <span class="pmode__t"><b>Im Abo sparen<span class="pmode__save">&minus;10 %</span></b><span>Automatisch geliefert, jederzeit k&uuml;ndbar</span></span>
+            <span class="pmode__t"><b>Im Abo sparen<span class="pmode__save">&minus;20 %</span></b><span>Automatisch geliefert, jederzeit k&uuml;ndbar</span></span>
             <span class="pmode__p" data-pmode-sub-price></span>
           </label>
           <div class="pmode__body">
@@ -197,7 +199,7 @@
               <label class="ival"><input type="radio" name="interval" value="12"><span>alle 12 Wochen</span></label>
             </div>
             <ul class="pmode__perks">
-              <li><svg><use href="#ic-check"/></svg> 10 % auf jede Lieferung, dauerhaft &ndash; kein Lockangebot f&uuml;r die erste Bestellung</li>
+              <li><svg><use href="#ic-check"/></svg> 20 % auf jede Lieferung, dauerhaft &ndash; kein Lockangebot f&uuml;r die erste Bestellung</li>
               <li><svg><use href="#ic-check"/></svg> Immer versandkostenfrei, unabh&auml;ngig vom Bestellwert</li>
               <li><svg><use href="#ic-repeat"/></svg> Intervall &auml;ndern, pausieren oder k&uuml;ndigen &ndash; jederzeit, ohne Frist</li>
               <li><svg><use href="#ic-clock"/></svg> Erinnerung drei Tage vor jeder Lieferung</li>
@@ -273,7 +275,7 @@
         <details>
           <summary>Abo: Konditionen, &Auml;nderung, K&uuml;ndigung</summary>
           <div class="acc__b">
-            <p>Im Abo kostet jede Lieferung dauerhaft 10 % weniger und ist unabh&auml;ngig vom Bestellwert versandkostenfrei. Das Intervall w&auml;hlst du selbst &ndash; alle 4, 6, 8 oder 12 Wochen.</p>
+            <p>Im Abo kostet jede Lieferung dauerhaft 20 % weniger und ist unabh&auml;ngig vom Bestellwert versandkostenfrei. Das Intervall w&auml;hlst du selbst &ndash; alle 4, 6, 8 oder 12 Wochen.</p>
             <p style="margin-top:.7rem">Drei Tage vor jeder Lieferung bekommst du eine Erinnerung per E-Mail. Bis dahin kannst du im Kundenkonto die Menge &auml;ndern, den Termin verschieben, das Abo pausieren oder es beenden &ndash; ohne Frist, ohne Nachfrage, ohne Anruf.</p>
           </div>
         </details>
@@ -539,12 +541,12 @@
     <div class="dlg__body">
       <div class="aboad__num">
         <div class="aboad__c"><b data-aboad-einzel></b><span>Einmalkauf</span></div>
-        <div class="aboad__c aboad__c--hi"><b data-aboad-abo></b><span>im Abo, dauerhaft &minus;10 %</span></div>
+        <div class="aboad__c aboad__c--hi"><b data-aboad-abo></b><span>im Abo, dauerhaft &minus;20 %</span></div>
         <div class="aboad__c"><b data-aboad-jahr></b><span><b style="font-weight:600">Ersparnis pro Jahr</b><br data-aboad-jahrbr><span data-aboad-jahrtext></span></span></div>
       </div>
       <p class="rec__lead" style="margin-top:1.2rem" data-aboad-versand></p>
       <ul class="aboad__list">
-        <li><svg><use href="#ic-check"/></svg> <span>10 % auf <b>jede</b> Lieferung &ndash; kein Lockangebot nur f&uuml;r die erste Bestellung</span></li>
+        <li><svg><use href="#ic-check"/></svg> <span>20 % auf <b>jede</b> Lieferung &ndash; kein Lockangebot nur f&uuml;r die erste Bestellung</span></li>
         <li><svg><use href="#ic-repeat"/></svg> <span>Intervall &auml;ndern, verschieben, pausieren oder k&uuml;ndigen &ndash; jederzeit im Kundenkonto, ohne Frist</span></li>
         <li><svg><use href="#ic-clock"/></svg> <span>Erinnerung drei Tage vor jeder Lieferung, damit nichts &uuml;berrascht</span></li>
         <li><svg><use href="#ic-return"/></svg> <span>Die 120-Tage-Garantie gilt im Abo genauso</span></li>
