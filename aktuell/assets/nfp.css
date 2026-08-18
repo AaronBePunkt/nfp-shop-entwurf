@@ -1025,3 +1025,11 @@ main,header,footer,.drawer,.toast{position:relative}
 @media (prefers-reduced-motion:reduce){
   .dlg::backdrop{backdrop-filter:none}
 }
+
+/* ---------- Korrektur 2026-08-18: Garantie-Ueberschrift war unsichtbar ------
+   `.guar h2` setzte nur die Schriftgroesse; die Farbe kam aus der globalen
+   Regel h1,h2,h3,h4{color:var(--green-900)} = #122D24 - auf dem dunkelgruenen
+   Garantie-Kasten (#1C4036). Gemessen: 1,29:1 (gefordert 3:1 fuer grosse fette
+   Schrift). Die Zeile "120 Tage Geld zurueck" war praktisch nicht lesbar.
+   #EFE4D2 auf #1C4036 = 9,09:1. -------------------------------------------- */
+.guar h2,.guar h3{color:#EFE4D2}
