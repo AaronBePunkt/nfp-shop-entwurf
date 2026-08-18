@@ -17,7 +17,7 @@
      ACHTUNG: Die Gelenk-Tabletten kosten in der 100er-Größe 29,95 € —
      die 27,95 € aus der Fassung B4.3 waren veraltet. */
   var FREE_SHIPPING = 40;   /* ECHT: Schwelle des Live-Warenkorbs (threshold 40) */
-  var SUB_DISCOUNT  = 0.10; /* Abo-Rabatt — Konditionen mit Kai/Evi zu bestätigen */
+  var SUB_DISCOUNT  = 0.20; /* subscription discount per dev briefing */
 
   /* Lieferintervalle. `w` = Wochen, `d` = Anzeigetext. */
   var INTERVALS = [
@@ -548,6 +548,64 @@
     },
     qty: function () { var q = $('[data-qty-val]'); return q ? (parseInt(q.textContent, 10) || 1) : 1; }
   };
+
+  /* FAQ: explicit pixel-height accordion on a wrapper OUTSIDE the <p>
+     (nesting a div inside a <p> broke rendering). The <details> element is
+     forced permanently open at the DOM level and never toggled again, so
+     Chrome's native details-content animation never engages and can't
+     fight our own transition (that fight was the original stutter). */
+  document.querySelectorAll('.faq details').forEach(function (det) {
+    var summary = det.querySelector('summary');
+    var answer = det.querySelector('.faq__a');
+    if (!summary || !answer) return;
+    var startOpen = det.hasAttribute('open');
+    var wrap = document.createElement('div');
+    wrap.className = 'faq__a-wrap';
+    answer.parentNode.insertBefore(wrap, answer);
+    wrap.appendChild(answer);
+    det.setAttribute('open', '');
+    summary.setAttribute('aria-expanded', startOpen ? 'true' : 'false');
+    if (startOpen) {
+      det.classList.add('is-open');
+      wrap.style.height = 'auto';
+    }
+    summary.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (wrap.classList.contains('is-animating')) return;
+      wrap.classList.add('is-animating');
+      var isOpen = det.classList.contains('is-open');
+      if (isOpen) {
+        wrap.style.height = wrap.scrollHeight + 'px';
+        void wrap.offsetHeight;
+        wrap.style.height = '0px';
+        det.classList.remove('is-open');
+        summary.setAttribute('aria-expanded', 'false');
+      } else {
+        wrap.style.height = '0px';
+        void wrap.offsetHeight;
+        wrap.style.height = wrap.scrollHeight + 'px';
+        det.classList.add('is-open');
+        summary.setAttribute('aria-expanded', 'true');
+      }
+      wrap.addEventListener('transitionend', function te() {
+        wrap.removeEventListener('transitionend', te);
+        wrap.style.height = det.classList.contains('is-open') ? 'auto' : '0px';
+        wrap.classList.remove('is-animating');
+      });
+    });
+  });
+
+  /* Blog cards: whole card clickable, not just the title/image links.
+     Real <a> clicks (ctrl/cmd-click, middle-click, right-click) still work
+     natively since we only intercept clicks that land outside an <a>. */
+  document.querySelectorAll('.post').forEach(function (post) {
+    var link = post.querySelector('a[href]');
+    if (!link) return;
+    post.addEventListener('click', function (e) {
+      if (e.target.closest('a')) return;
+      window.location.href = link.getAttribute('href');
+    });
+  });
 
   render();
 })();

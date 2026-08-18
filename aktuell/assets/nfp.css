@@ -151,9 +151,9 @@ main,header,footer,.drawer,.toast{position:relative}
 /* ---------- 6. Trust-Bar (wie Vorlage: mittig, Punkt-Trenner) ---------- */
 .trustbar{background:var(--green-800);color:var(--card);font-size:.8125rem;position:relative;z-index:1}
 .trustbar__in{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;
-  gap:.3rem 1.4rem;padding:.7rem 0}
-.trustbar li{display:flex;align-items:center;gap:.5rem;font-weight:500}
-.trustbar li+li::before{content:"·";color:var(--gold-light);margin-right:1.4rem}
+  gap:.3rem 1rem;padding:.7rem 0}
+.trustbar li{display:flex;align-items:center;gap:.4rem;font-weight:500}
+.trustbar li+li::before{content:"";display:inline-block;width:1px;height:20px;background-color:rgba(255,255,255,.5);margin-right:1rem}
 .trustbar svg{width:15px;height:15px;color:var(--gold-light);flex:none}
 
 /* ---------- 7. Header: über dem Hero transparent, danach fest ---------- */
@@ -286,6 +286,13 @@ main,header,footer,.drawer,.toast{position:relative}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
 .split--rev>*:first-child{order:2}
 
+/* scrollable card row for Support-Team Option A - 4 cards visible, 5th peeks out */
+.supp-scroll{display:flex;gap:1rem;overflow-x:auto;padding-bottom:.6rem;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.supp-scroll .team-card{flex:0 0 22%;min-width:190px;scroll-snap-align:start}
+.supp-scroll .ph{aspect-ratio:1/1}
+.supp-scroll::-webkit-scrollbar{height:6px}
+.supp-scroll::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:99px}
+
 /* ---------- 14. Platzhalter ---------- */
 .ph{border:2px dashed var(--line-strong);border-radius:var(--r-md);
   background:repeating-linear-gradient(45deg,rgba(201,161,89,.06) 0 12px,transparent 12px 24px),var(--cream);
@@ -302,6 +309,12 @@ main,header,footer,.drawer,.toast{position:relative}
 .note{font-size:.875rem;color:var(--ink-soft);border-left:2px solid var(--gold);padding-left:1rem;max-width:76ch}
 .sec--green .note{color:#D8E2D8;border-color:var(--gold-light)}
 
+/* person card - photo placeholder on top, name/role below it */
+.team-card{display:flex;flex-direction:column}
+.team-card .ph{flex:1}
+.team-card h3{margin-top:.9rem;font-size:1.0625rem}
+.team-card p{margin-top:.2rem;font-size:.9375rem;color:var(--ink-soft)}
+
 /* ---------- 15. Garantie ---------- */
 .guar{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(1.5rem,4vw,3rem);align-items:center;
   background:var(--green-800);color:var(--card);border-radius:var(--r-xl);padding:clamp(2rem,4vw,3.25rem);
@@ -311,11 +324,11 @@ main,header,footer,.drawer,.toast{position:relative}
   line-height:1.05;color:var(--gold-light);flex:none}
 .guar__badge b{display:block;font-size:2.1rem}
 .guar__badge span{font-size:.6875rem;letter-spacing:.1em;text-transform:uppercase}
-.guar h2{font-size:clamp(1.5rem,2.4vw,2.1rem)}
+.guar h2{font-size:clamp(1.5rem,2.4vw,2.1rem);color:var(--card)}
 .guar p{margin-top:.75rem;color:#D8E2D8;max-width:58ch}
 
 /* ---------- 16. FAQ ---------- */
-.faq{max-width:880px;margin-top:var(--sp-4)}
+.faq{max-width:var(--wrap);margin-top:var(--sp-4)}
 .faq details{border-bottom:1px solid var(--line)}
 .faq summary{cursor:pointer;list-style:none;padding:1.35rem 3rem 1.35rem 0;font-family:var(--ff-head);
   font-weight:800;font-size:1.0625rem;color:var(--green-900);position:relative;min-height:44px}
@@ -323,8 +336,9 @@ main,header,footer,.drawer,.toast{position:relative}
 .faq summary::after{content:"";position:absolute;right:.4rem;top:50%;width:11px;height:11px;
   border-right:2px solid var(--gold-deep);border-bottom:2px solid var(--gold-deep);
   transform:translateY(-70%) rotate(45deg);transition:transform .2s}
-.faq details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
-.faq .faq__a{padding:0 2rem 1.4rem 0;color:var(--ink-soft)}
+.faq details.is-open summary::after{transform:translateY(-30%) rotate(225deg)}
+.faq .faq__a-wrap{height:0;overflow:hidden;transition:height .3s ease}
+.faq .faq__a{min-height:0;overflow:hidden;padding:0 2rem 1.4rem 0;color:var(--ink-soft)}
 
 /* ---------- 17. Newsletter ---------- */
 .nl{background:var(--cream);border:1px solid var(--line);border-radius:var(--r-xl);
@@ -569,8 +583,9 @@ main,header,footer,.drawer,.toast{position:relative}
   .hdr__in{gap:.5rem}
   .hdr__act{gap:0}
   .hdr__act .iconbtn:not([data-cart-open]){display:none}
-  .trustbar__in{gap:.25rem .9rem;font-size:.75rem}
-  .trustbar li+li::before{margin-right:.9rem}
+  .trustbar__in{display:grid;grid-template-columns:1fr 1fr;flex-wrap:unset;gap:.5rem .6rem;font-size:.72rem;padding:.6rem .8rem}
+  .trustbar li{justify-content:center}
+  .trustbar li+li::before{display:none}
   .toolbar{flex-direction:column;align-items:stretch}
   .drawer{width:100vw}
 }
@@ -706,7 +721,7 @@ main,header,footer,.drawer,.toast{position:relative}
 /* ---- 25.5 Blog ---- */
 .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;margin-top:var(--sp-4)}
 .post{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;
-  display:flex;flex-direction:column;transition:transform .22s var(--ease),box-shadow .22s}
+  display:flex;flex-direction:column;transition:transform .22s var(--ease),box-shadow .22s;cursor:pointer}
 .sec--cream .post{background:#fff}
 .post:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
 .post__fig{aspect-ratio:3/2;background:var(--cream);overflow:hidden;display:block}
@@ -788,7 +803,7 @@ main,header,footer,.drawer,.toast{position:relative}
 .lvl--mittel{background:var(--gold);color:var(--green-900)}
 .lvl--weich{background:var(--cream-deep);color:var(--ink-soft);border:1px solid var(--line-strong)}
 .evi p{font-size:.9375rem;color:var(--ink-soft);line-height:1.6}
-.evi__src{font-size:.75rem;color:var(--ink-soft);margin-top:auto;padding-top:.9rem;border-top:1px solid var(--line)}
+.evi__src{font-size:.75rem;color:var(--ink-soft);margin-top:auto;padding-top:.9rem;border-top:1px solid var(--line);min-height:calc(.9rem + 3rem + 1px)}
 .sec--green .evi{background:rgba(251,248,243,.06);border-color:rgba(227,200,140,.24)}
 .sec--green .evi p{color:#D8E2D8}
 .sec--green .evi__src{color:#BBC9BA;border-top-color:rgba(227,200,140,.2)}
