@@ -1033,3 +1033,9 @@ main,header,footer,.drawer,.toast{position:relative}
    Schrift). Die Zeile "120 Tage Geld zurueck" war praktisch nicht lesbar.
    #EFE4D2 auf #1C4036 = 9,09:1. -------------------------------------------- */
 .guar h2,.guar h3{color:#EFE4D2}
+
+/* ---- Korrekturen 2026-08-18 (gemessen, nicht geschaetzt) --------------------
+   .cr-fine nutzt --ink-soft (#5B6257). Im Hero steht das auf Creme und ist in
+   Ordnung; im Fussbereich .ft steht dasselbe auf #1C4036 -> 1,81:1 gemessen.
+   #EFE4D2 auf #1C4036 = 9,09:1. -------------------------------------------- */
+.ft .cr-fine, .ft .cr-fine a { color: #EFE4D2 }

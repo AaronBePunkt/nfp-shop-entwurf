@@ -48,6 +48,14 @@ a.g{border-color:var(--green);color:var(--green);font-size:.9375rem;min-height:4
 footer{margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid var(--line);font-size:.8125rem;color:var(--soft)}
 @media(max-width:720px){.pages,.acards{grid-template-columns:1fr}}
 </style>
+<style>
+/* Der Partnerblock ist dunkelgruen. Knoepfe, Notiz und Fettungen erben sonst
+   die dunklen Farben der hellen Seite — gemessen 1,14:1 bzw. 1,29:1. */
+.archive--dunkel .btn.g{color:#EFE4D2;border-color:#8FA894;background:transparent}
+.archive--dunkel .btn.g:hover{background:#2A5346;border-color:#EFE4D2}
+.archive--dunkel .note,.archive--dunkel .note b{color:#EFE4D2}
+.archive--dunkel .c p{color:#D8E2D8}
+</style>
 </head>
 <body>
 <div class="bar"><b>Interner Entwurf</b> · NatureFlow Pets · Rebranding „Naturmanufaktur“ · Stand 01.08.2026 · noch nicht live</div>
@@ -92,6 +100,38 @@ footer{margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid var(--line);fo
     </ul>
   </div>
 
+  <div class="archive archive--dunkel" style="background:#1C4036;color:#EFE4D2;border-color:#2A5346">
+    <h2 style="color:#fff">Partnerprogramm &amp; Creator-Programm</h2>
+    <p class="lead" style="margin-top:.5rem;color:#D8E2D8">Zwei Bewerbungsseiten und die dazugehörigen Portale
+    &ndash; einmal aus Sicht der <b>Partner</b> und einmal aus Sicht der <b>Verwaltung</b>. Die Portale starten mit
+    dem Anmeldeschirm; die Zugangsdaten stehen direkt darauf, ein Klick genügt. Alle Namen, Adressen und Zahlen
+    darin sind <b>Beispieldaten</b>.</p>
+    <div class="acards">
+      <div class="c" style="background:#25493C;border-color:#2A5346">
+        <h3 style="color:#fff">Fachpartner</h3>
+        <p style="color:#D8E2D8">Tierheilpraktiker, Praxen, Hundetrainer, Fachhandel. Bewerbungsseite mit
+        Verdienstrechner, dazu das Portal mit Provisionsstand, Code, Material und Auszahlungen.</p>
+        <div class="btns" style="margin-top:1rem">
+          <a class="btn p" href="partner/fachpartner.html">Bewerbungsseite</a>
+          <a class="btn g" href="partner/fachpartner-portal/index.html">Portal öffnen</a>
+        </div>
+      </div>
+      <div class="c" style="background:#25493C;border-color:#2A5346">
+        <h3 style="color:#fff">Creator</h3>
+        <p style="color:#D8E2D8">Inhalte statt Beratung: Upload mit Freigabe, Kennzeichnungspflicht,
+        Nutzungsrechte mit Ablaufdatum, Kampagnen und Honorare.</p>
+        <div class="btns" style="margin-top:1rem">
+          <a class="btn p" href="partner/creator.html">Bewerbungsseite</a>
+          <a class="btn g" href="partner/creator-portal/index.html">Portal öffnen</a>
+        </div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:1.4rem;color:#D8E2D8;border-color:#2A5346">
+    <b>Wichtig:</b> Das hier sind die <b>Gestaltungs-Entwürfe</b> zum Durchklicken, kein laufendes System.
+    Das echte Backend läuft auf einem eigenen Server und ist nur mit Zugangsdaten erreichbar &ndash; die Adressen
+    dazu stehen nicht auf dieser öffentlichen Seite.</p>
+  </div>
+
   <div class="archive">
     <h2>Ältere Fassung: Ornamente ja oder nein</h2>
     <p class="lead" style="margin-top:.5rem">Die Gegenüberstellung vom 30.07. bleibt erreichbar – dort ging es allein
@@ -124,7 +164,7 @@ footer{margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid var(--line);fo
   Headline-Schrift, echte Fotos und Bewertungen. Die Seiten sind für Suchmaschinen gesperrt, solange der Entwurf
   nicht freigegeben ist.</p>
 
-  <footer>NatureFlow Pets · Ein Unternehmen der BEMS Ventures GmbH · Interner Entwurf, Stand 01.08.2026</footer>
+  <footer>NatureFlow Pets · Ein Unternehmen der BEMS Ventures GmbH · Interner Entwurf · Shop-Stand 01.08.2026 · Partnerprogramm ergänzt 18.08.2026</footer>
 </div>
 </body>
 </html>

@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Partnerprogramm &ndash; NatureFlow Pets</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Interner Design-Entwurf: Partnerprogramm f&uuml;r Tierheilpraktiker, Praxen, Hundetrainer, Ern&auml;hrungsberatung und Fachhandel. Kein Livegang.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/nfp.css">
+
+<style>
+/* ====== Ergaenzungen nur fuer die Partnerseite ======
+   Grundhaltung wie im uebrigen Entwurf: Gold ist die einzige Signalfarbe,
+   Ornamente sind Akzent und nicht Tapete, Text auf Fotos wird vermieden -
+   Aussagen liegen auf deckenden Flaechen, damit der Kontrast rechenbar bleibt. */
+[hidden]{display:none !important}
+.lede{font-size:1.15rem;color:var(--ink-soft);max-width:58ch}
+.sec--green .lede{color:#D8E2D8}
+.fine{font-size:.85rem;color:var(--ink-soft)}
+.sec--green .fine{color:#C9D6C9}
+.center{text-align:center}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.eyebrow{font-family:var(--ff-head);font-weight:800;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin:0}
+.eyebrow--deep{color:var(--gold-deep)}
+.eyebrow--gold{color:var(--gold-deep)}
+.sec--green .eyebrow--gold{color:var(--gold-light)}
+.orn-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.orn-layer img{position:absolute;opacity:.5}
+.orn--faint{opacity:.2 !important}
+.orn--tr{top:-2%;right:-3%}.orn--bl{bottom:-4%;left:-3%}.orn--br{bottom:-4%;right:-3%}
+
+/* ---- Listen mit Haken und Kreuzen ---- */
+.ticks,.crosses{display:grid;gap:.7rem}
+.ticks li,.crosses li{display:grid;grid-template-columns:26px 1fr;gap:.7rem;align-items:start;line-height:1.55}
+.ticks li::before{content:"";width:20px;height:20px;margin-top:.18rem;border-radius:50%;
+  background:var(--gold);display:block;
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' d='M4 12.5l5 5 11-11'/></svg>") center/13px no-repeat;
+          mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' d='M4 12.5l5 5 11-11'/></svg>") center/13px no-repeat}
+.ticks--light li::before{background:var(--gold-light)}
+.crosses li::before{content:"";width:20px;height:20px;margin-top:.18rem;border-radius:50%;
+  background:#D98C7A;display:block;
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' d='M6 6l12 12M18 6L6 18'/></svg>") center/12px no-repeat;
+          mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' d='M6 6l12 12M18 6L6 18'/></svg>") center/12px no-repeat}
+.sec--green .crosses li{color:#F0E7D8}
+
+/* ---- Hero ---- */
+.fp-hero{background:var(--cream);padding-block:var(--sp-5) var(--sp-5);position:relative}
+.fp-hero__in{display:grid;grid-template-columns:1.02fr .98fr;gap:var(--sp-5);align-items:center}
+@media(max-width:960px){.fp-hero__in{grid-template-columns:1fr;gap:var(--sp-4)}}
+.fp-hero h1{margin-top:.9rem}
+.fp-hero__fig{margin:0;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);position:relative}
+.fp-hero__fig img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.fp-hero__cta{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:2rem}
+
+/* ---- Faktenband ---- */
+.band{background:var(--green-800);color:var(--card);padding-block:1.5rem}
+.band__in{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem 2rem}
+.band__i{display:grid;grid-template-columns:22px 1fr;gap:.7rem;align-items:start;font-size:.95rem;color:#EAE1D2}
+.band__i svg{width:20px;height:20px;color:var(--gold-light);margin-top:.15rem}
+.band__i strong{color:#fff;display:block;font-family:var(--ff-head);font-weight:800;font-size:1rem}
+
+/* ---- Zweispalter mit Bild ---- */
+.fp-split{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-5);align-items:center}
+.fp-split--rev>figure{order:-1}
+@media(max-width:900px){.fp-split{grid-template-columns:1fr;gap:var(--sp-4)}.fp-split--rev>figure{order:0}}
+.figframe{margin:0;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg)}
+.figframe img{width:100%;height:100%;object-fit:cover;display:block}
+.figframe figcaption{font-size:.82rem;color:var(--ink-soft);padding:.7rem .9rem;background:var(--card);border-top:1px solid var(--line)}
+
+/* ---- Zielgruppen-Karten ---- */
+.usp__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:1.4rem}
+.usp{background:var(--cream);border-radius:var(--r-md);padding:1.7rem;border:1px solid var(--line)}
+.usp__i{display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:var(--green-800);color:var(--gold-light);margin-bottom:1rem}
+.usp__i svg{width:24px;height:24px}
+.usp h3{margin-bottom:.45rem}
+.usp p{color:var(--ink-soft);font-size:.95rem}
+
+/* ---- Schrittfolge ---- */
+.fp-steps{display:grid;gap:1.6rem}
+.fp-steps--row{grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1.8rem}
+.fp-step{display:grid;grid-template-columns:46px 1fr;gap:1rem;align-items:start}
+.fp-step__n{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;
+  background:var(--gold);color:var(--green-900);font-family:var(--ff-head);font-weight:800;font-size:1.05rem}
+.fp-step h3{margin-bottom:.3rem}
+.fp-step p{color:var(--ink-soft);font-size:.97rem}
+.sec--green .fp-step p{color:#E4DACA}
+
+/* ---- Stufen als Karten ---- */
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:1.4rem;align-items:start}
+.tier{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.8rem 1.6rem;position:relative}
+.tier--mitte{border-color:var(--gold);box-shadow:var(--shadow-md)}
+.tier__mark{position:absolute;top:-.85rem;left:1.6rem;background:var(--gold);color:var(--green-900);
+  font-family:var(--ff-head);font-weight:800;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:.32rem .8rem;border-radius:99px}
+.tier__n{font-family:var(--ff-head);font-weight:800;font-size:1.35rem;color:var(--green-900)}
+.tier__p{font-family:var(--ff-head);font-weight:900;font-size:2.9rem;line-height:1;color:var(--gold-deep);margin-top:.5rem;letter-spacing:-.02em}
+.tier__p span{font-size:1.1rem;font-weight:800}
+.tier__ab{font-size:.9rem;color:var(--ink-soft);margin-top:.5rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}
+.tier ul{display:grid;gap:.55rem;margin-top:1rem;font-size:.94rem}
+.tier ul li{display:grid;grid-template-columns:18px 1fr;gap:.6rem;align-items:start;color:var(--ink-soft)}
+.tier ul li svg{width:15px;height:15px;color:var(--gold-deep);margin-top:.25rem}
+
+/* ---- Rechner ---- */
+.calc{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--sp-4);align-items:start}
+@media(max-width:900px){.calc{grid-template-columns:1fr}}
+.calc__box{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.8rem}
+.sl{margin-bottom:1.7rem}
+.sl:last-child{margin-bottom:0}
+.sl__top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.6rem}
+.sl__l{font-family:var(--ff-head);font-weight:700;color:var(--green-900);font-size:.98rem}
+.sl__v{font-family:var(--ff-head);font-weight:900;color:var(--gold-deep);font-size:1.15rem;white-space:nowrap}
+.sl input[type=range]{width:100%;height:34px;accent-color:var(--gold);cursor:pointer;background:none}
+.sl__h{font-size:.83rem;color:var(--ink-soft);margin-top:.2rem}
+.calc__out{background:var(--green-800);color:var(--card);border-radius:var(--r-lg);padding:1.8rem;position:sticky;top:calc(var(--hdr-h) + 1rem)}
+@media(max-width:900px){.calc__out{position:static}}
+.calc__out h3{color:var(--gold-light);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.2rem}
+.res{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.85rem 0;border-bottom:1px solid rgba(227,200,140,.28)}
+.res:last-of-type{border-bottom:0}
+.res__l{font-size:.93rem;color:#DCD2C2}
+.res__v{font-family:var(--ff-head);font-weight:900;font-size:1.3rem;color:#fff;white-space:nowrap}
+.res--gross{padding-top:1.1rem}
+.res--gross .res__v{font-size:2rem;color:var(--gold-light)}
+.calc__st{margin-top:1.3rem;padding-top:1.1rem;border-top:1px solid rgba(227,200,140,.28);font-size:.9rem;color:#DCD2C2}
+.calc__st strong{color:var(--gold-light)}
+
+/* ---- Aussagenband ueber Bild: Text liegt auf deckender Flaeche ---- */
+.claim{position:relative;background:var(--green-900)}
+.claim__bg{position:absolute;inset:0;overflow:hidden}
+.claim__bg img{width:100%;height:100%;object-fit:cover;object-position:center 62%}
+.claim__in{position:relative;padding-block:var(--sp-6)}
+.claim__panel{background:var(--green-900);border-radius:var(--r-lg);padding:2.6rem 2.4rem;max-width:620px;
+  box-shadow:var(--shadow-lg);border:1px solid rgba(227,200,140,.3)}
+.claim__panel h2{color:var(--card)}
+.claim__panel p{color:#D8E2D8;margin-top:1rem}
+.claim__panel .fine{color:#BCCBBC;margin-top:1.2rem}
+@media(max-width:720px){.claim__in{padding-block:var(--sp-5)}.claim__panel{padding:1.9rem 1.5rem}}
+
+/* ---- Hinweiskaesten ---- */
+.callout{background:var(--cream-deep);border-left:4px solid var(--gold);border-radius:var(--r-md);padding:1.6rem 1.8rem}
+.callout h3{margin-bottom:.5rem}
+.callout p{color:var(--ink-soft)}
+.callout p + p{margin-top:.7rem}
+.warnbox{background:rgba(255,255,255,.07);border:1px solid rgba(227,200,140,.4);border-radius:var(--r-md);padding:1.7rem 1.9rem}
+.warnbox h3{color:var(--gold-light);margin-bottom:.6rem}
+.warnbox p{color:#F0E7D8}
+.warnbox p + p{margin-top:.7rem}
+.warnbox em{color:#fff;font-style:normal;font-weight:600}
+.plan{display:inline-flex;align-items:center;gap:.4rem;background:var(--warn-bg,#FBF0DA);color:#6B4A0E;
+  border:1px solid #D9B872;border-radius:99px;padding:.22rem .7rem;font-size:.76rem;font-weight:700;
+  font-family:var(--ff-head);letter-spacing:.03em;text-transform:uppercase}
+
+/* ---- Portalvorschau ---- */
+.shot{margin:0;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-lg);background:var(--card)}
+.shot img{width:100%;display:block}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.2rem;margin-top:var(--sp-3)}
+.pcard{background:var(--cream);border:1px solid var(--line);border-radius:var(--r-md);padding:1.2rem 1.3rem}
+.pcard h3{font-size:1rem;margin-bottom:.35rem}
+.pcard p{font-size:.9rem;color:var(--ink-soft)}
+
+/* ---- Aufklapper ---- */
+.acc{border-bottom:1px solid var(--line)}
+.acc__b{cursor:pointer;padding:1.15rem 2.2rem 1.15rem 0;font-family:var(--ff-head);font-weight:700;
+  color:var(--green-900);font-size:1.03rem;list-style:none;position:relative}
+.acc__b::-webkit-details-marker{display:none}
+.acc__b::after{content:"";position:absolute;right:.3rem;top:1.45rem;width:11px;height:11px;
+  border-right:2px solid var(--gold-deep);border-bottom:2px solid var(--gold-deep);
+  transform:rotate(45deg);transition:transform .2s var(--ease)}
+.acc[open] .acc__b::after{transform:rotate(225deg);top:1.7rem}
+.acc__c{padding:0 0 1.3rem}
+.acc__c p{color:var(--ink-soft)}
+.acc__c p + p{margin-top:.6rem}
+
+/* ---- Formular ---- */
+.form__grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.fld--full{grid-column:1/-1}
+@media(max-width:640px){.form__grid{grid-template-columns:1fr}}
+.fset{grid-column:1/-1;border:1px solid var(--line);border-radius:var(--r-md);padding:1.3rem 1.4rem;margin:0;background:var(--cream)}
+.sec--cream .fset{background:var(--card)}
+.fset legend{font-family:var(--ff-head);font-weight:800;color:var(--green-900);font-size:1rem;padding:0 .5rem}
+.fset__h{font-size:.88rem;color:var(--ink-soft);margin-bottom:1rem}
+.socrow{display:grid;grid-template-columns:1fr 1.1fr .8fr auto;gap:.8rem;align-items:end;
+  padding-bottom:.9rem;margin-bottom:.9rem;border-bottom:1px dashed var(--line)}
+.socrow:last-of-type{border-bottom:0;margin-bottom:.4rem}
+@media(max-width:640px){.socrow{grid-template-columns:1fr 1fr}}
+.socrow__x{display:grid;place-items:center;width:46px;height:46px;border-radius:10px;border:1px solid var(--line-strong);
+  background:#fff;color:#7A2E1C;cursor:pointer}
+.socrow__x:hover{background:#F7E2DC;border-color:#D98C7A}
+.socrow__x svg{width:17px;height:17px}
+.drop{display:grid;place-items:center;gap:.15rem;text-align:center;border:2px dashed var(--line-strong);
+  border-radius:var(--r-md);background:#fff;padding:1.7rem 1.2rem;cursor:pointer}
+.drop:hover,.drop:focus-visible{border-color:var(--green-800)}
+.drop[data-an="true"]{border-color:var(--gold)}
+.drop svg{width:30px;height:30px;color:var(--gold-deep);margin-bottom:.3rem}
+.drop__t{font-family:var(--ff-head);font-weight:800;color:var(--green-900)}
+.drop__link{color:var(--gold-deep);text-decoration:underline}
+.flist{display:grid;gap:.5rem;margin-top:.9rem}
+.fitem{display:flex;align-items:center;gap:.7rem;border:1px solid var(--line-strong);border-radius:var(--r-sm);
+  background:#fff;padding:.6rem .8rem;font-size:.9rem}
+.fitem svg{width:16px;height:16px;color:var(--gold-deep);flex:none}
+.fitem__m{margin-left:auto;font-size:.82rem;color:var(--ink-soft)}
+.fitem button{display:grid;place-items:center;width:30px;height:30px;border:0;background:none;
+  color:#7A2E1C;cursor:pointer;border-radius:6px}
+.fitem button:hover{background:#F7E2DC}
+.check{display:grid;grid-template-columns:24px 1fr;gap:.75rem;align-items:start;margin-top:1rem;
+  font-size:.93rem;line-height:1.55;color:var(--ink-soft);cursor:pointer}
+.check input{width:22px;height:22px;margin:0;accent-color:var(--gold);cursor:pointer}
+.formmsg{margin-top:1.2rem;padding:.95rem 1.15rem;border-radius:var(--r-sm);font-size:.95rem;display:block}
+.formmsg--err{background:#F7E2DC;border:1px solid #D98C7A;color:#7A2E1C}
+.formmsg--ok{background:#E2EFE4;border:1px solid #7FA98A;color:#1F4A2C}
+.fld input[aria-invalid="true"],.fld select[aria-invalid="true"],.fld textarea[aria-invalid="true"]{border-color:#C0563A;border-width:2px}
+</style>
+
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="usp-hand" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3.2 14.2c1.6 4.1 5 6.2 8.8 6.2s7.2-2.1 8.8-6.2"/>
+        <path d="M12 12.4c0-4.2 2.6-7.3 6.3-8.4 0 4.2-2.1 7.8-6.3 8.4Z"/>
+        <path d="M12 12.4c0-3.1-2.1-5.7-5.2-6.8 0 3.6 2 6.2 5.2 6.8Z"/>
+      </g>
+    </symbol>
+    <symbol id="usp-mortar" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4.6 12h14.8c0 4.6-3.4 7.7-7.4 7.7S4.6 16.6 4.6 12Z"/>
+        <path d="M2.9 12h18.2"/><path d="M17.2 3.3l-1.6 1.7"/><path d="M9.2 11.6l6.4-6.6"/>
+      </g>
+    </symbol>
+    <symbol id="usp-sprout" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 20.5V8.8"/><path d="M6 20.5h12"/>
+        <path d="M12 12.2c-4.1 0-6.7-2.6-7.2-6.7 4.1.5 6.7 3.1 7.2 6.7Z"/>
+        <path d="M12 10.2c4.1 0 6.7-2.6 7.2-6.7-4.1.5-6.7 3.1-7.2 6.7Z"/>
+      </g>
+    </symbol>
+    <symbol id="ic-vet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-2.9 8.1-7 10-4.1-1.9-7-5.5-7-10V6l7-3z"/><path d="M9.5 12.2l1.9 1.9 3.6-3.9"/></g></symbol>
+    <symbol id="ic-return" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.8 4.2v4.2h-4.2"/></g></symbol>
+    <symbol id="ic-paw" viewBox="0 0 24 24"><g fill="currentColor"><path d="M12 15.5c-1.9 0-3.6 1-4.4 2.5-.6 1.2.3 2.5 1.6 2.5h5.6c1.3 0 2.2-1.3 1.6-2.5-.8-1.5-2.5-2.5-4.4-2.5z"/><circle cx="6.2" cy="10.4" r="2.2"/><circle cx="17.8" cy="10.4" r="2.2"/><circle cx="9.6" cy="6.2" r="2.1"/><circle cx="14.4" cy="6.2" r="2.1"/></g></symbol>
+    <symbol id="ic-truck" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v8H3zM14 10h4l3 3v2h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></g></symbol>
+    <symbol id="ic-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5"/></g></symbol>
+    <symbol id="ic-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5 11-11"/></g></symbol>
+    <symbol id="ic-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></g></symbol>
+    <symbol id="ic-cart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1.1 12.2a1.8 1.8 0 0 1-1.8 1.6H8.9a1.8 1.8 0 0 1-1.8-1.6L6 7z"/><path d="M9.2 7V5.6a2.8 2.8 0 0 1 5.6 0V7"/></g></symbol>
+    <symbol id="ic-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></g></symbol>
+    <symbol id="ic-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8.5" r="3.7"/><path d="M4.8 20a7.2 7.2 0 0 1 14.4 0"/></g></symbol>
+    <symbol id="ic-burger" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></g></symbol>
+    <symbol id="ic-close" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></g></symbol>
+    <symbol id="ic-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3l2.6 5.6 6.1.8-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L3.3 9.4l6.1-.8L12 3z"/></symbol>
+    <symbol id="ic-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3.8 7l8.2 6 8.2-6"/></g></symbol>
+    <symbol id="ic-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3.5h3l1.5 4-2.2 1.4a12 12 0 0 0 5.4 5.4l1.4-2.2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.7a2 2 0 0 1 2-2.2Z"/></g></symbol>
+    <symbol id="ic-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12.6c0 4-3.8 7.2-8.5 7.2a10 10 0 0 1-2.9-.4L4.2 21l1.3-3.6a6.8 6.8 0 0 1-2-4.8c0-4 3.8-7.2 8.5-7.2s8.5 3.2 8.5 7.2Z"/></g></symbol>
+    <symbol id="ic-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.2A2 2 0 0 1 6 3.4h5.2v17H6a2 2 0 0 0-2 1.8V5.2Z"/><path d="M20 5.2a2 2 0 0 0-2-1.8h-5.2v17H18a2 2 0 0 1 2 1.8V5.2Z"/></g></symbol>
+    <symbol id="ic-flask" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3h5"/><path d="M10.4 3v6.1L5.2 18a2 2 0 0 0 1.7 3h10.2a2 2 0 0 0 1.7-3l-5.2-8.9V3"/><path d="M7.6 14.5h8.8"/></g></symbol>
+    <symbol id="ic-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.2V12l3.2 2"/></g></symbol>
+    <symbol id="ic-repeat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5A4.5 4.5 0 0 1 8.5 4h11"/><path d="M16.5 1.2 19.8 4l-3.3 2.8"/><path d="M20 15.5a4.5 4.5 0 0 1-4.5 4.5h-11"/><path d="M7.5 22.8 4.2 20l3.3-2.8"/></g></symbol>
+    <symbol id="ic-upload" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"/><path d="M7 8.5l5-5 5 5"/><path d="M4 20h16"/></g></symbol>
+    <symbol id="ic-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></g></symbol>
+    <symbol id="ic-image" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><circle cx="8.6" cy="10" r="1.6"/><path d="M3.6 17l4.8-4.6 3.4 3.2 3-2.7 5.6 5"/></g></symbol>
+    <symbol id="ic-euro" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 6.4a6.6 6.6 0 0 0-9.7 2.4c-1.6 3.4-.3 7.3 2.9 8.9a6.6 6.6 0 0 0 6.8-.6"/><path d="M4.8 10.6h8.4M4.8 13.9h8.4"/></g></symbol>
+    <symbol id="ic-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.6-3.1 8.6-7.5 10.2C7.6 20.1 4.5 16.1 4.5 11.5V6L12 3z"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="hdr" data-hdr>
+  <div class="wrap hdr__in">
+    <a class="brand" href="../aktuell/index.html" aria-label="NatureFlow Pets &ndash; zur Startseite">
+      <img class="lg-green" src="img/logo-green.svg" alt="NatureFlow Pets" width="196" height="22">
+      <img class="lg-cream" src="img/logo-cream.svg" alt="" width="196" height="22">
+    </a>
+    <button class="iconbtn burger" data-burger aria-expanded="false" aria-controls="nav" aria-label="Men&uuml; &ouml;ffnen"><svg><use href="#ic-burger"/></svg></button>
+    <nav class="nav" id="nav" data-nav aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="../aktuell/sortiment.html">Produkte</a></li>
+        <li><a href="../aktuell/produkt-gelenk-tabletten.html">Gelenkgesundheit</a></li>
+        <li><a href="../aktuell/wissenschaft.html">Wissenschaft</a></li>
+        <li><a href="../aktuell/blog.html">Ratgeber</a></li>
+        <li><a href="../aktuell/kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="hdr__act">
+      <a class="btn btn--sm btn--ghost" href="fachpartner-portal/index.html">Partner-Login</a>
+      <button class="iconbtn" data-cart-open aria-label="Warenkorb &ouml;ffnen">
+        <svg><use href="#ic-cart"/></svg><span class="badge" data-cart-count hidden>0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================== HERO ============================== -->
+<section class="fp-hero">
+  <div class="orn-layer" aria-hidden="true"><img class="orn--tr orn--faint" src="img/orn-leaf-spray.svg" alt="" style="height:min(360px,72%)"></div>
+  <div class="wrap">
+    <div class="fp-hero__in">
+      <div>
+        <p class="eyebrow eyebrow--deep">Partnerprogramm f&uuml;r Fachleute</p>
+        <h1>Du empfiehlst sowieso.<br>Ab jetzt verdienst du mit.</h1>
+        <p class="lede" style="margin-top:1.15rem">
+          Physiotherapie, Tierheilpraxis, Hundeschule, Ern&auml;hrungsberatung, Fachhandel:
+          Du sprichst jeden Tag mit Hundehaltern &uuml;ber Bewegung und F&uuml;tterung.
+          Wenn du dabei auf uns verweist, bekommst du <strong>10 bis 20&nbsp;%</strong> vom Warenwert
+          &ndash; und deine Kundschaft <strong>10&nbsp;% Rabatt</strong>.
+        </p>
+        <ul class="ticks" style="margin-top:1.6rem">
+          <li><span>Dein eigener Code &ndash; funktioniert auch im Gespr&auml;ch, nicht nur online</span></li>
+          <li><span>Kein Lager, keine Vorkasse, kein Warenrisiko</span></li>
+          <li><span>Fachunterlagen und gepr&uuml;fte Formulierungen, die du bedenkenlos nutzen darfst</span></li>
+          <li><span>Eine Ansprechperson mit Namen statt eines Ticketsystems</span></li>
+        </ul>
+        <div class="fp-hero__cta">
+          <a class="btn btn--primary" href="#bewerben">Partner werden<svg><use href="#ic-arrow"/></svg></a>
+          <a class="btn btn--ghost" href="#rechner">Was springt dabei raus?</a>
+        </div>
+        <p class="fine" style="margin-top:1.1rem">Bewerben dauert drei Minuten. Antwort innerhalb von f&uuml;nf Werktagen. Kostet nichts und verpflichtet zu nichts.</p>
+      </div>
+      <figure class="fp-hero__fig">
+        <img src="img/fachpartner-hero.webp" alt="Hundephysiotherapeutin arbeitet in ihrer Praxis mit einem &auml;lteren Hund" width="1800" height="1344" loading="eager">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FAKTENBAND ============================== -->
+<section class="band">
+  <div class="wrap">
+    <div class="band__in">
+      <p class="band__i"><svg><use href="#ic-star"/></svg><span><strong>4,82 von 5 Sternen</strong>aus &uuml;ber 72.000 Bewertungen</span></p>
+      <p class="band__i"><svg><use href="#ic-vet"/></svg><span><strong>Mit Tier&auml;rzten entwickelt</strong>Rezepturen offen deklariert</span></p>
+      <p class="band__i"><svg><use href="#ic-return"/></svg><span><strong>120 Tage Geld zur&uuml;ck</strong>deine Empfehlung bleibt risikofrei</span></p>
+      <p class="band__i"><svg><use href="#ic-shield"/></svg><span><strong>Aus Ratzeburg</strong>produziert in Deutschland</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== WARUM ============================== -->
+<section class="sec sec--card" id="warum">
+  <div class="wrap">
+    <div class="fp-split">
+      <div>
+        <p class="eyebrow eyebrow--gold">Warum es das gibt</p>
+        <h2>Die Empfehlung passiert l&auml;ngst. Nur verdient bisher jemand anders daran.</h2>
+        <p class="lede" style="margin-top:1.2rem">
+          &bdquo;Und was kann ich f&uuml;ttern?" &ndash; die Frage kommt in fast jeder Beratung. Du antwortest,
+          der Halter kauft, und du hast davon: nichts. Genau das drehen wir um.
+        </p>
+        <p style="color:var(--ink-soft);margin-top:1rem">
+          Uns geht es nicht um Reichweite. Uns geht es darum, dass jemand mit Sachkenntnis
+          <em>dabei</em> ist, wenn ein Hundehalter eine Entscheidung trifft &ndash; und dass er
+          drei Monate sp&auml;ter noch dabei ist. Werbung kann das nicht. Du kannst es.
+        </p>
+        <div class="callout" style="margin-top:var(--sp-3)">
+          <h3>Das ist der Unterschied zu einem Influencer-Deal</h3>
+          <p>Ein Creator verkauft Aufmerksamkeit &ndash; einmal, gegen Honorar. Du begleitest einen Hund
+          &uuml;ber Wochen. Deshalb ist unser Programm auf <strong>Dauer</strong> gebaut und nicht auf Kampagnen:
+          Du verdienst auch an den Folgebestellungen deiner Kundschaft.</p>
+        </div>
+      </div>
+      <figure class="figframe">
+        <img src="img/fachpartner-beratung.webp" alt="Beratungsgespr&auml;ch am Tisch, Hund sitzt daneben" width="1600" height="1195" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FUER WEN ============================== -->
+<section class="sec sec--cream" id="fuer-wen">
+  <div class="orn-layer" aria-hidden="true"><img class="orn--bl orn--faint" src="img/orn-leaves-left.svg" alt="" style="height:min(360px,72%)"></div>
+  <div class="wrap">
+    <div class="sec__head center" style="margin-inline:auto">
+      <p class="eyebrow eyebrow--deep">F&uuml;r wen das gedacht ist</p>
+      <h2>Menschen mit echtem Kundenkontakt</h2>
+      <p>Wir suchen keine Follower, sondern Fachlichkeit. Wenn du Hundehalter pers&ouml;nlich ber&auml;tst, bist du richtig hier.</p>
+    </div>
+    <div class="usp__grid" style="margin-top:var(--sp-4)">
+      <article class="usp"><span class="usp__i"><svg><use href="#usp-hand"/></svg></span><h3>Tierheilpraxis</h3><p>Du begleitest Tiere &uuml;ber Wochen und siehst als Erste, was sich ver&auml;ndert.</p></article>
+      <article class="usp"><span class="usp__i"><svg><use href="#ic-vet"/></svg></span><h3>Tierarztpraxis</h3><p>Erg&auml;nzung zur Behandlung &ndash; ohne eigenes Lager und ohne Abrechnungsaufwand.</p></article>
+      <article class="usp"><span class="usp__i"><svg><use href="#ic-paw"/></svg></span><h3>Hundeschule &amp; Training</h3><p>Du arbeitest am Bewegungsapparat &ndash; und wirst st&auml;ndig nach Produkten gefragt.</p></article>
+      <article class="usp"><span class="usp__i"><svg><use href="#usp-mortar"/></svg></span><h3>Ern&auml;hrungsberatung</h3><p>Du rechnest Rationen und kennst die L&uuml;cken darin besser als jede Werbung.</p></article>
+      <article class="usp"><span class="usp__i"><svg><use href="#usp-sprout"/></svg></span><h3>Physio &amp; Osteopathie</h3><p>Beweglichkeit ist dein t&auml;gliches Thema, nicht ein Verkaufsargument.</p></article>
+      <article class="usp"><span class="usp__i"><svg><use href="#ic-truck"/></svg></span><h3>Kleiner Fachhandel</h3><p>Du ber&auml;tst an der Theke, statt Regale zu stapeln.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== RECHNER ============================== -->
+<section class="sec sec--card" id="rechner">
+  <div class="wrap">
+    <div class="sec__head center" style="margin-inline:auto">
+      <p class="eyebrow eyebrow--gold">Rechne selbst</p>
+      <h2>Was springt dabei raus?</h2>
+      <p>Schieb die drei Regler auf deine Zahlen. Wir rechnen offen &ndash; du siehst genau, wie es zustande kommt.</p>
+    </div>
+
+    <div class="calc" style="margin-top:var(--sp-4)">
+      <div class="calc__box">
+        <div class="sl">
+          <div class="sl__top"><label class="sl__l" for="r-berat">Wie viele Hundehalter ber&auml;tst du im Monat?</label>
+            <output class="sl__v" id="o-berat" for="r-berat">40</output></div>
+          <input type="range" id="r-berat" min="5" max="200" step="5" value="40">
+          <p class="sl__h">Nur die, mit denen du wirklich sprichst.</p>
+        </div>
+        <div class="sl">
+          <div class="sl__top"><label class="sl__l" for="r-quote">Wie viele davon w&uuml;rden bestellen?</label>
+            <output class="sl__v" id="o-quote" for="r-quote">10&nbsp;%</output></div>
+          <input type="range" id="r-quote" min="2" max="40" step="1" value="10">
+          <p class="sl__h">Erfahrungswert unserer Partner: zwischen 5 und 15&nbsp;%. Wir haben 10&nbsp;% voreingestellt.</p>
+        </div>
+        <div class="sl">
+          <div class="sl__top"><label class="sl__l" for="r-korb">Wie gro&szlig; ist eine Bestellung im Schnitt?</label>
+            <output class="sl__v" id="o-korb" for="r-korb">70&nbsp;&euro;</output></div>
+          <input type="range" id="r-korb" min="30" max="180" step="5" value="70">
+          <p class="sl__h">Eine Dreimonatskur liegt je nach Hundegr&ouml;&szlig;e etwa in diesem Bereich.</p>
+        </div>
+      </div>
+
+      <div class="calc__out">
+        <h3>Deine Rechnung</h3>
+        <div class="res"><span class="res__l">Bestellungen im Monat</span><span class="res__v" id="o-best">4</span></div>
+        <div class="res"><span class="res__l">Warenwert netto, nach 10&nbsp;% Kundenrabatt</span><span class="res__v" id="o-umsatz">236&nbsp;&euro;</span></div>
+        <div class="res"><span class="res__l">Im ersten Monat, als Gef&auml;hrte mit 10&nbsp;%</span><span class="res__v" id="o-start">24&nbsp;&euro;</span></div>
+        <div class="res res--gross"><span class="res__l" id="o-endeL">Im zw&ouml;lften Monat</span><span class="res__v" id="o-ende">47&nbsp;&euro;</span></div>
+        <div class="res"><span class="res__l">Im ersten Jahr zusammen</span><span class="res__v" id="o-jahr">505&nbsp;&euro;</span></div>
+        <p class="calc__st" id="o-stufe">Bei diesem Tempo bist du nach etwa <strong>drei Monaten Begleiter</strong> und bekommst 15&nbsp;%.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:var(--sp-4)">
+      <h3>Wie der Rechner rechnet</h3>
+      <p>Beteiligung auf den <strong>Nettowarenwert nach deinem Kundenrabatt</strong>, ohne Versand und ohne Umsatzsteuer.
+      Die Stufen richten sich nach deinem <strong>Gesamtstand</strong>, nicht nach dem einzelnen Monat. Deshalb rechnen wir
+      die zw&ouml;lf Monate einzeln durch: Du f&auml;ngst bei 10&nbsp;% an und steigst unterwegs auf &ndash; wir zeigen dir
+      also nicht den Endsatz f&uuml;r das ganze Jahr, sondern was wirklich zusammenkommt.</p>
+      <p><strong>Folgebestellungen</strong> derselben Kundschaft verg&uuml;ten wir zw&ouml;lf Monate lang mit dem halben Satz;
+      die sind hier <em>nicht</em> eingerechnet und kommen noch dazu. Ebenfalls nicht eingerechnet: die geplante
+      Materialpr&auml;mie f&uuml;r Bilder und Videos.</p>
+      <p class="fine">Beispielrechnung, keine Zusage. Was am Ende zusammenkommt, h&auml;ngt davon ab, wie oft deine Empfehlung angenommen wird.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== STUFEN ============================== -->
+<section class="sec sec--cream" id="konditionen">
+  <div class="wrap">
+    <div class="sec__head center" style="margin-inline:auto">
+      <p class="eyebrow eyebrow--deep">Konditionen</p>
+      <h2>Drei Stufen. Du steigst automatisch auf.</h2>
+      <p>Kein Verhandeln, keine Zielvorgaben, keine Mindestabnahme. Es gibt genau diese Tabelle &ndash; f&uuml;r alle gleich.</p>
+    </div>
+
+    <div class="tiers" style="margin-top:var(--sp-5)">
+      <article class="tier">
+        <p class="tier__n">Gef&auml;hrte</p>
+        <p class="tier__p">10&nbsp;<span>%</span></p>
+        <p class="tier__ab">Ab deiner ersten Empfehlung</p>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg><span>10&nbsp;% Rabatt f&uuml;r deine Kundschaft</span></li>
+          <li><svg><use href="#ic-check"/></svg><span>Eigener Code und eigener Link</span></li>
+          <li><svg><use href="#ic-check"/></svg><span>Partnerbereich mit allen Zahlen</span></li>
+          <li><svg><use href="#ic-check"/></svg><span>Fachunterlagen und Textbausteine</span></li>
+        </ul>
+      </article>
+
+      <article class="tier tier--mitte">
+        <span class="tier__mark">Nach etwa 10 Empfehlungen</span>
+        <p class="tier__n">Begleiter</p>
+        <p class="tier__p">15&nbsp;<span>%</span></p>
+        <p class="tier__ab">Ab 10 vermittelten Bestellungen oder 500&nbsp;&euro; Umsatz</p>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg><span>Alles aus Gef&auml;hrte</span></li>
+          <li><svg><use href="#ic-check"/></svg><span>Produktproben zum Selbst-Testen</span></li>
+          <li><svg><use href="#ic-check"/></svg><span>Kartenaufsteller f&uuml;r deinen Beratungsraum</span></li>
+          <li><svg><use href="#ic-check"/></svg><span>Fachinput im Quartal</span></li>
+        </ul>
+      </article>
+
+      <article class="tier">
+        <p class="tier__n">Wegbereiter</p>
+        <p class="tier__p">20&nbsp;<span>%</span></p>
+        <p class="tier__ab">Ab 40 vermittelten Bestellungen oder 2.500&nbsp;&euro; Umsatz</p>
+        <ul>
+          <li><svg><use href="#ic-check"/></svg><span>Alles aus Begleiter</span></li>
+          <li><svg><use href="#ic-check"/></svg><span>Produktpaket zum Weitergeben</span></li>
+          <li><svg><use href="#ic-check"/></svg><span>Mitreden bei neuen Rezepturen</span></li>
+          <li><svg><use href="#ic-check"/></svg><span>Direkte Nummer statt Postfach</span></li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="callout" style="margin-top:var(--sp-4)">
+      <h3>Wie abgerechnet wird</h3>
+      <p><strong>Auszahlung monatlich zum 15.</strong> f&uuml;r den Vormonat, ab 25&nbsp;&euro; Guthaben.
+      Bei Widerruf oder R&uuml;cksendung entf&auml;llt die Beteiligung &ndash; deshalb rechnen wir erst nach Ablauf
+      der Widerrufsfrist ab, damit bei dir nie etwas zur&uuml;ckgefordert wird.</p>
+      <p><strong>Du musst keine Rechnung schreiben.</strong> Wir rechnen im Gutschriftverfahren ab und legen dir
+      die Abrechnung in den Partnerbereich. Bist du Kleinunternehmerin oder Kleinunternehmer, sag es uns bei
+      der Bewerbung &ndash; dann weisen wir keine Umsatzsteuer aus.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== AUSSAGENBAND ============================== -->
+<section class="claim">
+  <div class="claim__bg" aria-hidden="true">
+    <img src="img/fachpartner-band-wiese.webp" alt="" width="2400" height="1357" loading="lazy">
+  </div>
+  <div class="wrap claim__in">
+    <div class="claim__panel">
+      <h2>Wir zahlen dir nicht f&uuml;r einen Post. Wir zahlen dir f&uuml;r deine Arbeit.</h2>
+      <p>Deshalb gibt es bei uns keine Kampagnenlaufzeit und keine Content-Pflicht. Es gibt einen Code,
+      der auch dann funktioniert, wenn du gerade auf einer Wiese stehst und keine Kamera dabei hast.</p>
+      <p class="fine">Und wenn du <em>doch</em> filmst: daf&uuml;r haben wir einen eigenen Bereich &ndash; gleich hier drunter.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== WAS DU BEKOMMST ============================== -->
+<section class="sec sec--card" id="leistungen">
+  <div class="wrap">
+    <div class="fp-split fp-split--rev">
+      <div>
+        <p class="eyebrow eyebrow--gold">Dein Startpaket</p>
+        <h2>Was du von uns bekommst</h2>
+        <div class="fp-steps" style="margin-top:var(--sp-3)">
+          <div class="fp-step"><span class="fp-step__n">1</span><div><h3>Dein pers&ouml;nlicher Code</h3><p>Auf deinen Namen &ndash; funktioniert im Beratungsgespr&auml;ch genauso wie auf deiner Website. Deine Kundschaft spart 10&nbsp;%.</p></div></div>
+          <div class="fp-step"><span class="fp-step__n">2</span><div><h3>Alle Zahlen offen</h3><p>Jede vermittelte Bestellung siehst du im Partnerbereich &ndash; mit Datum, Betrag, Satz und Auszahlungsstand. Keine Blackbox.</p></div></div>
+          <div class="fp-step"><span class="fp-step__n">3</span><div><h3>Fachunterlagen und sichere Formulierungen</h3><p>Zusammensetzung, Dosierung nach Gewicht, Studienlage &ndash; und gepr&uuml;fte S&auml;tze, die du rechtssicher verwenden darfst.</p></div></div>
+          <div class="fp-step"><span class="fp-step__n">4</span><div><h3>Produktproben zum Selbst-Testen</h3><p>Du sollst wissen, was du empfiehlst. Zum Start bekommst du das Sortiment zum Ausprobieren.</p></div></div>
+          <div class="fp-step"><span class="fp-step__n">5</span><div><h3>Eine Ansprechperson mit Namen</h3><p>Kein Ticketsystem &ndash; ein Mensch mit Durchwahl, der die Produkte kennt.</p></div></div>
+        </div>
+      </div>
+      <figure class="figframe">
+        <img src="img/fachpartner-willkommenspaket.webp" alt="Willkommenspaket mit Gelenk-Tabletten, Kartenaufsteller und handschriftlicher Karte" width="1600" height="1195" loading="lazy">
+        <figcaption>Entwurfsansicht: So ist das Willkommenspaket geplant. Verpackung und Beilagen sind noch nicht final.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== INHALTE & REICHWEITE ============================== -->
+<section class="sec sec--cream" id="inhalte">
+  <div class="orn-layer" aria-hidden="true"><img class="orn--br orn--faint" src="img/orn-kelp.svg" alt="" style="height:min(400px,78%)"></div>
+  <div class="wrap">
+    <div class="fp-split">
+      <div>
+        <p class="eyebrow eyebrow--deep">Neu im Partnerbereich</p>
+        <h2>Zeig, wie du arbeitest &ndash; wir zeigen es weiter.</h2>
+        <p class="lede" style="margin-top:1.1rem">
+          Du machst sowieso Fotos und kurze Videos: eine &Uuml;bung, ein Handgriff, ein Hund im Verlauf.
+          Im Partnerbereich kannst du sie direkt hochladen. Wir schauen sie durch und nutzen sie
+          &ndash; mit deinem Namen, wenn du willst.
+        </p>
+        <ul class="ticks" style="margin-top:1.5rem">
+          <li><span><strong>Hochladen per Ziehen und Ablegen</strong> &ndash; Bilder und Videos, bis 200&nbsp;MB pro Datei.</span></li>
+          <li><span><strong>Antwort in der Regel in drei Werktagen</strong>, mit Begr&uuml;ndung, wenn wir etwas nicht verwenden k&ouml;nnen.</span></li>
+          <li><span><strong>Die Rechte bleiben bei dir.</strong> Du gibst uns ein Nutzungsrecht, keine &Uuml;bertragung &ndash; und kannst es widerrufen.</span></li>
+          <li><span><strong>Deine Profile hinterlegst du selbst</strong> (Instagram, TikTok, YouTube, Newsletter &hellip;). Danach richten wir aus, was wir bei dir anfragen.</span></li>
+        </ul>
+
+        <div class="callout" style="margin-top:var(--sp-3)">
+          <h3><span class="plan">Geplant</span> Materialpr&auml;mie</h3>
+          <p>F&uuml;r Inhalte, die wir freigeben, ist eine Pr&auml;mie vorgesehen &ndash; im Entwurf
+          <strong>10&nbsp;&euro; je Bild und 25&nbsp;&euro; je Video</strong>, gutgeschrieben auf dein Guthaben.
+          Ob und in welcher H&ouml;he es sie gibt, ist noch nicht entschieden.</p>
+        </div>
+
+        <div class="callout" style="margin-top:1rem;border-left-color:var(--green-800)">
+          <h3>Reichweite ist keine Bedingung</h3>
+          <p>Die Followerzahl ist ein <strong>freiwilliges</strong> Feld und entscheidet weder &uuml;ber deine Aufnahme
+          noch &uuml;ber deinen Satz &ndash; eine Einzelpraxis mit 200 Followern ist uns genauso willkommen
+          wie ein Kanal mit 50.000. Wir wollen nur wissen, wen wir wof&uuml;r ansprechen k&ouml;nnen.</p>
+        </div>
+      </div>
+      <figure class="figframe">
+        <img src="img/fachpartner-inhalte.webp" alt="Hundetrainerin filmt sich mit dem Smartphone, ihr Hund liegt neben ihr" width="1600" height="1195" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PARTNERBEREICH ============================== -->
+<section class="sec sec--card" id="partnerbereich">
+  <div class="wrap">
+    <div class="sec__head center" style="margin-inline:auto">
+      <p class="eyebrow eyebrow--gold">Dein Partnerbereich</p>
+      <h2>Alles an einer Stelle &ndash; und nichts versteckt</h2>
+      <p>Kein englisches Dashboard, keine Kennzahl, die du erst deuten musst.</p>
+    </div>
+    <figure class="shot" style="margin-top:var(--sp-4)">
+      <img src="img/fachpartner-portal-vorschau.webp" alt="Ansicht des Partnerbereichs mit &Uuml;bersicht, Stufe, Empfehlungscode und letzten Bestellungen" width="1440" height="1000" loading="lazy">
+    </figure>
+    <div class="pgrid">
+      <div class="pcard"><h3>&Uuml;bersicht</h3><p>Deine Stufe, dein Fortschritt zur n&auml;chsten und was gerade auszahlbar ist.</p></div>
+      <div class="pcard"><h3>Bestellungen</h3><p>Jede Bestellung mit Satz und Betrag &ndash; auch die stornierten, damit die Zahlen stimmen.</p></div>
+      <div class="pcard"><h3>Meine Inhalte</h3><p>Bilder und Videos hochladen, Status verfolgen, Begr&uuml;ndungen lesen.</p></div>
+      <div class="pcard"><h3>Auszahlungen</h3><p>Gutschriften zum Herunterladen und die Aufstellung, woraus dein Guthaben besteht.</p></div>
+      <div class="pcard"><h3>Material &amp; Texte</h3><p>Unterlagen f&uuml;r die Beratung und die Liste erlaubter Formulierungen.</p></div>
+      <div class="pcard"><h3>Mein Profil</h3><p>Stammdaten, Auszahlungsdaten und deine Social-Profile &ndash; selbst pflegbar.</p></div>
+    </div>
+    <p class="center" style="margin-top:var(--sp-4)">
+      <a class="btn btn--ghost" href="fachpartner-portal/index.html">Partnerbereich ansehen<svg><use href="#ic-arrow"/></svg></a>
+    </p>
+  </div>
+</section>
+
+<!-- ============================== VORAUSSETZUNGEN ============================== -->
+<section class="sec sec--green" id="voraussetzungen">
+  <div class="orn-layer" aria-hidden="true"><img class="orn--br orn--faint" src="img/orn-leaves-right.svg" alt="" style="height:min(380px,76%)"></div>
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="eyebrow eyebrow--gold">Voraussetzungen</p>
+      <h2>Was wir von dir erwarten</h2>
+      <p class="lede">Wir nehmen bewusst nicht jeden auf. Wer bei uns Partner ist, spricht mit unserer Stimme.</p>
+    </div>
+    <div class="fp-split" style="margin-top:var(--sp-4);align-items:start">
+      <ul class="ticks ticks--light">
+        <li><span>Du arbeitest gewerblich oder freiberuflich im Tierbereich.</span></li>
+        <li><span>Deine T&auml;tigkeit ist nachvollziehbar &ndash; Website, Praxisadresse, Verbandsmitgliedschaft oder ein Nachweis, den du hochl&auml;dst.</span></li>
+        <li><span>Du ber&auml;tst Hundehalter pers&ouml;nlich.</span></li>
+        <li><span>Du h&auml;ltst dich an unsere Vorgaben zu Produktaussagen.</span></li>
+      </ul>
+      <ul class="crosses">
+        <li><span>Keine Gutschein-, Cashback- oder Schn&auml;ppchenportale.</span></li>
+        <li><span>Keine Anzeigen auf unseren Markennamen.</span></li>
+        <li><span>Keine Bestellungen auf den eigenen Code.</span></li>
+        <li><span>Keine eigenen Heilversprechen &ndash; dazu gleich mehr.</span></li>
+      </ul>
+    </div>
+    <div class="warnbox" style="margin-top:var(--sp-4)">
+      <h3>Wichtig: Was &uuml;ber unsere Produkte gesagt werden darf</h3>
+      <p>
+        Unsere Produkte sind Erg&auml;nzungsfuttermittel, keine Arzneimittel. Krankheitsbezogene Aussagen sind
+        deshalb gesetzlich untersagt &ndash; auch dann, wenn sie gut gemeint sind.
+        S&auml;tze wie <em>&bdquo;hilft bei Arthrose"</em>, <em>&bdquo;lindert Schmerzen"</em> oder
+        <em>&bdquo;entz&uuml;ndungshemmend"</em> d&uuml;rfen wir nicht verwenden und du auch nicht &ndash;
+        selbst Abschw&auml;chungen wie <em>&bdquo;unterst&uuml;tzend bei&hellip;"</em> gelten rechtlich als krankheitsbezogen.
+      </p>
+      <p>
+        Richtig und fachlich sauber sind Formulierungen wie <em>&bdquo;zur Unterst&uuml;tzung gesunder Gelenke"</em>
+        oder <em>&bdquo;tr&auml;gt zur normalen Gelenkfunktion bei"</em>. Du bekommst von uns eine Liste gepr&uuml;fter
+        S&auml;tze und eine kurze Einweisung, bevor du startest. Das ist keine Formalie: Es sch<!--
+        -->&uuml;tzt dich und uns gleichzeitig &ndash; und es gilt genauso f&uuml;r Videos, die du uns schickst.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== ABLAUF ============================== -->
+<section class="sec sec--cream" id="ablauf">
+  <div class="wrap">
+    <div class="fp-split">
+      <div>
+      <p class="eyebrow eyebrow--deep">In vier Schritten</p>
+      <h2>So l&auml;uft die Aufnahme</h2>
+    <div class="fp-steps" style="margin-top:var(--sp-3)">
+      <div class="fp-step"><span class="fp-step__n">1</span><div><h3>Bewerben</h3><p>Formular unten ausf&uuml;llen &ndash; rund drei Minuten. Wer den Nachweis gleich mitschickt, ist schneller durch.</p></div></div>
+      <div class="fp-step"><span class="fp-step__n">2</span><div><h3>Wir schauen pers&ouml;nlich</h3><p>Kein Automatismus. Innerhalb von f&uuml;nf Werktagen h&ouml;rst du von uns &ndash; auch bei einem Nein.</p></div></div>
+      <div class="fp-step"><span class="fp-step__n">3</span><div><h3>Zugang, Code, Paket</h3><p>Du bekommst deinen Code, den Partnerbereich und das Willkommenspaket mit der Post.</p></div></div>
+      <div class="fp-step"><span class="fp-step__n">4</span><div><h3>Empfehlen und abrechnen</h3><p>Du empfiehlst, wir zahlen monatlich aus. Deinen Stand siehst du jederzeit.</p></div></div>
+    </div>
+      </div>
+      <figure class="figframe">
+        <img src="img/fachpartner-fachhandel.webp" alt="Beratung an der Theke eines kleinen Fachhandels, ein Hund sitzt daneben" width="1600" height="1195" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FAQ ============================== -->
+<section class="sec sec--card" id="faq">
+  <div class="wrap" style="max-width:900px">
+    <div class="sec__head center" style="margin-inline:auto">
+      <p class="eyebrow eyebrow--gold">H&auml;ufige Fragen</p>
+      <h2>Was Partner uns oft fragen</h2>
+    </div>
+    <div class="faq" style="margin-top:var(--sp-4)">
+      <details class="acc"><summary class="acc__b">Muss ich Ware einkaufen oder lagern?</summary><div class="acc__c"><p>Nein. Deine Kundschaft bestellt direkt bei uns, wir liefern und wickeln ab. Du tr&auml;gst kein Warenrisiko und gehst nicht in Vorleistung. Wenn du lieber selbst einkaufen und verkaufen m&ouml;chtest, sag es uns &ndash; daf&uuml;r haben wir einen eigenen Weg.</p></div></details>
+      <details class="acc"><summary class="acc__b">Wie wird meine Empfehlung erkannt?</summary><div class="acc__c"><p>&Uuml;ber deinen pers&ouml;nlichen Code, den deine Kundschaft beim Bestellen eingibt. Das funktioniert auch dann, wenn die Empfehlung im Gespr&auml;ch f&auml;llt &ndash; anders als bei reinen Werbelinks, die von Browsereinstellungen abh&auml;ngen. Zus&auml;tzlich bekommst du einen Link f&uuml;r Website oder Newsletter.</p><p>Ehrlich dazu: Beim <em>Link</em> kann die Zuordnung ausfallen, wenn jemand das Tracking ablehnt. Beim <em>Code</em> nicht &ndash; er wird mit der Bestellung gespeichert. Deshalb ist der Code unser Hauptweg.</p></div></details>
+      <details class="acc"><summary class="acc__b">Muss ich eine Rechnung schreiben?</summary><div class="acc__c"><p>Nein. Wir rechnen im Gutschriftverfahren nach &sect;&nbsp;14 Abs.&nbsp;2 UStG ab und stellen dir die Abrechnung monatlich bereit. Wenn du Kleinunternehmerin oder Kleinunternehmer bist, gib das bitte bei der Bewerbung an &ndash; dann weisen wir keine Umsatzsteuer aus.</p></div></details>
+      <details class="acc"><summary class="acc__b">Was passiert bei einer R&uuml;cksendung?</summary><div class="acc__c"><p>Dann entf&auml;llt die Beteiligung f&uuml;r diese Bestellung. Damit bei dir nie etwas zur&uuml;ckgefordert werden muss, rechnen wir erst nach Ablauf der Widerrufsfrist ab. Im Partnerbereich siehst du bei jeder Bestellung, wie lange sie noch in Pr&uuml;fung ist.</p></div></details>
+      <details class="acc"><summary class="acc__b">Was passiert mit den Bildern und Videos, die ich hochlade?</summary><div class="acc__c"><p>Du beh&auml;ltst die Rechte an deinen Aufnahmen. Beim Hochladen r&auml;umst du uns ein <em>einfaches</em> Nutzungsrecht ein &ndash; wir d&uuml;rfen sie also f&uuml;r Shop, Newsletter, Social Media und Werbung verwenden, du darfst sie weiterhin selbst nutzen und kannst das Recht widerrufen.</p><p>Wir pr&uuml;fen jeden Upload, bevor er verwendet wird. Zwei Dinge f&uuml;hren regelm&auml;&szlig;ig zur Ablehnung: krankheitsbezogene Aussagen im Ton und fremde Musik. Du bekommst dann eine konkrete Begr&uuml;ndung und kannst eine neue Fassung schicken.</p></div></details>
+      <details class="acc"><summary class="acc__b">Muss ich Social Media haben?</summary><div class="acc__c"><p>Nein. Die Profile und die Followerzahl sind freiwillige Angaben und spielen f&uuml;r die Aufnahme keine Rolle &ndash; wir suchen Fachlichkeit, nicht Reichweite. Wir fragen es nur, damit wir wissen, wen wir wof&uuml;r ansprechen k&ouml;nnen: Wer gern filmt, bekommt andere Anfragen als jemand, der ausschlie&szlig;lich in der Praxis ber&auml;t.</p></div></details>
+      <details class="acc"><summary class="acc__b">Darf ich als Tier&auml;rztin oder Tierarzt teilnehmen?</summary><div class="acc__c"><p>Ja. Wir werben allerdings bewusst nicht mit deinem Namen und deiner Berufsbezeichnung &ndash; das Berufsrecht setzt hier Grenzen. Dein Code bleibt eine stille Empfehlung an deine Kundschaft. M&ouml;chtest du stattdessen selbst einkaufen und weiterverkaufen, sprich uns an.</p></div></details>
+      <details class="acc"><summary class="acc__b">Kann ich jederzeit aufh&ouml;ren?</summary><div class="acc__c"><p>Ja, ohne Frist und ohne Begr&uuml;ndung. Bereits verdiente Beteiligungen rechnen wir selbstverst&auml;ndlich noch ab.</p></div></details>
+      <details class="acc"><summary class="acc__b">Was passiert mit den Daten meiner Kundschaft?</summary><div class="acc__c"><p>Du bekommst von uns keine personenbezogenen Daten deiner Kundschaft &ndash; nur die Information, dass &uuml;ber deinen Code bestellt wurde, mit Datum und Betrag. Das ist datenschutzrechtlich gewollt und schont deine Vertrauensbeziehung.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== BEWERBUNG ============================== -->
+<section class="sec sec--cream" id="bewerben">
+  <div class="orn-layer" aria-hidden="true"><img class="orn--tr orn--faint" src="img/orn-garland.svg" alt="" style="height:min(190px,38%)"></div>
+  <div class="wrap" style="max-width:860px">
+    <div class="sec__head center" style="margin-inline:auto">
+      <p class="eyebrow eyebrow--deep">Bewerbung</p>
+      <h2>Partner werden</h2>
+      <p>Wir melden uns innerhalb von f&uuml;nf Werktagen pers&ouml;nlich bei dir.</p>
+    </div>
+
+    <form class="form form--on-cream" id="bewerbung" style="margin-top:var(--sp-4)" novalidate>
+      <div class="form__grid">
+        <div class="fld"><label for="f-name">Vor- und Nachname *</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="fld"><label for="f-firma">Praxis, Firma oder T&auml;tigkeitsname *</label><input id="f-firma" name="firma" type="text" autocomplete="organization" required></div>
+        <div class="fld"><label for="f-mail">E-Mail *</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div>
+        <div class="fld"><label for="f-tel">Telefon</label><input id="f-tel" name="telefon" type="tel" autocomplete="tel"></div>
+        <div class="fld"><label for="f-ort">Ort</label><input id="f-ort" name="ort" type="text" autocomplete="address-level2"></div>
+        <div class="fld"><label for="f-web">Website</label><input id="f-web" name="website" type="url" placeholder="https://"></div>
+
+        <div class="fld fld--full"><label for="f-taetig">Womit arbeitest du? *</label><textarea id="f-taetig" name="taetigkeit" required placeholder="Zum Beispiel: Seit 2019 eigene Praxis f&uuml;r Hundephysiotherapie in L&uuml;beck, Schwerpunkt Rehabilitation nach Operationen. Rund 40 Hunde im Monat."></textarea></div>
+
+        <div class="fld fld--full"><label for="f-weg">Wie m&ouml;chtest du empfehlen? *</label>
+          <select id="f-weg" name="weg" required>
+            <option value="">Bitte w&auml;hlen</option>
+            <option>Im pers&ouml;nlichen Beratungsgespr&auml;ch</option>
+            <option>&Uuml;ber meine Website oder meinen Newsletter</option>
+            <option>&Uuml;ber Social Media</option>
+            <option>Im eigenen Verkaufsraum</option>
+            <option>Mehreres davon</option>
+          </select>
+        </div>
+        <div class="fld fld--full"><label for="f-kunden">Wie viele Hundehalter ber&auml;tst du ungef&auml;hr im Monat?</label>
+          <select id="f-kunden" name="kunden">
+            <option value="">Keine Angabe</option><option>Bis 20</option><option>20 bis 50</option><option>50 bis 100</option><option>Mehr als 100</option>
+          </select>
+        </div>
+
+        <!-- ---- Social-Profile ---- -->
+        <fieldset class="fset">
+          <legend>Deine Profile</legend>
+          <p class="fset__h"><strong>Freiwillig.</strong> Reichweite spielt f&uuml;r die Aufnahme keine Rolle &ndash;
+          wir wollen nur wissen, wen wir wof&uuml;r ansprechen k&ouml;nnen. Du kannst das sp&auml;ter jederzeit im Partnerbereich &auml;ndern.</p>
+          <div id="soc-liste"></div>
+          <button class="btn btn--sm btn--ghost" type="button" id="soc-plus">Weiteres Profil hinzuf&uuml;gen</button>
+        </fieldset>
+
+        <!-- ---- Nachweise ---- -->
+        <fieldset class="fset">
+          <legend>Nachweis deiner T&auml;tigkeit</legend>
+          <p class="fset__h">Am schnellsten geht es, wenn du direkt etwas mitschickst: Gewerbeanmeldung, Ausbildungs- oder
+          Verbandsnachweis, Praxiseintrag. Wenn deine Website alles zeigt, reicht auch die &ndash; dann lass das Feld leer.</p>
+          <div class="drop" id="nw-drop" tabindex="0" role="button" aria-label="Nachweise ausw&auml;hlen oder hierher ziehen">
+            <svg><use href="#ic-upload"/></svg>
+            <p class="drop__t">Dateien hierher ziehen</p>
+            <p class="fine">oder <span class="drop__link">ausw&auml;hlen</span> &middot; PDF, JPG oder PNG</p>
+            <input type="file" id="nw-datei" accept=".pdf,image/*" multiple hidden>
+          </div>
+          <div class="flist" id="nw-liste" hidden></div>
+        </fieldset>
+
+        <div class="fld fld--full"><label for="f-nachricht">M&ouml;chtest du uns noch etwas sagen?</label><textarea id="f-nachricht" name="nachricht" style="min-height:110px"></textarea></div>
+      </div>
+
+      <label class="check" for="f-klein"><input type="checkbox" id="f-klein" name="kleinunternehmer"><span>Ich bin Kleinunternehmerin oder Kleinunternehmer nach &sect;&nbsp;19&nbsp;UStG &ndash; bitte keine Umsatzsteuer ausweisen.</span></label>
+      <label class="check" for="f-agb"><input type="checkbox" id="f-agb" name="agb" required><span>Ich habe die Teilnahmebedingungen und die Vorgaben zu Produktaussagen gelesen und akzeptiere sie. *</span></label>
+      <label class="check" for="f-dsgvo"><input type="checkbox" id="f-dsgvo" name="dsgvo" required><span>Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung der Bewerbung verarbeitet werden. *</span></label>
+
+      <div id="f-fehler" class="formmsg formmsg--err" hidden role="alert"></div>
+      <div id="f-ok" class="formmsg formmsg--ok" hidden role="status"></div>
+
+      <button class="btn btn--primary btn--block" type="submit" style="margin-top:1.4rem">Bewerbung absenden<svg><use href="#ic-arrow"/></svg></button>
+      <p class="fine center" style="margin-top:.9rem">Pflichtfelder sind mit * gekennzeichnet. Es entstehen keine Kosten und keine Verpflichtung.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="ft">
+  <div class="orn-layer" aria-hidden="true"><img class="orn--br orn--faint" src="img/orn-kelp.svg" alt="" style="height:min(420px,80%)"></div>
+  <div class="wrap">
+    <div class="ft__grid">
+      <div>
+        <img class="logo" src="img/logo-cream.svg" alt="NatureFlow Pets" width="196" height="22">
+        <p>Hundegesundheit aus Ratzeburg. Wissenschaftlich fundiert, warm erkl&auml;rt, ehrlich deklariert.</p>
+        <p style="margin-top:1rem;color:var(--gold-light);font-weight:600">4,82 von 5 Sternen &middot; &uuml;ber 72.000 Bewertungen</p>
+        <div class="pay"><span>Kauf auf Rechnung</span><span>PayPal</span><span>SEPA</span><span>Kreditkarte</span><span>Klarna</span></div>
+      </div>
+      <div><h4>Produkte</h4><ul>
+        <li><a href="../aktuell/sortiment.html">Alle Produkte</a></li>
+        <li><a href="../aktuell/produkt-gelenk-tabletten.html">Gelenk-Tabletten</a></li>
+        <li><a href="../aktuell/sortiment.html">Verdauung &amp; Immunsystem</a></li>
+        <li><a href="../aktuell/sortiment.html">Ruhe &amp; Nerven</a></li>
+      </ul></div>
+      <div><h4>Wissen</h4><ul>
+        <li><a href="../aktuell/wissenschaft.html">Wirkstoffe &amp; Studienlage</a></li>
+        <li><a href="../aktuell/blog.html">Ratgeber</a></li>
+        <li><a href="index.html#manufaktur">Verpackung &amp; Material</a></li>
+        <li><a href="index.html#ueber-uns">&Uuml;ber uns</a></li>
+      </ul></div>
+      <div><h4>Partner</h4><ul>
+        <li><a href="fachpartner.html">Partnerprogramm</a></li>
+        <li><a href="fachpartner-portal/index.html">Partner-Login</a></li>
+        <li><a href="#konditionen">Konditionen</a></li>
+        <li><a href="../aktuell/kontakt.html">Kontakt &amp; Beratung</a></li>
+      </ul></div>
+    </div>
+    <div class="ft__bot">
+      <span>&copy; 2026 NatureFlow Pets &middot; Ein Unternehmen der BEMS Ventures GmbH</span>
+      <span>Mit Tier&auml;rzten entwickelt &middot; 120 Tage Geld-zur&uuml;ck-Garantie &middot; Made in Germany</span>
+      <span><a href="https://natureflow-pets.com/policies/legal-notice">Impressum</a> &middot; <a href="https://natureflow-pets.com/policies/privacy-policy">Datenschutz</a> &middot; <a href="https://natureflow-pets.com/policies/terms-of-service">AGB</a></span>
+    </div>
+  </div>
+</footer>
+<script src="assets/nfp.js"></script>
+<script src="assets/nfp-dialoge.js"></script>
+
+<script>
+/* ============================================================
+   Partnerseite: Verdienstrechner, Social-Zeilen, Nachweis-Upload
+   und die Übergabe der Bewerbung an den Partnerbereich.
+   Prototyp – läuft ohne Server, speichert nur in diesem Browser.
+   ============================================================ */
+(function(){
+  'use strict';
+
+  var STUFEN = [
+    { name:'Gefährte',   satz:0.10, abBest:0,  abUms:0 },
+    { name:'Begleiter',  satz:0.15, abBest:10, abUms:500 },
+    { name:'Wegbereiter',satz:0.20, abBest:40, abUms:2500 }
+  ];
+  var NETZE = ['Instagram','TikTok','YouTube','Facebook','Website oder Blog','Newsletter','Podcast','Sonstiges'];
+
+  function eur(n){ return n.toLocaleString('de-DE',{minimumFractionDigits:0,maximumFractionDigits:0}) + ' €'; }
+  function eur2(n){ return n.toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2}) + ' €'; }
+  function mb(b){
+    // Unter 1 MB in KB anzeigen: „0 MB" sieht wie ein Fehler aus, ist aber nur eine kleine Datei.
+    if(b < 1048576) return Math.max(1, Math.round(b/1024)).toLocaleString('de-DE') + ' KB';
+    return (b/1048576).toLocaleString('de-DE',{maximumFractionDigits:1}) + ' MB';
+  }
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+  function el(s,w){ return (w||document).querySelector(s); }
+  function alle(s,w){ return Array.prototype.slice.call((w||document).querySelectorAll(s)); }
+
+  /* ---------------- Rechner ---------------- */
+  (function(){
+    var rB = el('#r-berat'), rQ = el('#r-quote'), rK = el('#r-korb');
+    if(!rB) return;
+
+    /** Stufe zu einem kumulierten Stand – die höchste erfüllte Stufe gewinnt. */
+    function stufeFuer(best, ums){
+      var t = STUFEN[0];
+      for(var i=0;i<STUFEN.length;i++){
+        if(best >= STUFEN[i].abBest || ums >= STUFEN[i].abUms) t = STUFEN[i];
+      }
+      return t;
+    }
+
+    function rechne(){
+      var berat = +rB.value, quote = +rQ.value / 100, korb = +rK.value;
+      var best = berat * quote;                       // Bestellungen im Monat
+      var netto = best * (korb * 0.9 / 1.07);         // nach 10 % Kundenrabatt, ohne 7 % USt
+
+      /* Zwölf Monate wirklich durchrechnen, statt den Endsatz auf das ganze Jahr
+         anzuwenden. Sonst zeigt der Rechner ab dem ersten Monat 20 %, obwohl jeder
+         bei 10 % anfängt – das wäre schöngerechnet. Die Schwellen gelten kumuliert,
+         maßgeblich ist der Stand VOR dem jeweiligen Monat. */
+      var kumBest = 0, kumUms = 0, jahr = 0, monatsWert = 0, stufe = STUFEN[0];
+      for(var m = 1; m <= 12; m++){
+        stufe = stufeFuer(kumBest, kumUms);
+        monatsWert = netto * stufe.satz;
+        jahr += monatsWert;
+        kumBest += best; kumUms += netto;
+      }
+      var startWert = netto * STUFEN[0].satz;
+
+      el('#o-berat').textContent = berat;
+      el('#o-quote').textContent = rQ.value + ' %';
+      el('#o-korb').textContent  = rK.value + ' €';
+      el('#o-best').textContent  = best < 10 ? best.toLocaleString('de-DE',{maximumFractionDigits:1}) : Math.round(best);
+      el('#o-umsatz').textContent = eur(netto);
+      el('#o-start').textContent = eur(startWert);
+      el('#o-endeL').textContent = 'Im zwölften Monat, als ' + stufe.name + ' mit ' + Math.round(stufe.satz*100) + ' %';
+      el('#o-ende').textContent  = eur(monatsWert);
+      el('#o-jahr').textContent  = eur(jahr);
+
+      /* Wie lange bis zur nächsten Stufe? Ehrlich formulieren, wenn es nie reicht. */
+      var idx = STUFEN.indexOf(stufe), txt;
+      if(idx >= STUFEN.length - 1){
+        txt = 'Bei diesem Tempo bist du <strong>Wegbereiter</strong> – die höchste Stufe mit 20 %.';
+      } else {
+        var z = STUFEN[idx+1];
+        var monBest = best > 0 ? z.abBest / best : Infinity;
+        var monUms  = netto > 0 ? z.abUms / netto : Infinity;
+        var mon = Math.ceil(Math.min(monBest, monUms));
+        if(!isFinite(mon) || mon > 60){
+          txt = 'Für die nächste Stufe (' + z.name + ', ' + Math.round(z.satz*100) +
+                ' %) bräuchte es bei diesen Zahlen sehr lange. Schon eine Empfehlung mehr im Monat ändert das deutlich.';
+        } else {
+          txt = 'Bei diesem Tempo bist du nach etwa <strong>' + mon + (mon === 1 ? ' Monat ' : ' Monaten ') +
+                esc(z.name) + '</strong> und bekommst ' + Math.round(z.satz*100) + ' %.';
+        }
+      }
+      el('#o-stufe').innerHTML = txt;
+    }
+
+    [rB,rQ,rK].forEach(function(r){ r.addEventListener('input', rechne); });
+    rechne();
+  })();
+
+  /* ---------------- Social-Zeilen ---------------- */
+  var socN = 0;
+  function socZeile(){
+    var i = socN++;
+    var d = document.createElement('div');
+    d.className = 'socrow';
+    d.setAttribute('data-soc', i);
+    d.innerHTML =
+      '<div class="fld"><label for="s-netz-'+i+'">Netzwerk</label>' +
+      '<select id="s-netz-'+i+'"><option value="">Bitte wählen</option>' +
+      NETZE.map(function(n){ return '<option>'+esc(n)+'</option>'; }).join('') + '</select></div>' +
+      '<div class="fld"><label for="s-handle-'+i+'">Profilname</label>' +
+      '<input id="s-handle-'+i+'" type="text" placeholder="@meinprofil"></div>' +
+      '<div class="fld"><label for="s-foll-'+i+'">Follower</label>' +
+      '<input id="s-foll-'+i+'" type="number" min="0" step="1" placeholder="z. B. 2400"></div>' +
+      '<button class="socrow__x" type="button" aria-label="Profil entfernen"><svg><use href="#ic-close"/></svg></button>';
+    el('button', d).addEventListener('click', function(){
+      d.remove();
+      if(!alle('.socrow').length) el('#soc-liste').appendChild(socZeile());
+    });
+    return d;
+  }
+  function leseSocial(){
+    return alle('.socrow').map(function(row){
+      var i = row.getAttribute('data-soc');
+      var netz = el('#s-netz-'+i).value;
+      var handle = el('#s-handle-'+i).value.trim();
+      var f = parseInt(el('#s-foll-'+i).value, 10);
+      if(!netz && !handle) return null;
+      return { netz: netz || 'Sonstiges', handle: handle, follower: isNaN(f) ? 0 : Math.max(0, f), url: '' };
+    }).filter(Boolean);
+  }
+  el('#soc-liste').appendChild(socZeile());
+  el('#soc-plus').addEventListener('click', function(){
+    el('#soc-liste').appendChild(socZeile());
+    var letzte = alle('.socrow').pop();
+    if(letzte) el('select', letzte).focus();
+  });
+
+  /* ---------------- Nachweise ----------------
+     Der Prototyp merkt sich absichtlich nur Name und Größe, nicht den Inhalt:
+     echte Ausweis- oder Gewerbedokumente haben im localStorage nichts zu suchen. */
+  var nachweise = [];
+  (function(){
+    var zone = el('#nw-drop'), input = el('#nw-datei');
+    zone.addEventListener('click', function(){ input.click(); });
+    zone.addEventListener('keydown', function(ev){
+      if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); input.click(); }
+    });
+    ['dragenter','dragover'].forEach(function(n){
+      zone.addEventListener(n, function(ev){ ev.preventDefault(); zone.setAttribute('data-an','true'); });
+    });
+    ['dragleave','drop'].forEach(function(n){
+      zone.addEventListener(n, function(ev){ ev.preventDefault(); zone.setAttribute('data-an','false'); });
+    });
+    zone.addEventListener('drop', function(ev){ if(ev.dataTransfer) nimm(ev.dataTransfer.files); });
+    input.addEventListener('change', function(){ nimm(input.files); input.value=''; });
+
+    function nimm(fl){
+      Array.prototype.slice.call(fl||[]).forEach(function(f){
+        if(f.size > 20*1048576) return;   // 20 MB reichen für einen Nachweis
+        nachweise.push({ name: f.name, groesse: f.size });
+      });
+      zeichne();
+    }
+    function zeichne(){
+      var box = el('#nw-liste');
+      if(!nachweise.length){ box.hidden = true; box.innerHTML=''; return; }
+      box.hidden = false;
+      box.innerHTML = nachweise.map(function(n,i){
+        return '<div class="fitem"><svg><use href="#ic-doc"/></svg><span>'+esc(n.name)+'</span>' +
+               '<span class="fitem__m">'+mb(n.groesse)+'</span>' +
+               '<button type="button" data-nw-weg="'+i+'" aria-label="Datei entfernen">' +
+               '<svg viewBox="0 0 24 24" width="16" height="16"><use href="#ic-close"/></svg></button></div>';
+      }).join('');
+      alle('[data-nw-weg]', box).forEach(function(b){
+        b.addEventListener('click', function(){
+          nachweise.splice(parseInt(b.getAttribute('data-nw-weg'),10),1);
+          zeichne();
+        });
+      });
+    }
+  })();
+
+  /* ---------------- Bewerbung absenden ---------------- */
+  (function(){
+    var form = el('#bewerbung');
+    var boxErr = el('#f-fehler'), boxOk = el('#f-ok');
+    var SPEICHER = 'nfp_fachpartner_bewerbungen';
+
+    function zeigeFehler(liste){
+      boxOk.hidden = true;
+      boxErr.innerHTML = '<strong>Da fehlt noch etwas:</strong><ul style="margin:.5rem 0 0;padding-left:1.1rem;list-style:disc">'
+        + liste.map(function(t){ return '<li>'+t+'</li>'; }).join('') + '</ul>';
+      boxErr.hidden = false;
+      boxErr.scrollIntoView({block:'center', behavior:'instant'});
+    }
+
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var fehler = [];
+      ['f-name','f-firma','f-mail','f-taetig','f-weg'].forEach(function(id){
+        var e = el('#'+id);
+        e.setAttribute('aria-invalid','false');
+        if(!e.value.trim()){
+          e.setAttribute('aria-invalid','true');
+          fehler.push(el('label[for="'+id+'"]').textContent.replace(' *','') + ' fehlt.');
+        }
+      });
+      var mail = el('#f-mail');
+      if(mail.value.trim() && !/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(mail.value.trim())){
+        mail.setAttribute('aria-invalid','true');
+        fehler.push('Die E-Mail-Adresse sieht nicht gültig aus.');
+      }
+      if(!el('#f-agb').checked)   fehler.push('Bitte bestätige die Teilnahmebedingungen.');
+      if(!el('#f-dsgvo').checked) fehler.push('Bitte bestätige die Datenschutzhinweise.');
+      if(fehler.length){ zeigeFehler(fehler); return; }
+
+      var eintrag = {
+        id: 'B' + Date.now().toString(36).toUpperCase(),
+        name: el('#f-name').value.trim(),
+        firma: el('#f-firma').value.trim(),
+        email: el('#f-mail').value.trim(),
+        telefon: el('#f-tel').value.trim(),
+        ort: el('#f-ort').value.trim(),
+        website: el('#f-web').value.trim(),
+        taetigkeit: el('#f-taetig').value.trim(),
+        weg: el('#f-weg').value,
+        kunden: el('#f-kunden').value,
+        nachricht: el('#f-nachricht').value.trim(),
+        social: leseSocial(),
+        nachweise: nachweise.slice(),
+        kleinunternehmer: el('#f-klein').checked,
+        eingang: new Date().toISOString(),
+        status: 'offen'
+      };
+      try{
+        var a = JSON.parse(localStorage.getItem(SPEICHER) || '[]');
+        a.push(eintrag);
+        localStorage.setItem(SPEICHER, JSON.stringify(a));
+      }catch(e){ /* Speicher gesperrt – der Prototyp läuft trotzdem weiter */ }
+
+      boxErr.hidden = true;
+      boxOk.innerHTML = '<strong>Danke, ' + esc(eintrag.name.split(' ')[0]) + '!</strong><br>'
+        + 'Deine Bewerbung ist da (Vorgang ' + eintrag.id + '). Wir melden uns innerhalb von fünf Werktagen.'
+        + (eintrag.nachweise.length ? ' Deine ' + eintrag.nachweise.length + ' Nachweise haben wir bekommen.' : '')
+        + '<br><span style="font-size:.87rem;opacity:.85">Prototyp-Hinweis: Die Bewerbung liegt jetzt im '
+        + '<a href="fachpartner-portal/index.html" style="text-decoration:underline">Partnerbereich</a> zur Prüfung bereit.</span>';
+      boxOk.hidden = false;
+      form.querySelector('button[type=submit]').disabled = true;
+      boxOk.scrollIntoView({block:'center', behavior:'instant'});
+    });
+
+    /* Marker: erst ab hier ist die Seite wirklich bedienbar. Ohne ihn klickt ein Test
+       womöglich, bevor der Handler hängt – dann sendet der Browser das Formular nativ
+       ab und die Prüfung misst eine leere Seite. */
+    window.__fpBereit = true;
+  })();
+})();
+</script>
+
+</body>
+</html>

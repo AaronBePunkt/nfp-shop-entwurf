@@ -1,0 +1,143 @@
+/* =========================================================
+   NatureFlow Pets – Creator-Bereich, Ergänzungen zu portal.css
+   Nur das, was der Fachpartner-Bereich nicht kennt: Kampagnen,
+   Prüf-Listen, Rechte-Hinweise.
+   Grundsatz wie überall: Farbe trägt Bedeutung, nicht Dekoration.
+   Alles hier wird zusätzlich zu portal.css geladen – deshalb sind
+   Namen, die dort schon belegt sind, bewusst gemieden.
+   ========================================================= */
+
+/* ---------- Haken- und Kreuzlisten ----------
+   Jeder Punkt liegt in EINER Hülle (<span>). Ohne die zerlegt ein
+   Grid-<li> Fließtext in mehrere anonyme Grid-Items und schiebt den
+   Resttext einwortweise in die 24-px-Spalte. */
+.ticks, .crosses { display: grid; gap: .65rem; margin: 0; padding: 0; list-style: none }
+.ticks li, .crosses li {
+  display: grid; grid-template-columns: 24px 1fr; gap: .65rem;
+  align-items: start; line-height: 1.55; font-size: .93rem; color: var(--ink)
+}
+.ticks--sm li, .crosses--sm li { font-size: .89rem }
+.ticks li::before {
+  content: ""; width: 18px; height: 18px; margin-top: .2rem; border-radius: 50%;
+  background: var(--gold); display: block;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' d='M4 12.5l5 5 11-11'/></svg>") center/12px no-repeat;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' d='M4 12.5l5 5 11-11'/></svg>") center/12px no-repeat
+}
+.crosses li::before {
+  content: ""; width: 18px; height: 18px; margin-top: .2rem; border-radius: 50%;
+  background: #C0563A; display: block;
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' d='M6 6l12 12M18 6L6 18'/></svg>") center/11px no-repeat;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' d='M6 6l12 12M18 6L6 18'/></svg>") center/11px no-repeat
+}
+
+/* ---------- Beschreibungsliste (eigene, weil .dl aus portal.css dt/dd erwartet) ---------- */
+.crdl { display: grid; gap: .1rem; font-size: .92rem }
+.crdl > div {
+  display: flex; justify-content: space-between; gap: 1.2rem; align-items: baseline;
+  padding: .55rem 0; border-bottom: 1px solid var(--line)
+}
+.crdl > div > span:first-child { color: var(--ink-soft) }
+.crdl > div > span:last-child { color: var(--ink); font-weight: 600; text-align: right }
+.crdl > div:last-child { border-bottom: 0 }
+.crdl__sum { border-top: 2px solid var(--line-strong); border-bottom: 0 !important }
+.crdl__sum > span { font-family: var(--ff-head); font-weight: 800; font-size: 1.02rem }
+.crdl__sum > span:first-child { color: var(--green-900) !important }
+
+/* ---------- Hinweiskästen in weiteren Bedeutungen ----------
+   Kontraste gerechnet: Text #5B6257 auf #FBF0DA = 4,9:1, auf #F7E2DC = 4,7:1.
+   Beide über 4,5:1, also auch für normalen Fließtext tragfähig. */
+.note--gold { background: #FBF0DA; border-left-color: var(--gold) }
+.note--err { background: #F7E2DC; border-left-color: #C0563A }
+.note--err strong { color: #7A2E1C }
+
+/* ---------- Karten mit Bedeutung ---------- */
+.card--ok { border-color: var(--ok-line); background: #FAFDFA }
+.card--err { border-color: var(--err-line); background: #FFFBFA }
+
+/* ---------- Kampagnen ---------- */
+.kampliste { display: grid; gap: 1.2rem }
+.kamp {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--r-md);
+  padding: 1.3rem 1.45rem
+}
+.kamp--warn { border-color: var(--warn-line); background: #FFFDF7 }
+.kamp__hd {
+  display: flex; justify-content: space-between; align-items: start;
+  gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem
+}
+.kamp__hd h2 { font-size: 1.1rem }
+.kamp__tags { display: flex; gap: .4rem; flex-wrap: wrap }
+.kamp__grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem; padding: 1rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line)
+}
+.kamp__lbl {
+  display: block; font-family: var(--ff-head); font-weight: 800; font-size: .74rem;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft)
+}
+.kamp__val {
+  display: block; font-family: var(--ff-head); font-weight: 900; font-size: 1.35rem;
+  color: var(--green-900); line-height: 1.2; margin-top: .25rem
+}
+.kamp__val--sm { font-size: .98rem; font-weight: 700; line-height: 1.35 }
+.kamp__brief {
+  background: var(--cream); border-radius: var(--r-sm); padding: 1rem 1.15rem;
+  font-size: .93rem; line-height: 1.65; color: var(--ink); white-space: pre-line
+}
+.kamp__act { display: flex; gap: .7rem; flex-wrap: wrap; margin-top: 1.1rem }
+
+/* ---------- Aufklapper ---------- */
+.acc { margin-top: 1rem; border-top: 1px solid var(--line); padding-top: .9rem }
+.acc summary {
+  cursor: pointer; font-family: var(--ff-head); font-weight: 800; font-size: .92rem;
+  color: var(--green-900); list-style: none; display: flex; align-items: center; gap: .5rem
+}
+.acc summary::-webkit-details-marker { display: none }
+.acc summary::before {
+  content: ""; width: 15px; height: 15px; flex: none; background: var(--gold-deep);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' d='M8 5l8 7-8 7'/></svg>") center/13px no-repeat;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' d='M8 5l8 7-8 7'/></svg>") center/13px no-repeat;
+  transition: transform .18s var(--ease)
+}
+.acc[open] summary::before { transform: rotate(90deg) }
+.acc > *:not(summary) { margin-top: .9rem }
+
+/* ---------- Prüfpunkte im Dialog ---------- */
+.pruef { display: grid; gap: .55rem }
+.pruef__i {
+  display: grid; grid-template-columns: 24px 1fr; gap: .75rem; align-items: start;
+  background: var(--cream); border: 1px solid var(--line); border-radius: var(--r-sm);
+  padding: .8rem .95rem; cursor: pointer; line-height: 1.5; font-size: .92rem
+}
+.pruef__i:hover { border-color: var(--line-strong) }
+.pruef__i input { width: 22px; height: 22px; margin: 0; accent-color: var(--gold); cursor: pointer }
+.pruef__i:has(input:checked) { background: var(--ok-bg); border-color: var(--ok-line) }
+
+/* ---------- Dialog-Feinheiten ---------- */
+.dlgtxt { font-size: .95rem; line-height: 1.55; margin-bottom: 1rem }
+.dlgh {
+  font-family: var(--ff-head); font-weight: 800; font-size: .95rem; color: var(--green-900);
+  margin: 1.4rem 0 .7rem
+}
+.med__bild--dlg { aspect-ratio: 16/9; border-radius: var(--r-sm); margin-bottom: .6rem }
+
+/* ---------- Medien: Rechte-Zeile und Warnzustand ---------- */
+.med--warn { border-color: var(--err-line); box-shadow: inset 0 0 0 1px var(--err-line) }
+.med__rechte { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; margin-top: .45rem }
+
+/* ---------- Kleinteile ---------- */
+.fld--inline { display: flex; align-items: center; gap: .8rem; margin-bottom: 0 }
+.fld--inline label { white-space: nowrap }
+.fld--inline input, .fld--inline select { width: auto; min-width: 110px }
+.login__sep { margin: 0 .5rem; color: var(--line-strong) }
+.codebox__c--klein { font-size: .92rem; word-break: break-all }
+
+@media (max-width: 720px) {
+  .kamp__hd { flex-direction: column; gap: .6rem }
+  .crdl > div { flex-direction: column; gap: .1rem }
+  .crdl > div > span:last-child { text-align: left }
+}
+
+/* Korrektur 2026-08-18: creator.css laedt NACH portal.css und ueberschrieb die
+   dortige Korrektur bei gleicher Spezifitaet. Gemessen 1,73:1 -> 5,63:1. */
+.login__sep { color: #5B6257 }

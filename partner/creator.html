@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creator-Programm &ndash; NatureFlow Pets</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Interner Design-Entwurf: Creator-Programm f&uuml;r Instagram, TikTok und YouTube. Bezahlte Kampagnen, eigener Code, Produkte zum Testen. Kein Livegang.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/nfp.css">
+
+<style>
+/* ====== Ergaenzungen nur fuer die Creator-Seite ======
+   ALLE eigenen Klassen tragen das Praefix cr- .
+   Grund: nfp.css belegt .hero, .steps, .step, .split, .bar, .chip, .tag, .note
+   bereits - eine gleichnamige eigene Klasse wird davon lautlos ueberlagert
+   (bei .hero sogar durch ein ::before-Overlay, gegen das Spezifitaet nicht hilft).
+   Wiederverwendet werden nur bewusst geprueffte Bestandsklassen:
+   .wrap .sec .sec--card .sec--cream .sec--green .btn .fld .form .hdr .nav .ft .acc */
+[hidden]{display:none !important}
+.cr-lede{font-size:1.15rem;color:var(--ink-soft);max-width:58ch}
+.sec--green .cr-lede{color:#D8E2D8}
+.cr-fine{font-size:.85rem;color:var(--ink-soft)}
+.sec--green .cr-fine{color:#C9D6C9}
+.cr-center{text-align:center}
+.cr-vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.cr-eyebrow{font-family:var(--ff-head);font-weight:800;font-size:.8rem;letter-spacing:.14em;
+  text-transform:uppercase;margin:0;color:var(--gold-deep)}
+.sec--green .cr-eyebrow{color:var(--gold-light)}
+.cr-mt{margin-top:var(--sp-4)}
+
+/* ---- Listen ---- */
+.cr-ticks,.cr-crosses{display:grid;gap:.7rem;margin:0;padding:0;list-style:none}
+.cr-ticks li,.cr-crosses li{display:grid;grid-template-columns:26px 1fr;gap:.7rem;align-items:start;line-height:1.55}
+.cr-ticks li::before{content:"";width:20px;height:20px;margin-top:.18rem;border-radius:50%;
+  background:var(--gold);display:block;
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' d='M4 12.5l5 5 11-11'/></svg>") center/13px no-repeat;
+          mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' d='M4 12.5l5 5 11-11'/></svg>") center/13px no-repeat}
+.cr-ticks--light li::before{background:var(--gold-light)}
+.cr-crosses li::before{content:"";width:20px;height:20px;margin-top:.18rem;border-radius:50%;
+  background:#D98C7A;display:block;
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' d='M6 6l12 12M18 6L6 18'/></svg>") center/12px no-repeat;
+          mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' d='M6 6l12 12M18 6L6 18'/></svg>") center/12px no-repeat}
+.sec--green .cr-crosses li{color:#F0E7D8}
+.sec--green .cr-ticks li{color:#E6EDE6}
+
+/* ---- Hero ---- */
+.cr-hero{background:var(--cream);padding-block:var(--sp-5);position:relative}
+.cr-hero__in{display:grid;grid-template-columns:1.02fr .98fr;gap:var(--sp-5);align-items:center}
+@media(max-width:960px){.cr-hero__in{grid-template-columns:1fr;gap:var(--sp-4)}}
+.cr-hero h1{margin-top:.9rem}
+.cr-hero__fig{margin:0;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);position:relative}
+.cr-hero__fig img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+.cr-hero__cta{display:flex;gap:.85rem;flex-wrap:wrap;margin-top:2rem}
+
+/* ---- Faktenband ---- */
+.cr-band{background:var(--green-800);color:var(--card);padding-block:1.5rem}
+.cr-band__in{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.2rem 2rem}
+.cr-band__i{display:grid;grid-template-columns:26px 1fr;gap:.7rem;align-items:center;font-size:.9rem;color:#D8E2D8}
+.cr-band__i svg{width:24px;height:24px;color:var(--gold-light)}
+.cr-band__i strong{display:block;color:var(--card);font-family:var(--ff-head);font-size:.97rem}
+
+/* ---- Drei Wege ---- */
+.cr-wegfig{margin:var(--sp-4) 0 0;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-md)}
+.cr-wegfig img{width:100%;display:block;aspect-ratio:21/8;object-fit:cover;object-position:center 42%}
+@media(max-width:700px){.cr-wegfig img{aspect-ratio:16/10}}
+.cr-wege{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:var(--sp-4)}
+@media(max-width:900px){.cr-wege{grid-template-columns:1fr}}
+.cr-weg{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:1.8rem 1.7rem;display:flex;flex-direction:column}
+.cr-weg--hi{border-color:var(--gold);box-shadow:var(--shadow-md);position:relative}
+.cr-weg__num{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;
+  background:var(--green-800);color:var(--gold-light);font-family:var(--ff-head);font-weight:900;font-size:1.05rem}
+.cr-weg h3{margin:1rem 0 .5rem;font-size:1.22rem}
+.cr-weg__was{font-family:var(--ff-head);font-weight:900;font-size:1.5rem;color:var(--green-900);
+  line-height:1.15;margin:.2rem 0 .8rem}
+.cr-weg p{color:var(--ink-soft);font-size:.95rem;line-height:1.6}
+.cr-weg__fuss{margin-top:auto;padding-top:1.1rem;font-size:.86rem;color:var(--ink-soft);
+  border-top:1px solid var(--line)}
+.cr-weg__badge{position:absolute;top:-13px;left:1.7rem;background:var(--gold);color:#2B2107;
+  font-family:var(--ff-head);font-weight:800;font-size:.75rem;letter-spacing:.06em;
+  text-transform:uppercase;padding:.3rem .8rem;border-radius:99px}
+
+/* ---- Rechner ---- */
+.cr-calc{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4);align-items:start}
+@media(max-width:900px){.cr-calc{grid-template-columns:1fr}}
+.cr-sl{margin-bottom:1.6rem}
+.cr-sl__t{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:.5rem}
+.cr-sl__l{font-family:var(--ff-head);font-weight:700;font-size:.95rem;color:var(--green-900)}
+.cr-sl__v{font-family:var(--ff-head);font-weight:900;font-size:1.1rem;color:var(--gold-deep)}
+.cr-sl input[type=range]{width:100%;accent-color:var(--gold);height:26px}
+.cr-out{background:var(--green-900);border-radius:var(--r-lg);padding:1.9rem 1.8rem;color:var(--card)}
+.cr-out h3{color:var(--card);font-size:1.1rem;margin-bottom:1.1rem}
+.cr-res{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;
+  padding:.6rem 0;border-bottom:1px solid rgba(227,200,140,.22)}
+.cr-res:last-of-type{border-bottom:0}
+.cr-res__l{font-size:.9rem;color:#C9D6C9}
+.cr-res__v{font-family:var(--ff-head);font-weight:800;font-size:1.05rem;color:var(--card);white-space:nowrap}
+.cr-res--gross{padding:.9rem 0}
+.cr-res--gross .cr-res__v{font-size:1.6rem;color:var(--gold-light)}
+.cr-calc__st{margin-top:1.1rem;font-size:.9rem;color:#D8E2D8;line-height:1.55}
+.cr-calc__st strong{color:var(--gold-light)}
+.cr-calc__fine{margin-top:1rem;font-size:.82rem;color:#AFC0AF;line-height:1.5}
+
+/* ---- Stufen ---- */
+.cr-stufen{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:var(--sp-4)}
+@media(max-width:900px){.cr-stufen{grid-template-columns:1fr}}
+.cr-stufe{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.7rem 1.6rem}
+.cr-stufe--hi{border-color:var(--gold);box-shadow:var(--shadow-md)}
+.cr-stufe h3{font-size:1.15rem}
+.cr-stufe__p{font-family:var(--ff-head);font-weight:900;font-size:2.5rem;color:var(--green-900);
+  line-height:1;margin:.7rem 0 .2rem}
+.cr-stufe__u{font-size:.88rem;color:var(--ink-soft);margin-bottom:1.1rem}
+.cr-stufe__ab{font-size:.9rem;color:var(--ink);padding-top:.9rem;border-top:1px solid var(--line)}
+
+/* ---- Aussagenband: Text liegt auf DECKENDER Flaeche, nie auf dem Foto ---- */
+.cr-claim{position:relative;background:var(--green-900)}
+.cr-claim__bg{position:absolute;inset:0;overflow:hidden}
+.cr-claim__bg img{width:100%;height:100%;object-fit:cover;object-position:center 58%}
+.cr-claim__in{position:relative;padding-block:var(--sp-6)}
+.cr-claim__panel{background:var(--green-900);border-radius:var(--r-lg);padding:2.6rem 2.4rem;max-width:640px;
+  box-shadow:var(--shadow-lg);border:1px solid rgba(227,200,140,.3)}
+.cr-claim__panel h2{color:var(--card)}
+.cr-claim__panel p{color:#D8E2D8;margin-top:1rem}
+.cr-claim__panel .cr-fine{color:#BCCBBC;margin-top:1.2rem}
+@media(max-width:720px){.cr-claim__in{padding-block:var(--sp-5)}.cr-claim__panel{padding:1.9rem 1.5rem}}
+
+/* ---- Zweispalter ---- */
+.cr-split{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-5);align-items:center}
+.cr-split--rev > *:first-child{order:2}
+@media(max-width:900px){.cr-split{grid-template-columns:1fr;gap:var(--sp-4)}.cr-split--rev > *:first-child{order:0}}
+.cr-split figure{margin:0;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-md)}
+.cr-split figure img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover}
+
+/* ---- Zwei Kartenspalten ---- */
+.cr-duo{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:var(--sp-4)}
+@media(max-width:900px){.cr-duo{grid-template-columns:1fr}}
+.cr-karte{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.7rem 1.6rem}
+.cr-karte--ok{border-color:#7FA98A;background:#FAFDFA}
+.cr-karte--nein{border-color:#D98C7A;background:#FFFBFA}
+.cr-karte h3{font-size:1.08rem;margin-bottom:1rem}
+
+/* ---- Schrittfolge ---- */
+.cr-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.3rem;margin-top:var(--sp-4)}
+.cr-step{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:1.4rem 1.4rem}
+.cr-step__n{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;
+  background:var(--gold);color:#2B2107;font-family:var(--ff-head);font-weight:900;font-size:.95rem;margin-bottom:.8rem}
+.cr-step h3{font-size:1rem;margin-bottom:.4rem}
+.cr-step p{font-size:.9rem;color:var(--ink-soft);line-height:1.55}
+
+/* ---- Portalvorschau ---- */
+.cr-vorschau{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow-lg);margin:0}
+.cr-vorschau img{width:100%;display:block}
+
+/* ---- FAQ ---- */
+.cr-faq{display:grid;gap:.8rem;margin-top:var(--sp-4)}
+.cr-faq details{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);padding:1.1rem 1.3rem}
+.cr-faq summary{cursor:pointer;font-family:var(--ff-head);font-weight:800;font-size:1rem;
+  color:var(--green-900);list-style:none;display:flex;justify-content:space-between;gap:1rem;align-items:center}
+.cr-faq summary::-webkit-details-marker{display:none}
+.cr-faq summary::after{content:"";width:16px;height:16px;flex:none;background:var(--gold-deep);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' d='M12 5v14M5 12h14'/></svg>") center/15px no-repeat;
+          mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' d='M12 5v14M5 12h14'/></svg>") center/15px no-repeat}
+.cr-faq details[open] summary::after{
+  -webkit-mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' d='M5 12h14'/></svg>");
+          mask-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='none' stroke='black' stroke-width='3' stroke-linecap='round' d='M5 12h14'/></svg>")}
+.cr-faq p{margin-top:.8rem;color:var(--ink-soft);font-size:.95rem;line-height:1.65}
+
+/* ---- Hinweiskasten ---- */
+.cr-callout{background:var(--cream-deep);border-left:4px solid var(--gold);border-radius:var(--r-md);
+  padding:1.5rem 1.7rem;margin-top:var(--sp-4)}
+.cr-callout h3{margin-bottom:.5rem;font-size:1.05rem}
+.cr-callout p{color:var(--ink-soft);line-height:1.65}
+.sec--green .cr-callout{background:rgba(245,237,224,.08);border-left-color:var(--gold-light)}
+.sec--green .cr-callout h3{color:var(--card)}
+.sec--green .cr-callout p{color:#D8E2D8}
+
+/* ---- Formular ---- */
+.cr-form{background:var(--card);border:1px solid var(--line);border-radius:var(--r-lg);padding:1.9rem 1.8rem}
+.cr-grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 1.2rem}
+@media(max-width:700px){.cr-grid2{grid-template-columns:1fr}}
+.cr-full{grid-column:1/-1}
+.cr-fld{display:grid;gap:.35rem;align-content:start;margin-bottom:1.05rem}
+.cr-fld label{font-size:.83rem;font-weight:700;font-family:var(--ff-head);color:var(--green-900)}
+.cr-fld input,.cr-fld select,.cr-fld textarea{border:1px solid var(--line-strong);border-radius:var(--r-sm);
+  padding:.7rem .9rem;background:#fff;font:inherit;font-size:1rem;min-height:48px;width:100%;color:var(--ink)}
+.cr-fld select{height:48px}
+.cr-fld textarea{min-height:108px;resize:vertical;line-height:1.55}
+.cr-fld input:focus,.cr-fld select:focus,.cr-fld textarea:focus{border-color:var(--green-800);outline:none;
+  box-shadow:0 0 0 3px rgba(28,64,54,.14)}
+.cr-fld input[aria-invalid="true"],.cr-fld select[aria-invalid="true"],.cr-fld textarea[aria-invalid="true"]{
+  border-color:#C0563A;border-width:2px}
+.cr-plat{display:grid;grid-template-columns:1.1fr 1.5fr 1fr auto;gap:.7rem;align-items:end;margin-bottom:.7rem}
+@media(max-width:760px){.cr-plat{grid-template-columns:1fr 1fr;align-items:start}}
+.cr-plat__x{border:1px solid var(--line-strong);background:#fff;border-radius:var(--r-sm);
+  width:48px;height:48px;display:grid;place-items:center;cursor:pointer;color:var(--ink-soft);flex:none}
+.cr-plat__x svg{width:18px;height:18px}
+.cr-plat__x:hover{border-color:#C0563A;color:#C0563A}
+.cr-check{display:grid;grid-template-columns:24px 1fr;gap:.75rem;align-items:start;margin-bottom:.9rem;
+  font-size:.9rem;line-height:1.55;color:var(--ink-soft);cursor:pointer}
+.cr-check input{width:22px;height:22px;margin:0;accent-color:var(--gold);cursor:pointer}
+.cr-drop{display:grid;place-items:center;gap:.15rem;text-align:center;
+  border:2px dashed var(--line-strong);border-radius:var(--r-md);background:#fff;
+  padding:1.5rem 1rem;cursor:pointer;margin-bottom:1rem}
+.cr-drop[data-an="true"]{border-color:var(--gold);background:#FDF9F1}
+.cr-drop svg{width:26px;height:26px;color:var(--gold-deep)}
+.cr-drop__t{font-size:.93rem;color:var(--ink)}
+.cr-drop__link{color:var(--gold-deep);text-decoration:underline}
+.cr-files{display:grid;gap:.5rem;margin-bottom:1rem}
+.cr-file{display:grid;grid-template-columns:20px 1fr auto auto;gap:.6rem;align-items:center;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);padding:.6rem .8rem;font-size:.88rem}
+.cr-file svg{width:18px;height:18px;color:var(--ink-soft)}
+.cr-file__m{color:var(--ink-soft);font-size:.83rem}
+.cr-file button{border:0;background:none;cursor:pointer;color:var(--ink-soft);display:grid;place-items:center}
+.cr-file button:hover{color:#C0563A}
+.cr-msg{border-radius:var(--r-sm);padding:1rem 1.2rem;font-size:.93rem;line-height:1.6;margin-bottom:1rem}
+.cr-msg--err{background:#F7E2DC;border-left:4px solid #C0563A;color:#5E2415}
+.cr-msg--ok{background:#E2EFE4;border-left:4px solid #7FA98A;color:#1F4A2C}
+.cr-legal{font-size:.83rem;color:var(--ink-soft);margin-top:1rem;line-height:1.6}
+
+/* ---- Prototyp-Hinweis ---- */
+.cr-proto{background:var(--green-900);color:#D8E2D8;font-size:.86rem;padding:.7rem 0;text-align:center}
+.cr-proto strong{color:var(--gold-light)}
+.cr-proto a{color:var(--gold-light)}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Zum Inhalt springen</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ic-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3l2.6 5.6 6.1.8-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6L3.3 9.4l6.1-.8L12 3z"/></symbol>
+    <symbol id="ic-vet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-2.9 8.1-7 10-4.1-1.9-7-5.5-7-10V6l7-3z"/><path d="M9.5 12.2l1.9 1.9 3.6-3.9"/></g></symbol>
+    <symbol id="ic-return" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 12a8.5 8.5 0 1 1-2.6-6.1"/><path d="M20.8 4.2v4.2h-4.2"/></g></symbol>
+    <symbol id="ic-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.6-3.1 8.6-7.5 10.2C7.6 20.1 4.5 16.1 4.5 11.5V6L12 3z"/></g></symbol>
+    <symbol id="ic-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></g></symbol>
+    <symbol id="ic-cart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1.1 12.2a1.8 1.8 0 0 1-1.8 1.6H8.9a1.8 1.8 0 0 1-1.8-1.6L6 7z"/><path d="M9.2 7V5.6a2.8 2.8 0 0 1 5.6 0V7"/></g></symbol>
+    <symbol id="ic-burger" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></g></symbol>
+    <symbol id="ic-close" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></g></symbol>
+    <symbol id="ic-upload" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"/><path d="M7 8.5l5-5 5 5"/><path d="M4 20h16"/></g></symbol>
+    <symbol id="ic-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></g></symbol>
+  </defs>
+</svg>
+
+<div class="cr-proto">
+  <strong>Interner Entwurf.</strong> Diese Seite ist nicht ver&ouml;ffentlicht und nicht mit dem Shop verbunden.
+  Zahlen und Konditionen sind Vorschl&auml;ge, keine Zusage.
+</div>
+
+<header class="hdr" data-hdr>
+  <div class="wrap hdr__in">
+    <a class="brand" href="../aktuell/index.html" aria-label="NatureFlow Pets &ndash; zur Startseite">
+      <img class="lg-green" src="img/logo-green.svg" alt="NatureFlow Pets" width="196" height="22">
+      <img class="lg-cream" src="img/logo-cream.svg" alt="" width="196" height="22">
+    </a>
+    <button class="iconbtn burger" data-burger aria-expanded="false" aria-controls="nav" aria-label="Men&uuml; &ouml;ffnen"><svg><use href="#ic-burger"/></svg></button>
+    <nav class="nav" id="nav" data-nav aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="../aktuell/sortiment.html">Produkte</a></li>
+        <li><a href="../aktuell/produkt-gelenk-tabletten.html">Gelenkgesundheit</a></li>
+        <li><a href="../aktuell/wissenschaft.html">Wissenschaft</a></li>
+        <li><a href="../aktuell/blog.html">Ratgeber</a></li>
+        <li><a href="../aktuell/kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="hdr__act">
+      <a class="btn btn--sm btn--ghost" href="creator-portal/index.html">Creator-Login</a>
+      <button class="iconbtn" data-cart-open aria-label="Warenkorb &ouml;ffnen">
+        <svg><use href="#ic-cart"/></svg><span class="badge" data-cart-count hidden>0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================== HERO ============================== -->
+<section class="cr-hero">
+  <div class="orn-layer" aria-hidden="true"><img class="orn--tr orn--faint" src="img/orn-leaf-spray.svg" alt="" style="height:min(360px,72%)"></div>
+  <div class="wrap">
+    <div class="cr-hero__in">
+      <div>
+        <p class="cr-eyebrow">Creator-Programm</p>
+        <h1>Wir bezahlen dich.<br>Und du verdienst weiter mit.</h1>
+        <p class="cr-lede" style="margin-top:1.15rem">
+          Du machst Inhalte &uuml;ber das Leben mit Hund &ndash; auf Instagram, TikTok, YouTube oder im Podcast.
+          Bei uns bekommst du <strong>ein Honorar f&uuml;r deine Arbeit</strong>, einen <strong>eigenen Code</strong>,
+          an dem du dauerhaft mitverdienst, und das <strong>Produkt zum Testen</strong>. Alles drei l&auml;sst sich
+          verbinden &ndash; du musst dich nicht entscheiden.
+        </p>
+        <ul class="cr-ticks" style="margin-top:1.6rem">
+          <li><span>Kein Mindest-Followerstand &ndash; wir schauen auf das Publikum, nicht auf die Zahl</span></li>
+          <li><span>Keine Exklusivit&auml;t, keine Knebelfrist, keine Vertragsstrafen</span></li>
+          <li><span>Du beh&auml;ltst die Rechte an deinen Inhalten &ndash; wir bekommen ein befristetes Nutzungsrecht</span></li>
+          <li><span>Fertige, gepr&uuml;fte Formulierungen, damit dir bei Werbeaussagen nichts passiert</span></li>
+        </ul>
+        <div class="cr-hero__cta">
+          <a class="btn btn--primary" href="#bewerben">Bewirb dich<svg><use href="#ic-arrow"/></svg></a>
+          <a class="btn btn--ghost" href="#rechner">Was kommt dabei rum?</a>
+        </div>
+        <p class="cr-fine" style="margin-top:1.1rem">Bewerben dauert f&uuml;nf Minuten. Antwort innerhalb von f&uuml;nf Werktagen. Kostet nichts und verpflichtet zu nichts.</p>
+      </div>
+      <figure class="cr-hero__fig">
+        <img src="img/creator-hero.webp" alt="Creatorin filmt sich mit dem Smartphone auf einem Waldweg, ihr Hund sitzt neben ihr" width="1800" height="1344" loading="eager">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FAKTENBAND ============================== -->
+<section class="cr-band">
+  <div class="wrap">
+    <div class="cr-band__in">
+      <p class="cr-band__i"><svg><use href="#ic-star"/></svg><span><strong>4,82 von 5 Sternen</strong>aus &uuml;ber 72.000 Bewertungen</span></p>
+      <p class="cr-band__i"><svg><use href="#ic-vet"/></svg><span><strong>Mit Tier&auml;rzten entwickelt</strong>Rezepturen offen deklariert</span></p>
+      <p class="cr-band__i"><svg><use href="#ic-return"/></svg><span><strong>120 Tage Geld zur&uuml;ck</strong>deine Empfehlung bleibt risikofrei</span></p>
+      <p class="cr-band__i"><svg><use href="#ic-shield"/></svg><span><strong>Aus Ratzeburg</strong>produziert in Deutschland</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== DREI WEGE ============================== -->
+<section class="sec sec--card" id="wege">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="cr-eyebrow">Drei Wege</p>
+      <h2>Such dir aus, wie du mit uns arbeitest</h2>
+      <p class="cr-lede">Die meisten Programme kennen genau ein Modell und du musst hineinpassen.
+      Wir haben drei &ndash; und sie schlie&szlig;en sich nicht aus. Wer eine bezahlte Kampagne macht,
+      behält seinen Code trotzdem.</p>
+    </div>
+
+    <figure class="cr-wegfig">
+      <img src="img/creator-produktion.webp" alt="Creatorin filmt die Gelenk-Tabletten am K&uuml;chentisch, ihr Hund liegt daneben" width="1800" height="1344" loading="lazy">
+    </figure>
+
+    <div class="cr-wege">
+      <article class="cr-weg cr-weg--hi">
+        <span class="cr-weg__badge">Am h&auml;ufigsten</span>
+        <span class="cr-weg__num">1</span>
+        <h3>Bezahlte Kampagne</h3>
+        <p class="cr-weg__was">Festes Honorar</p>
+        <p>Wir fragen dich f&uuml;r ein konkretes St&uuml;ck Arbeit an: ein Reel, eine Integration,
+        eine Serie. Du bekommst ein Briefing, einen Termin und einen vereinbarten Betrag &ndash;
+        unabh&auml;ngig davon, wie das Video l&auml;uft.</p>
+        <p class="cr-weg__fuss">Das Honorar h&auml;ngt von Umfang und Nutzungsrechten ab und wird
+        vorher schriftlich vereinbart. Kein &bdquo;Wir melden uns nach der Auswertung&ldquo;.</p>
+      </article>
+
+      <article class="cr-weg">
+        <span class="cr-weg__num">2</span>
+        <h3>Dein eigener Code</h3>
+        <p class="cr-weg__was">10 bis 15 %</p>
+        <p>Du bekommst einen Code auf deinen Namen. Deine Community spart <strong>10 %</strong>,
+        du bekommst einen Anteil vom Warenwert &ndash; bei jeder Bestellung, dauerhaft,
+        auch Monate nach dem Beitrag.</p>
+        <p class="cr-weg__fuss">Funktioniert im Video und im Podcast, wo niemand auf einen Link
+        klicken kann. Einen Link gibt es zus&auml;tzlich, f&uuml;r Linkliste und Beschreibung.</p>
+      </article>
+
+      <article class="cr-weg">
+        <span class="cr-weg__num">3</span>
+        <h3>Produkt zum Testen</h3>
+        <p class="cr-weg__was">Ohne Gegenleistung</p>
+        <p>Du bekommst das Produkt, f&uuml;tterst es und schaust, ob es zu euch passt.
+        Ohne Posting-Pflicht. Wenn es dir nichts sagt, sagst du uns das &ndash; das ist
+        f&uuml;r uns wertvoller als ein h&ouml;flicher Beitrag.</p>
+        <p class="cr-weg__fuss">Wichtig: Sobald du dar&uuml;ber postest, ist das rechtlich Werbung
+        und muss gekennzeichnet werden &ndash; auch wenn kein Geld geflossen ist.</p>
+      </article>
+    </div>
+
+    <div class="cr-callout">
+      <h3>Was du bei uns nicht findest</h3>
+      <p>Kein &bdquo;Kooperation gegen Sichtbarkeit&ldquo;. Keine unbezahlte Anfrage mit dem Hinweis,
+      es sei ja gut f&uuml;r deine Reichweite. Keine Mindestfollowerzahl. Und keine Anfrage,
+      in der wir dir vorschreiben, wie du zu klingen hast &ndash; wenn wir dich fragen,
+      dann wegen deiner Art, nicht trotz ihr.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== RECHNER ============================== -->
+<section class="sec sec--cream" id="rechner">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="cr-eyebrow">Rechner</p>
+      <h2>Was dein Code &uuml;ber ein Jahr bringt</h2>
+      <p class="cr-lede">Nur die Beteiligung auf deinen Code &ndash; Honorare f&uuml;r Kampagnen
+      kommen obendrauf und werden einzeln vereinbart. Schieb die Regler auf deine Zahlen.</p>
+    </div>
+
+    <div class="cr-calc cr-mt">
+      <div>
+        <div class="cr-sl">
+          <div class="cr-sl__t"><label class="cr-sl__l" for="r-auf">Aufrufe je Beitrag</label>
+            <output class="cr-sl__v" id="o-auf" for="r-auf">20.000</output></div>
+          <input type="range" id="r-auf" min="1000" max="300000" step="1000" value="20000">
+        </div>
+        <div class="cr-sl">
+          <div class="cr-sl__t"><label class="cr-sl__l" for="r-beit">Beitr&auml;ge mit Code im Monat</label>
+            <output class="cr-sl__v" id="o-beit" for="r-beit">2</output></div>
+          <input type="range" id="r-beit" min="1" max="12" step="1" value="2">
+        </div>
+        <div class="cr-sl">
+          <div class="cr-sl__t"><label class="cr-sl__l" for="r-quote">Wie viele Zuschauer bestellen</label>
+            <output class="cr-sl__v" id="o-quote" for="r-quote">0,20 %</output></div>
+          <input type="range" id="r-quote" min="2" max="150" step="1" value="20">
+        </div>
+        <p class="cr-fine">Gerechnet mit einem Warenkorb von <strong>70&nbsp;&euro;</strong>.
+        Die Beteiligung wird auf den Warenwert nach deinem 10-%-Rabatt und ohne Umsatzsteuer
+        berechnet &ndash; so, wie sie auch abgerechnet wird.</p>
+      </div>
+
+      <div class="cr-out">
+        <h3>Deine Beteiligung</h3>
+        <div class="cr-res"><span class="cr-res__l">Bestellungen im Monat</span><span class="cr-res__v" id="o-best">80</span></div>
+        <div class="cr-res"><span class="cr-res__l">Warenwert netto im Monat</span><span class="cr-res__v" id="o-umsatz">4.235&nbsp;&euro;</span></div>
+        <div class="cr-res"><span class="cr-res__l">Erster Monat, als Entdecker mit 10&nbsp;%</span><span class="cr-res__v" id="o-start">424&nbsp;&euro;</span></div>
+        <div class="cr-res cr-res--gross"><span class="cr-res__l" id="o-endeL">Zw&ouml;lfter Monat</span><span class="cr-res__v" id="o-ende">635&nbsp;&euro;</span></div>
+        <div class="cr-res"><span class="cr-res__l">Im ersten Jahr zusammen</span><span class="cr-res__v" id="o-jahr">7.200&nbsp;&euro;</span></div>
+        <p class="cr-calc__st" id="o-stufe">Bei diesem Tempo bist du nach etwa <strong>zwei Monaten Erz&auml;hler</strong>.</p>
+        <p class="cr-calc__fine">Die zw&ouml;lf Monate sind einzeln gerechnet, mit dem Satz, der zu Beginn
+        des jeweiligen Monats gilt &ndash; jede&nbsp;r f&auml;ngt bei 10&nbsp;% an. Der Aufstieg l&auml;uft hier
+        allein &uuml;ber den vermittelten Warenwert; dass auch freigegebene Inhalte eine Stufe ausl&ouml;sen,
+        ist <em>nicht</em> eingerechnet &ndash; damit geht es eher schneller als gezeigt.
+        Ebenfalls nicht drin: Honorare, die halbe Beteiligung auf Folgek&auml;ufe und der Warenwert der
+        Testprodukte. Beispielrechnung, keine Zusage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== STUFEN ============================== -->
+<section class="sec sec--card" id="konditionen">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="cr-eyebrow">Konditionen</p>
+      <h2>Drei Stufen, und du steigst automatisch auf</h2>
+      <p class="cr-lede">Du musst nichts beantragen und niemanden fragen. Was z&auml;hlt, sind
+      freigegebene Inhalte und vermittelter Warenwert &ndash; was zuerst erreicht ist, gilt.</p>
+    </div>
+
+    <div class="cr-stufen">
+      <article class="cr-stufe">
+        <h3>Entdecker</h3>
+        <p class="cr-stufe__p">10&nbsp;%</p>
+        <p class="cr-stufe__u">vom Warenwert, dazu 10&nbsp;% Rabatt f&uuml;r deine Community</p>
+        <p class="cr-stufe__ab">Ab dem ersten Tag. Aufnahme nach kurzer Pr&uuml;fung.</p>
+      </article>
+      <article class="cr-stufe cr-stufe--hi">
+        <h3>Erz&auml;hler</h3>
+        <p class="cr-stufe__p">12&nbsp;%</p>
+        <p class="cr-stufe__u">vom Warenwert, dazu 10&nbsp;% Rabatt f&uuml;r deine Community</p>
+        <p class="cr-stufe__ab">Ab 3 freigegebenen Inhalten <em>oder</em> 500&nbsp;&euro; vermitteltem Warenwert.</p>
+      </article>
+      <article class="cr-stufe">
+        <h3>Botschafter</h3>
+        <p class="cr-stufe__p">15&nbsp;%</p>
+        <p class="cr-stufe__u">vom Warenwert, dazu 10&nbsp;% Rabatt f&uuml;r deine Community</p>
+        <p class="cr-stufe__ab">Ab 10 freigegebenen Inhalten <em>oder</em> 2.500&nbsp;&euro; vermitteltem Warenwert.</p>
+      </article>
+    </div>
+
+    <div class="cr-callout">
+      <h3>Warum das weniger ist als bei unseren Fachpartnern</h3>
+      <p>Tierheilpraktiker und Hundetrainer bekommen bei uns bis zu 20&nbsp;%, aber kein Honorar
+      und kein Produkt. Bei dir ist es umgekehrt: Du wirst f&uuml;r deine Arbeit bezahlt und
+      bekommst das Produkt gestellt &ndash; die Beteiligung kommt zus&auml;tzlich. Wir sagen dir das
+      lieber offen, als dass du es sp&auml;ter irgendwo liest.</p>
+    </div>
+
+    <p class="cr-fine cr-mt">Beteiligung wird 28 Tage nach der Bestellung f&auml;llig
+    (14 Tage Widerrufsfrist plus Puffer), ausgezahlt wird zum 15. f&uuml;r den Vormonat ab 25&nbsp;&euro;.
+    Bestellt jemand ein zweites Mal &uuml;ber deinen Code, bekommst du daf&uuml;r zw&ouml;lf Monate lang
+    den halben Satz &ndash; f&uuml;r Bestellungen, die du nicht ausgel&ouml;st hast, zahlen wir nichts.</p>
+  </div>
+</section>
+
+<!-- ============================== AUSSAGENBAND ============================== -->
+<section class="cr-claim">
+  <div class="cr-claim__bg" aria-hidden="true">
+    <img src="img/creator-band.webp" alt="" width="1800" height="1018" loading="lazy">
+  </div>
+  <div class="wrap cr-claim__in">
+    <div class="cr-claim__panel">
+      <h2>Deine Inhalte bleiben deine.</h2>
+      <p>Wir kaufen dir nichts ab. Du r&auml;umst uns ein <strong>befristetes Nutzungsrecht</strong> ein &ndash;
+      wof&uuml;r und wie lange, steht vorher im Briefing und sp&auml;ter in deinem Bereich.
+      L&auml;uft es aus, h&ouml;ren wir auf, den Inhalt zu verwenden.</p>
+      <p class="cr-fine">Und wenn wir deinen Beitrag als Anzeige schalten wollen, fragen wir daf&uuml;r
+      vorher &ndash; das ist ein eigenes Recht und wird eigens verg&uuml;tet.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== KENNZEICHNUNG ============================== -->
+<section class="sec sec--cream" id="regeln">
+  <div class="wrap">
+    <div class="cr-split cr-split--rev">
+      <figure>
+        <img src="img/creator-kennzeichnung.webp" alt="Smartphone zeigt ein Hundevideo mit deutlich sichtbarem Werbe-Hinweis" width="1800" height="1344" loading="lazy">
+      </figure>
+      <div>
+        <p class="cr-eyebrow">Werbekennzeichnung</p>
+        <h2>Wir lassen dich damit nicht allein</h2>
+        <p class="cr-lede">Der h&auml;ufigste Grund, warum Creator Ärger bekommen, ist keine b&ouml;se
+        Absicht &ndash; es ist ein Hinweis an der falschen Stelle. Deshalb sagen wir dir vorher genau,
+        was gilt, statt hinterher etwas zu beanstanden.</p>
+        <ul class="cr-ticks" style="margin-top:1.5rem">
+          <li><span><strong>&bdquo;Werbung&ldquo; oder &bdquo;Anzeige&ldquo;</strong> als erstes Wort &ndash;
+          nicht &bdquo;ad&ldquo;, nicht &bdquo;sponsored by&ldquo;, nicht &bdquo;PR sample&ldquo;.</span></li>
+          <li><span><strong>Ohne Ausklappen sichtbar</strong> &ndash; nicht hinter &bdquo;mehr anzeigen&ldquo;,
+          nicht am Ende einer Hashtag-Reihe.</span></li>
+          <li><span><strong>Bei Videos dauerhaft</strong> eingeblendet, nicht nur kurz am Anfang.</span></li>
+          <li><span><strong>Jedes Story-Slide einzeln</strong> &ndash; ein Hinweis im Profil reicht nicht.</span></li>
+          <li><span><strong>Auch beim geschenkten Produkt</strong> und auch beim reinen Code &ndash;
+          beides gilt als Gegenleistung.</span></li>
+        </ul>
+        <p class="cr-fine" style="margin-top:1.2rem">Den Plattform-Schalter
+        (&bdquo;Bezahlte Partnerschaft&ldquo;) darfst du gern zus&auml;tzlich nutzen. Verlass dich aber
+        nicht allein darauf &ndash; setz den Hinweis auch selbst.</p>
+      </div>
+    </div>
+
+    <div class="cr-duo">
+      <article class="cr-karte cr-karte--ok">
+        <h3>So darfst du &uuml;ber das Produkt sprechen</h3>
+        <ul class="cr-ticks">
+          <li><span>&bdquo;zur Unterst&uuml;tzung gesunder Gelenke&ldquo;</span></li>
+          <li><span>&bdquo;tr&auml;gt zur normalen Gelenkfunktion bei&ldquo;</span></li>
+          <li><span>&bdquo;unterst&uuml;tzt die Beweglichkeit&ldquo;</span></li>
+          <li><span>&bdquo;wir f&uuml;ttern es seit acht Wochen jeden Morgen&ldquo;</span></li>
+          <li><span>&bdquo;sie ist wieder gern unterwegs&ldquo;</span></li>
+        </ul>
+      </article>
+      <article class="cr-karte cr-karte--nein">
+        <h3>Das darf niemand sagen &ndash; auch wir nicht</h3>
+        <ul class="cr-crosses">
+          <li><span>&bdquo;hilft bei Arthrose&ldquo; &ndash; auch das Wort &bdquo;bei&ldquo; z&auml;hlt</span></li>
+          <li><span>&bdquo;lindert Schmerzen&ldquo;, &bdquo;schmerzfrei&ldquo;</span></li>
+          <li><span>&bdquo;entz&uuml;ndungshemmend&ldquo;</span></li>
+          <li><span>&bdquo;bei HD&ldquo;, &bdquo;bei Rheuma&ldquo;</span></li>
+          <li><span>&bdquo;unterst&uuml;tzend bei Arthrose&ldquo; &ndash; Abschw&auml;chen hilft nicht</span></li>
+        </ul>
+        <p class="cr-fine" style="margin-top:1rem">Wir sind ein Erg&auml;nzungsfuttermittel, kein Medikament.
+        Krankheitsbezogene Aussagen sind bei Futtermitteln verboten &ndash; auch dann, wenn sie
+        deine ehrliche Erfahrung wiedergeben.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== WAS DU BEKOMMST ============================== -->
+<section class="sec sec--card" id="leistungen">
+  <div class="wrap">
+    <div class="cr-split">
+      <figure>
+        <img src="img/creator-paket.webp" alt="Ge&ouml;ffnetes Paket mit Gelenk-Tabletten, Beikarte und Naturmaterial" width="1800" height="1344" loading="lazy">
+      </figure>
+      <div>
+        <p class="cr-eyebrow">Was du bekommst</p>
+        <h2>Mehr als ein Code und ein Paket</h2>
+        <ul class="cr-ticks" style="margin-top:1.4rem">
+          <li><span><strong>Das Produkt zum Testen</strong>, passend zu deinem Hund ausgesucht &ndash;
+          nicht der Karton, den wir gerade loswerden wollen.</span></li>
+          <li><span><strong>Ein Briefing, das dir nicht das Skript vorschreibt</strong>: was rein muss,
+          was nicht rein darf, und der Rest ist deiner.</span></li>
+          <li><span><strong>Gepr&uuml;fte Formulierungen</strong> zum Abschreiben &ndash; damit du beim Thema
+          Gesundheit nichts Falsches sagst.</span></li>
+          <li><span><strong>Produktbilder und Deklaration</strong> zum Einblenden, in ordentlicher
+          Aufl&ouml;sung.</span></li>
+          <li><span><strong>Eine Ansprechperson mit Namen</strong>, kein Ticketsystem und keine Agentur
+          dazwischen.</span></li>
+          <li><span><strong>R&uuml;ckmeldung zu deinen Zahlen</strong> &ndash; wir sagen dir, was dein Beitrag
+          gebracht hat, auch wenn es wenig war.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CREATOR-BEREICH ============================== -->
+<section class="sec sec--green" id="bereich">
+  <div class="wrap">
+    <div class="cr-split">
+      <div>
+        <p class="cr-eyebrow">Dein Bereich</p>
+        <h2 style="color:var(--card)">Alles an einer Stelle</h2>
+        <p class="cr-lede">Nach der Aufnahme bekommst du einen eigenen Zugang. Dort siehst du
+        deine Anfragen, l&auml;dst Inhalte hoch und kannst jederzeit nachsehen, was zusammengekommen ist.</p>
+        <ul class="cr-ticks cr-ticks--light" style="margin-top:1.5rem">
+          <li><span>Deine Kampagnen mit Briefing, Termin und Honorar &ndash; zusagen oder ablehnen mit einem Klick</span></li>
+          <li><span>Inhalte hochladen und den Pr&uuml;fstand sehen, inklusive Begr&uuml;ndung, falls etwas nicht geht</span></li>
+          <li><span>Dein Code, dein Link und jede Bestellung dahinter</span></li>
+          <li><span>Honorare und Beteiligung getrennt aufgeschl&uuml;sselt, mit Auszahlungsstand</span></li>
+          <li><span>Die Regeln und das Material zum Herunterladen</span></li>
+        </ul>
+        <div class="cr-hero__cta">
+          <a class="btn btn--primary" href="creator-portal/index.html">Bereich ansehen<svg><use href="#ic-arrow"/></svg></a>
+        </div>
+        <p class="cr-fine" style="margin-top:1rem">Im Entwurf mit Demodaten &ndash; du kannst dich
+        umsehen, ohne etwas kaputtzumachen.</p>
+      </div>
+      <figure class="cr-vorschau">
+        <img src="img/creator-planung.webp" alt="Creator plant seine Inhalte auf dem Sofa, Hund schl&auml;ft daneben" width="1800" height="1344" loading="lazy">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== VORAUSSETZUNGEN ============================== -->
+<section class="sec sec--cream" id="voraussetzungen">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="cr-eyebrow">Voraussetzungen</p>
+      <h2>Wen wir suchen &ndash; und wen nicht</h2>
+    </div>
+    <div class="cr-duo">
+      <article class="cr-karte cr-karte--ok">
+        <h3>Das passt</h3>
+        <ul class="cr-ticks">
+          <li><span>Du machst regelm&auml;&szlig;ig Inhalte rund um Hunde &ndash; Alltag, Training,
+          Ern&auml;hrung, Gesundheit, Sport</span></li>
+          <li><span>Dein Publikum ist gr&ouml;&szlig;tenteils in Deutschland, &Ouml;sterreich oder der Schweiz</span></li>
+          <li><span>Du hast einen eigenen Hund oder arbeitest mit Hunden</span></li>
+          <li><span>Du bist <strong>mindestens 18</strong> und meldest deine Eink&uuml;nfte selbst an</span></li>
+          <li><span>Du bist bereit, Werbung als Werbung zu kennzeichnen</span></li>
+        </ul>
+      </article>
+      <article class="cr-karte cr-karte--nein">
+        <h3>Das passt nicht</h3>
+        <ul class="cr-crosses">
+          <li><span>Gekaufte Reichweite &ndash; wir schauen uns die Interaktion an, nicht die Followerzahl</span></li>
+          <li><span>Gutschein-, Schn&auml;ppchen- und Cashback-Kan&auml;le</span></li>
+          <li><span>Anzeigen auf unseren Markennamen bei Google</span></li>
+          <li><span>Direkte Gegen&uuml;berstellungen mit Wettbewerbsprodukten</span></li>
+          <li><span>Bestellungen auf den eigenen Code</span></li>
+        </ul>
+      </article>
+    </div>
+    <p class="cr-fine cr-mt">Kein Mindest-Followerstand, ausdr&uuml;cklich. Ein Account mit 4.000 Leuten,
+    die alle einen alten Hund haben, ist f&uuml;r uns mehr wert als 200.000, die zuf&auml;llig vorbeiscrollen.
+    Deine Followerzahl fragen wir trotzdem ab &ndash; aber nur, um zu wissen, welche Anfrage zu dir passt.
+    Auf die Aufnahme und auf deinen Satz hat sie <strong>keinen</strong> Einfluss.</p>
+  </div>
+</section>
+
+<!-- ============================== ABLAUF ============================== -->
+<section class="sec sec--card" id="ablauf">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="cr-eyebrow">Ablauf</p>
+      <h2>Von der Bewerbung bis zum ersten Geld</h2>
+    </div>
+    <div class="cr-steps">
+      <article class="cr-step"><span class="cr-step__n">1</span><h3>Bewerben</h3>
+        <p>F&uuml;nf Minuten. Kan&auml;le, ein paar S&auml;tze &uuml;ber dich und wor&uuml;ber du postest.</p></article>
+      <article class="cr-step"><span class="cr-step__n">2</span><h3>Wir schauen drauf</h3>
+        <p>Ein Mensch sieht sich deinen Kanal an. Antwort innerhalb von f&uuml;nf Werktagen &ndash;
+        auch wenn es eine Absage ist.</p></article>
+      <article class="cr-step"><span class="cr-step__n">3</span><h3>Zugang und Code</h3>
+        <p>Du bekommst deinen Bereich, deinen Code und das Produkt zum Testen.</p></article>
+      <article class="cr-step"><span class="cr-step__n">4</span><h3>Erste Kampagne</h3>
+        <p>Wenn etwas Passendes ansteht, fragen wir dich mit Briefing, Termin und Honorar an.
+        Du sagst zu oder ab.</p></article>
+      <article class="cr-step"><span class="cr-step__n">5</span><h3>Geld</h3>
+        <p>Honorar nach der Abnahme, Beteiligung monatlich zum 15. Wir schreiben die Abrechnung,
+        du musst keine Rechnung stellen.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FAQ ============================== -->
+<section class="sec sec--cream" id="faq">
+  <div class="wrap">
+    <div class="sec__head">
+      <p class="cr-eyebrow">H&auml;ufige Fragen</p>
+      <h2>Was Creator uns meistens fragen</h2>
+    </div>
+    <div class="cr-faq">
+      <details><summary>Muss ich posten, wenn ich das Produkt bekommen habe?</summary>
+        <p>Nein. Beim reinen Testpaket gibt es keine Posting-Pflicht. Wenn es dir nicht zusagt,
+        sag es uns &ndash; das hilft uns mehr als ein h&ouml;flicher Beitrag. Anders ist es bei einer
+        bezahlten Kampagne: Da ist die Lieferung vereinbart, mit Termin.</p></details>
+
+      <details><summary>Wie hoch ist das Honorar?</summary>
+        <p>Das h&auml;ngt vom Umfang ab (wie viele Inhalte, welches Format) und davon, wof&uuml;r wir
+        den Inhalt verwenden d&uuml;rfen. D&uuml;rfen wir ihn nur bei dir stehen lassen, ist es weniger,
+        als wenn wir ihn auch als Anzeige schalten. Wir nennen dir den Betrag vor der Zusage,
+        schriftlich. Wenn du eine eigene Preisliste hast, schick sie mit.</p></details>
+
+      <details><summary>Was passiert mit meinen Videos nach der Kampagne?</summary>
+        <p>Wir d&uuml;rfen sie f&uuml;r die vereinbarte Zeit und auf den vereinbarten Kan&auml;len nutzen &ndash;
+        das steht im Briefing und in deinem Bereich. Danach ist Schluss, und wir h&ouml;ren auf,
+        sie zu verwenden. Die Urheberrechte bleiben durchgehend bei dir. L&ouml;schen kannst du deinen
+        eigenen Beitrag jederzeit; wenn du uns die Rechte vorzeitig entziehen willst, sag Bescheid,
+        dann kl&auml;ren wir, was schon l&auml;uft.</p></details>
+
+      <details><summary>Ich habe nur 3.000 Follower. Lohnt sich das f&uuml;r euch?</summary>
+        <p>Oft mehr als ein gro&szlig;er Account. Entscheidend ist, ob deine Leute Hunde haben und
+        dir zuh&ouml;ren. Kleine Kan&auml;le haben h&auml;ufig die h&ouml;here Interaktion &ndash; und einen Code,
+        den wirklich jemand eintippt.</p></details>
+
+      <details><summary>Muss ich ein Gewerbe haben?</summary>
+        <p>F&uuml;r regelm&auml;&szlig;ige Honorare in der Regel ja &ndash; das musst du aber mit deinem Finanzamt
+        oder deiner Steuerberatung kl&auml;ren, nicht mit uns. Wenn du Kleinunternehmer nach § 19 UStG bist,
+        sag es im Formular, dann rechnen wir ohne Umsatzsteuer ab. Wir schreiben die Abrechnung als
+        Gutschrift, du musst uns keine Rechnung schicken.</p></details>
+
+      <details><summary>Ist das kostenlose Produkt steuerlich ein Geschenk?</summary>
+        <p>Leider nein. Wenn du daf&uuml;r etwas lieferst, ist es eine Gegenleistung und wird steuerlich
+        wie eine Zahlung behandelt. Wir weisen dir den Warenwert in der Abrechnung aus, damit du
+        es sauber angeben kannst. Sprich es einmal mit deiner Steuerberatung durch.</p></details>
+
+      <details><summary>Ich wohne in &Ouml;sterreich oder der Schweiz. Geht das?</summary>
+        <p>Ja, wir versenden dorthin. Bei der Abrechnung gelten dann andere Umsatzsteuerregeln,
+        das kl&auml;ren wir vor der ersten Auszahlung mit dir. Rechne mit ein bis zwei Fragen mehr
+        als bei deutschen Creatorn.</p></details>
+
+      <details><summary>Was passiert, wenn ihr einen Inhalt nicht freigebt?</summary>
+        <p>Du bekommst eine Begr&uuml;ndung, die sagt, was genau zu &auml;ndern ist &ndash; kein
+        &bdquo;passt so nicht&ldquo;. Meistens geht es um ein einzelnes Wort, das gesundheitsbezogen ist,
+        oder um Musik, die wir gewerblich nicht nutzen d&uuml;rfen. Bei einer bezahlten Kampagne
+        bekommst du eine faire Frist zum Nachbessern; dein Honorar steht dadurch nicht infrage.</p></details>
+
+      <details><summary>Kann ich auch f&uuml;r andere Marken arbeiten?</summary>
+        <p>Ja. Wir verlangen keine Exklusivit&auml;t. Was wir nicht m&ouml;chten, ist eine direkte
+        Gegen&uuml;berstellung mit einem Wettbewerbsprodukt im selben Beitrag &ndash; und ein
+        Wettbewerbsprodukt im Bild einer Kampagne, f&uuml;r die wir bezahlen.</p></details>
+
+      <details><summary>Wie komme ich wieder raus?</summary>
+        <p>Eine formlose Nachricht gen&uuml;gt, ohne Frist. Dein Code wird abgeschaltet, bereits
+        verdiente Betr&auml;ge werden noch ausgezahlt. Laufende Nutzungsrechte an schon abgenommenen
+        Inhalten bleiben f&uuml;r die vereinbarte Zeit bestehen &ndash; das ist der einzige Punkt, der
+        &uuml;ber das Ende hinaus gilt.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== BEWERBUNG ============================== -->
+<section class="sec sec--card" id="bewerben">
+  <div class="wrap" style="max-width:900px">
+    <div class="sec__head">
+      <p class="cr-eyebrow">Bewerbung</p>
+      <h2>Erz&auml;hl uns von deinem Kanal</h2>
+      <p class="cr-lede">F&uuml;nf Minuten. Wir melden uns innerhalb von f&uuml;nf Werktagen &ndash;
+      auch, wenn es nicht passt.</p>
+    </div>
+
+    <form class="cr-form cr-mt" id="bewerbung" novalidate>
+      <div class="cr-grid2">
+        <div class="cr-fld"><label for="f-name">Vor- und Nachname *</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="cr-fld"><label for="f-kanal">Name deines Kanals *</label>
+          <input id="f-kanal" name="kanal" type="text" placeholder="z. B. Pfotenweg" required></div>
+        <div class="cr-fld"><label for="f-mail">E-Mail *</label>
+          <input id="f-mail" name="email" type="email" autocomplete="email" required></div>
+        <div class="cr-fld"><label for="f-tel">Telefon</label>
+          <input id="f-tel" name="telefon" type="tel" autocomplete="tel"></div>
+        <div class="cr-fld"><label for="f-ort">Ort</label>
+          <input id="f-ort" name="ort" type="text" autocomplete="address-level2"></div>
+        <div class="cr-fld"><label for="f-land">Land</label>
+          <select id="f-land" name="land">
+            <option value="DE">Deutschland</option>
+            <option value="AT">&Ouml;sterreich</option>
+            <option value="CH">Schweiz</option>
+          </select></div>
+
+        <div class="cr-fld cr-full"><label for="f-ueber">Wor&uuml;ber postest du? *</label>
+          <textarea id="f-ueber" name="ueber" required placeholder="Zum Beispiel: Alltag mit meinem elfj&auml;hrigen Labrador, viel &uuml;ber Bewegung und F&uuml;tterung im Alter. Kurze Videos, wenig Hochglanz. Meine Community ist gr&ouml;&szlig;tenteils zwischen 30 und 50 und hat &auml;ltere Hunde."></textarea></div>
+
+        <div class="cr-fld cr-full"><label for="f-wunsch">Woran h&auml;ttest du Interesse? *</label>
+          <select id="f-wunsch" name="wunsch" required>
+            <option value="">Bitte ausw&auml;hlen</option>
+            <option value="kooperation">Bezahlte Kampagnen</option>
+            <option value="code">Nur ein Code, ohne feste Auftr&auml;ge</option>
+            <option value="seeding">Erst mal das Produkt testen</option>
+            <option value="offen">Bin f&uuml;r alles offen</option>
+          </select></div>
+      </div>
+
+      <h3 style="margin:1.4rem 0 .3rem;font-size:1.05rem">Deine Kan&auml;le</h3>
+      <p class="cr-fine" style="margin-bottom:1rem">Mindestens einer. Die Followerzahl ist freiwillig
+      und hat <strong>keinen</strong> Einfluss auf die Aufnahme oder deinen Beteiligungssatz &ndash;
+      wir sehen damit nur, welche Anfrage zu dir passt.</p>
+      <div id="plat-liste"></div>
+      <button class="btn btn--sm btn--ghost" type="button" id="plat-plus" style="margin-bottom:1.4rem">
+        Weiteren Kanal hinzuf&uuml;gen</button>
+
+      <h3 style="margin:1.4rem 0 .3rem;font-size:1.05rem">Arbeitsproben (freiwillig)</h3>
+      <p class="cr-fine" style="margin-bottom:1rem">Mediakit, Preisliste oder ein Screenshot deiner
+      Reichweite &ndash; alles, was uns hilft. PDF, JPG oder PNG, bis 20 MB je Datei.</p>
+      <div class="cr-drop" id="pr-drop" tabindex="0" role="button" aria-label="Dateien ausw&auml;hlen">
+        <svg><use href="#ic-upload"/></svg>
+        <p class="cr-drop__t">Dateien hierher ziehen oder <span class="cr-drop__link">ausw&auml;hlen</span></p>
+        <input type="file" id="pr-datei" accept=".pdf,.jpg,.jpeg,.png" multiple hidden>
+      </div>
+      <div class="cr-files" id="pr-liste" hidden></div>
+
+      <label class="cr-check"><input type="checkbox" id="f-alter">
+        <span>Ich bin mindestens 18 Jahre alt. *</span></label>
+      <label class="cr-check"><input type="checkbox" id="f-klein">
+        <span>Ich bin Kleinunternehmer nach § 19 UStG (falls zutreffend).</span></label>
+      <label class="cr-check"><input type="checkbox" id="f-regeln">
+        <span>Ich habe die Regeln zur Werbekennzeichnung und zu Aussagen &uuml;ber das Produkt
+        gelesen und halte mich daran. *</span></label>
+      <label class="cr-check"><input type="checkbox" id="f-dsgvo">
+        <span>Ich habe die Datenschutzhinweise gelesen. *</span></label>
+
+      <div class="cr-msg cr-msg--err" id="f-fehler" hidden role="alert"></div>
+      <div class="cr-msg cr-msg--ok" id="f-ok" hidden role="status"></div>
+
+      <button class="btn btn--primary" type="submit">Bewerbung abschicken<svg><use href="#ic-arrow"/></svg></button>
+
+      <p class="cr-legal">Wir verwenden deine Angaben nur, um deine Bewerbung zu pr&uuml;fen und
+      dich zu kontaktieren. Wenn es nicht passt, l&ouml;schen wir sie. Es entstehen dir keine Kosten
+      und du gehst keine Verpflichtung ein.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="ft">
+  <div class="wrap">
+    <p class="cr-center cr-fine">
+      Interner Entwurf des Creator-Programms &middot;
+      <a href="creator-portal/index.html">Creator-Bereich</a> &middot;
+      <a href="fachpartner.html">Programm f&uuml;r Fachleute</a> &middot;
+      <a href="../aktuell/index.html">Zur&uuml;ck zum Shop</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  function el(s,w){ return (w||document).querySelector(s); }
+  function alle(s,w){ return Array.prototype.slice.call((w||document).querySelectorAll(s)); }
+  function esc(s){
+    return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  }
+  function eur0(n){ return Math.round(n||0).toLocaleString('de-DE') + ' €'; }
+  function mb(b){
+    if(b < 1048576) return Math.max(1, Math.round(b/1024)).toLocaleString('de-DE') + ' KB';
+    return (b/1048576).toLocaleString('de-DE',{maximumFractionDigits:1}) + ' MB';
+  }
+
+  /* ---------------- Kopfzeile / Mobilmenue ---------------- */
+  (function(){
+    var b = el('[data-burger]'), n = el('[data-nav]');
+    if(!b || !n) return;
+    b.addEventListener('click', function(){
+      var auf = b.getAttribute('aria-expanded') === 'true';
+      b.setAttribute('aria-expanded', auf ? 'false' : 'true');
+      n.setAttribute('data-offen', auf ? 'false' : 'true');
+    });
+  })();
+
+  /* ---------------- Verdienstrechner ----------------
+     Die zwoelf Monate werden EINZELN simuliert: der Satz eines Monats
+     richtet sich nach dem Stand VOR diesem Monat. Wer stattdessen den
+     Endsatz mit zwoelf multipliziert, rechnet sich reich - jede und jeder
+     faengt bei 10 % an. */
+  var STUFEN = [
+    { name:'Entdecker',   satz:0.10, abUmsatz:0 },
+    { name:'Erzähler',    satz:0.12, abUmsatz:500 },
+    { name:'Botschafter', satz:0.15, abUmsatz:2500 }
+  ];
+  /* Der Rechner steigt bewusst NUR über den vermittelten Warenwert auf.
+     Die zweite Bedingung der Stufen - freigegebene Inhalte - laesst sich hier
+     nicht seriös hochrechnen: ein Beitrag mit Code ist nicht dasselbe wie ein
+     zur Freigabe eingereichter Inhalt. Wer beides liefert, ist also eher
+     schneller oben als hier gezeigt, nie langsamer. */
+  function stufeFuer(umsatz){
+    var t = STUFEN[0];
+    for(var i=0;i<STUFEN.length;i++){
+      if(umsatz >= STUFEN[i].abUmsatz) t = STUFEN[i];
+    }
+    return t;
+  }
+  (function(){
+    var rAuf = el('#r-auf'), rBeit = el('#r-beit'), rQuote = el('#r-quote');
+    if(!rAuf) return;
+    var KORB = 70, RABATT = 0.10, UST = 1.19;
+
+    function rechne(){
+      var auf = parseInt(rAuf.value,10);
+      var beit = parseInt(rBeit.value,10);
+      var quote = parseInt(rQuote.value,10) / 10000;   /* Reglerwert 20 => 0,20 % */
+
+      el('#o-auf').textContent = auf.toLocaleString('de-DE');
+      el('#o-beit').textContent = beit;
+      el('#o-quote').textContent = (quote*100).toLocaleString('de-DE',{minimumFractionDigits:2, maximumFractionDigits:2}) + ' %';
+
+      var bestMonat = auf * beit * quote;
+      var nettoJeBest = KORB * (1-RABATT) / UST;
+      var umsatzMonat = bestMonat * nettoJeBest;
+
+      var kumUmsatz = 0, jahr = 0, ersterSatz = null, letzterSatz = null;
+      var aufstiegIn = null;
+      for(var m=0; m<12; m++){
+        var st = stufeFuer(kumUmsatz);
+        if(m===0) ersterSatz = st;
+        if(m===11) letzterSatz = st;
+        if(aufstiegIn === null && st !== STUFEN[0]) aufstiegIn = m;
+        jahr += umsatzMonat * st.satz;
+        kumUmsatz += umsatzMonat;
+      }
+
+      /* Unter zehn Bestellungen mit einer Nachkommastelle anzeigen.
+         Sonst steht „0 Bestellungen" neben „21 € Warenwert" – das sieht nach
+         einem Rechenfehler aus, ist aber nur eine gerundete Null. */
+      el('#o-best').textContent = bestMonat < 10
+        ? bestMonat.toLocaleString('de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 })
+        : Math.round(bestMonat).toLocaleString('de-DE');
+      el('#o-umsatz').textContent = eur0(umsatzMonat);
+      el('#o-start').textContent = eur0(umsatzMonat * ersterSatz.satz);
+      el('#o-endeL').textContent = 'Zwölfter Monat, als ' + letzterSatz.name;
+      el('#o-ende').textContent = eur0(umsatzMonat * letzterSatz.satz);
+      el('#o-jahr').textContent = eur0(jahr);
+
+      var st2 = el('#o-stufe');
+      if(aufstiegIn === null){
+        st2.innerHTML = 'In diesem Tempo bleibst du im ersten Jahr <strong>Entdecker</strong> mit 10 %.';
+      } else if(aufstiegIn === 0){
+        st2.innerHTML = 'Damit bist du <strong>vom ersten Monat an</strong> über der ersten Stufe.';
+      } else {
+        st2.innerHTML = 'Bei diesem Tempo steigst du nach etwa <strong>' + aufstiegIn +
+          (aufstiegIn === 1 ? ' Monat' : ' Monaten') + '</strong> auf.';
+      }
+    }
+    [rAuf, rBeit, rQuote].forEach(function(r){ r.addEventListener('input', rechne); });
+    rechne();
+  })();
+
+  /* ---------------- Kanaele im Formular ---------------- */
+  var NETZE = ['Instagram','TikTok','YouTube','Facebook','Podcast','Website oder Blog','Newsletter','Sonstiges'];
+  var platZ = 0;
+  function platZeile(){
+    var i = platZ++;
+    var d = document.createElement('div');
+    d.className = 'cr-plat';
+    d.setAttribute('data-plat', i);
+    d.innerHTML =
+      '<div class="cr-fld" style="margin-bottom:0"><label for="p-netz-'+i+'">Netzwerk</label>' +
+      '<select id="p-netz-'+i+'">' + NETZE.map(function(n){
+        return '<option value="'+esc(n)+'">'+esc(n)+'</option>'; }).join('') + '</select></div>' +
+      '<div class="cr-fld" style="margin-bottom:0"><label for="p-handle-'+i+'">Profil</label>' +
+      '<input id="p-handle-'+i+'" type="text" placeholder="@name"></div>' +
+      '<div class="cr-fld" style="margin-bottom:0"><label for="p-foll-'+i+'">Follower</label>' +
+      '<input id="p-foll-'+i+'" type="number" min="0" step="1" placeholder="z. B. 4200"></div>' +
+      '<button class="cr-plat__x" type="button" aria-label="Kanal entfernen"><svg><use href="#ic-close"/></svg></button>';
+    el('button', d).addEventListener('click', function(){
+      d.remove();
+      if(!alle('.cr-plat').length) el('#plat-liste').appendChild(platZeile());
+    });
+    return d;
+  }
+  function lesePlattformen(){
+    return alle('.cr-plat').map(function(row){
+      var i = row.getAttribute('data-plat');
+      var netz = el('#p-netz-'+i).value;
+      var handle = el('#p-handle-'+i).value.trim();
+      var f = parseInt(el('#p-foll-'+i).value, 10);
+      if(!handle) return null;
+      return { netz: netz || 'Sonstiges', handle: handle,
+               follower: isNaN(f) ? 0 : Math.max(0, f), engagement: 0, url: '' };
+    }).filter(Boolean);
+  }
+  el('#plat-liste').appendChild(platZeile());
+  el('#plat-plus').addEventListener('click', function(){
+    el('#plat-liste').appendChild(platZeile());
+    var letzte = alle('.cr-plat').pop();
+    if(letzte) el('select', letzte).focus();
+  });
+
+  /* ---------------- Arbeitsproben ----------------
+     Gemerkt werden absichtlich nur Name und Groesse, nie der Inhalt. */
+  var proben = [];
+  (function(){
+    var zone = el('#pr-drop'), input = el('#pr-datei');
+    zone.addEventListener('click', function(){ input.click(); });
+    zone.addEventListener('keydown', function(ev){
+      if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); input.click(); }
+    });
+    ['dragenter','dragover'].forEach(function(n){
+      zone.addEventListener(n, function(ev){ ev.preventDefault(); zone.setAttribute('data-an','true'); });
+    });
+    ['dragleave','drop'].forEach(function(n){
+      zone.addEventListener(n, function(ev){ ev.preventDefault(); zone.setAttribute('data-an','false'); });
+    });
+    zone.addEventListener('drop', function(ev){ if(ev.dataTransfer) nimm(ev.dataTransfer.files); });
+    input.addEventListener('change', function(){ nimm(input.files); input.value=''; });
+
+    function nimm(fl){
+      Array.prototype.slice.call(fl||[]).forEach(function(f){
+        if(f.size > 20*1048576) return;
+        proben.push({ name: f.name, groesse: f.size });
+      });
+      zeichne();
+    }
+    function zeichne(){
+      var box = el('#pr-liste');
+      if(!proben.length){ box.hidden = true; box.innerHTML=''; return; }
+      box.hidden = false;
+      box.innerHTML = proben.map(function(n,i){
+        return '<div class="cr-file"><svg><use href="#ic-doc"/></svg><span>'+esc(n.name)+'</span>' +
+               '<span class="cr-file__m">'+mb(n.groesse)+'</span>' +
+               '<button type="button" data-pr-weg="'+i+'" aria-label="Datei entfernen">' +
+               '<svg viewBox="0 0 24 24" width="16" height="16"><use href="#ic-close"/></svg></button></div>';
+      }).join('');
+      alle('[data-pr-weg]', box).forEach(function(b){
+        b.addEventListener('click', function(){
+          proben.splice(parseInt(b.getAttribute('data-pr-weg'),10),1);
+          zeichne();
+        });
+      });
+    }
+  })();
+
+  /* ---------------- Bewerbung absenden ---------------- */
+  (function(){
+    var form = el('#bewerbung');
+    var boxErr = el('#f-fehler'), boxOk = el('#f-ok');
+    var SPEICHER = 'nfp_creator_bewerbungen';
+
+    function zeigeFehler(liste){
+      boxOk.hidden = true;
+      boxErr.innerHTML = '<strong>Da fehlt noch etwas:</strong><ul style="margin:.5rem 0 0;padding-left:1.1rem;list-style:disc">'
+        + liste.map(function(t){ return '<li>'+t+'</li>'; }).join('') + '</ul>';
+      boxErr.hidden = false;
+      boxErr.scrollIntoView({block:'center', behavior:'instant'});
+    }
+
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var fehler = [];
+      ['f-name','f-kanal','f-mail','f-ueber','f-wunsch'].forEach(function(id){
+        var e = el('#'+id);
+        e.setAttribute('aria-invalid','false');
+        if(!e.value.trim()){
+          e.setAttribute('aria-invalid','true');
+          fehler.push(el('label[for="'+id+'"]').textContent.replace(' *','') + ' fehlt.');
+        }
+      });
+      var mail = el('#f-mail');
+      if(mail.value.trim() && !/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(mail.value.trim())){
+        mail.setAttribute('aria-invalid','true');
+        fehler.push('Die E-Mail-Adresse sieht nicht gültig aus.');
+      }
+      var plat = lesePlattformen();
+      if(!plat.length) fehler.push('Bitte trage mindestens einen Kanal mit Profilnamen ein.');
+      if(!el('#f-alter').checked)  fehler.push('Bitte bestätige, dass du mindestens 18 bist.');
+      if(!el('#f-regeln').checked) fehler.push('Bitte bestätige die Regeln zu Kennzeichnung und Aussagen.');
+      if(!el('#f-dsgvo').checked)  fehler.push('Bitte bestätige die Datenschutzhinweise.');
+      if(fehler.length){ zeigeFehler(fehler); return; }
+
+      var eintrag = {
+        id: 'BC' + Date.now().toString(36).toUpperCase(),
+        name: el('#f-name').value.trim(),
+        kuenstlername: el('#f-kanal').value.trim(),
+        email: el('#f-mail').value.trim(),
+        telefon: el('#f-tel').value.trim(),
+        ort: el('#f-ort').value.trim(),
+        land: el('#f-land').value,
+        ueber: el('#f-ueber').value.trim(),
+        wunsch: el('#f-wunsch').value,
+        plattformen: plat,
+        beispiele: proben.slice(),
+        kleinunternehmer: el('#f-klein').checked,
+        eingang: new Date().toISOString(),
+        status: 'offen'
+      };
+      try{
+        var a = JSON.parse(localStorage.getItem(SPEICHER) || '[]');
+        a.push(eintrag);
+        localStorage.setItem(SPEICHER, JSON.stringify(a));
+      }catch(e){ /* Speicher gesperrt - der Prototyp laeuft trotzdem weiter */ }
+
+      var reich = plat.reduce(function(s,p){ return s + (p.follower||0); }, 0);
+      boxErr.hidden = true;
+      boxOk.innerHTML = '<strong>Danke, ' + esc(eintrag.name.split(' ')[0]) + '!</strong><br>'
+        + 'Deine Bewerbung ist da (Vorgang ' + eintrag.id + '). Wir melden uns innerhalb von fünf Werktagen.'
+        + ' Wir haben ' + plat.length + (plat.length === 1 ? ' Kanal' : ' Kanäle')
+        + (reich ? ' mit zusammen ' + reich.toLocaleString('de-DE') + ' Followern' : '')
+        + (proben.length ? ' und ' + proben.length + (proben.length === 1 ? ' Arbeitsprobe' : ' Arbeitsproben') : '')
+        + ' bekommen.'
+        + '<br><span style="font-size:.87rem;opacity:.85">Prototyp-Hinweis: Die Bewerbung liegt jetzt im '
+        + '<a href="creator-portal/index.html" style="text-decoration:underline">Creator-Bereich</a> zur Prüfung bereit.</span>';
+      boxOk.hidden = false;
+      form.querySelector('button[type=submit]').disabled = true;
+      boxOk.scrollIntoView({block:'center', behavior:'instant'});
+    });
+
+    /* Marker: erst ab hier ist die Seite wirklich bedienbar. Ohne ihn klickt ein Test
+       womoeglich, bevor der Handler haengt - dann sendet der Browser das Formular nativ
+       ab und die Pruefung misst eine leere Seite. */
+    window.__crBereit = true;
+  })();
+})();
+</script>
+
+</body>
+</html>

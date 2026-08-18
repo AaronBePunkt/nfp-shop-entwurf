@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Creator-Bereich &ndash; NatureFlow Pets</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Interner Prototyp: Creator-Bereich des NatureFlow-Pets-Creator-Programms. Demodaten, kein Livesystem.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="portal.css">
+<link rel="stylesheet" href="creator.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-dash" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></g></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></g></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></g></symbol>
+  <symbol id="i-inbox" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h5l1.5 3h5L21 13"/><path d="M4.5 5.5h15L21 13v5.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V13z"/></g></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="9" cy="8" r="3.4"/><path d="M2.8 19.5a6.3 6.3 0 0 1 12.4 0"/><path d="M16.5 5.2a3.4 3.4 0 0 1 0 6.6"/><path d="M17.4 14.6a6.3 6.3 0 0 1 3.9 4.9"/></g></symbol>
+  <symbol id="i-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></g></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 17l5-5-5-5"/><path d="M20 12H9"/><path d="M12 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5 11-11"/></g></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></g></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></g></symbol>
+  <symbol id="i-dl" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10.5l5 5 5-5"/><path d="M4 20h16"/></g></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4"/><path d="M7 8.5l5-5 5 5"/><path d="M4 20h16"/></g></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><circle cx="8.6" cy="10" r="1.6"/><path d="M3.6 17l4.8-4.6 3.4 3.2 3-2.7 5.6 5"/></g></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10.2 8.4l6 3.6-6 3.6z"/></g></symbol>
+  <symbol id="i-euro" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 6.4a6.6 6.6 0 0 0-9.7 2.4c-1.6 3.4-.3 7.3 2.9 8.9a6.6 6.6 0 0 0 6.8-.6"/><path d="M4.8 10.6h8.4M4.8 13.9h8.4"/></g></symbol>
+  <symbol id="i-person" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8.4" r="3.6"/><path d="M5 20a7 7 0 0 1 14 0"/></g></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="6.4"/><path d="M15.8 15.8 20.5 20.5"/></g></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.4" y="3.4" width="17.2" height="17.2" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1.1" fill="currentColor" stroke="none"/></g></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M14.3 3h2.5c.2 1.6 1.1 3 2.5 3.7.6.3 1.2.5 1.9.5v2.6c-1.6 0-3.1-.5-4.4-1.4v6.2a5.9 5.9 0 1 1-5-5.8v2.7a3.2 3.2 0 1 0 2.3 3.1V3z"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="2.6" y="5.6" width="18.8" height="12.8" rx="4"/><path d="M10.4 9.6l4.6 2.4-4.6 2.4z"/></g></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.6 21v-7.4h2.5l.4-2.9h-2.9V8.9c0-.8.2-1.4 1.4-1.4h1.6V4.9c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v2.9h2.5V21h3.2z"/></symbol>
+  <symbol id="i-mic" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="9.2" y="2.8" width="5.6" height="11" rx="2.8"/><path d="M5.5 11.4a6.5 6.5 0 0 0 13 0"/><path d="M12 17.9V21"/></g></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="8.6"/><path d="M3.6 12h16.8"/><path d="M12 3.4c2.2 2.4 3.4 5.4 3.4 8.6S14.2 18.2 12 20.6c-2.2-2.4-3.4-5.4-3.4-8.6S9.8 5.8 12 3.4z"/></g></symbol>
+  <symbol id="i-mega" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 10.2v3.6a1.6 1.6 0 0 0 1.6 1.6h2.1l7.2 4.1V4.5l-7.2 4.1H5.1a1.6 1.6 0 0 0-1.6 1.6z"/><path d="M18.4 8.6a5 5 0 0 1 0 6.8"/><path d="M7.2 15.4v3.4a1.4 1.4 0 0 0 2.8 0v-1.8"/></g></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7.5 3v5.5c0 4.6-3.1 8.6-7.5 10.2C7.6 20.1 4.5 16.1 4.5 11.5V6L12 3z"/></g></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.4 12 3.4l8.5 4v9.2L12 20.6l-8.5-4z"/><path d="M3.5 7.4 12 11.5l8.5-4.1M12 11.5v9.1"/></g></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.2V12l3.2 2"/></g></symbol>
+  <symbol id="i-warn" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.2 21 19.5H3z"/><path d="M12 10v4.1M12 17h.01"/></g></symbol>
+</defs></svg>
+
+<!-- ================= ANMELDUNG ================= -->
+<div class="login" id="view-login">
+  <div class="login__box">
+    <div class="login__brand">
+      <img src="../img/logo-green.svg" alt="NatureFlow Pets" width="200" height="23">
+      <p class="login__sub">Creator-Bereich</p>
+    </div>
+
+    <div class="proto">
+      <strong>Prototyp mit Demodaten.</strong> Kein Livesystem, keine echten Creator-Daten. Alles, was du hier &auml;nderst, bleibt in diesem Browser.
+    </div>
+
+    <form id="form-login" novalidate>
+      <div class="fld">
+        <label for="l-mail">E-Mail</label>
+        <input id="l-mail" type="email" autocomplete="username" value="lena@beispiel.de">
+      </div>
+      <div class="fld">
+        <label for="l-pw">Passwort</label>
+        <input id="l-pw" type="password" autocomplete="current-password" value="demo1234">
+      </div>
+      <div class="msg msg--err" id="l-fehler" hidden role="alert"></div>
+      <button class="btn btn--primary btn--block" type="submit">Anmelden</button>
+    </form>
+
+    <p class="login__or">Oder direkt reinschauen</p>
+    <div class="login__demo">
+      <button class="btn btn--ghost" type="button" data-demo="creator">Als Creatorin ansehen</button>
+      <button class="btn btn--ghost" type="button" data-demo="admin">Als Verwaltung ansehen</button>
+    </div>
+    <p class="login__hint">
+      Zug&auml;nge: <code>lena@beispiel.de</code> (Creatorin) und
+      <code>creator@natureflow-pets.com</code> (Verwaltung) &middot; Passwort <code>demo1234</code>
+    </p>
+    <p class="login__back">
+      <a href="../creator.html">&larr; Zur&uuml;ck zur Creator-Seite</a>
+      <span class="login__sep" aria-hidden="true">&middot;</span>
+      <a href="../fachpartner-portal/index.html">Zum Fachpartner-Bereich</a>
+    </p>
+  </div>
+</div>
+
+<!-- ================= ANWENDUNG ================= -->
+<div class="app" id="view-app" hidden>
+  <header class="top">
+    <button class="iconbtn top__burger" id="btn-menu" aria-label="Men&uuml; ein- und ausblenden" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="22" height="22"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></g></svg>
+    </button>
+    <img class="top__logo" src="../img/logo-cream.svg" alt="NatureFlow Pets" width="170" height="20">
+    <span class="top__sep" aria-hidden="true"></span>
+    <span class="top__title" id="top-title">Creator-Bereich</span>
+    <div class="top__right">
+      <span class="who" id="who"></span>
+      <button class="btn btn--sm btn--ghost-light" id="btn-logout"><svg><use href="#i-out"/></svg>Abmelden</button>
+    </div>
+  </header>
+
+  <div class="shell">
+    <nav class="side" id="side" aria-label="Bereichsnavigation">
+      <p class="side__lbl" id="side-lbl">Mein Bereich</p>
+      <ul id="nav-list"></ul>
+      <div class="side__foot">
+        <p>Prototyp &middot; Demodaten</p>
+        <button class="linkbtn" id="btn-reset">Demodaten zur&uuml;cksetzen</button>
+      </div>
+    </nav>
+
+    <main class="main" id="main" tabindex="-1">
+      <!-- Inhalte werden von portal.js eingesetzt -->
+    </main>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden role="status"></div>
+
+<!-- Allzweck-Dialog: Bewerbung pruefen, Inhalt pruefen, Kampagne anlegen -->
+<dialog class="dlg" id="dlg-haupt">
+  <form method="dialog" class="dlg__form">
+    <div class="dlg__hd">
+      <h2 id="dlg-titel">Pr&uuml;fen</h2>
+      <button class="iconbtn" value="abbruch" aria-label="Schlie&szlig;en"><svg viewBox="0 0 24 24" width="20" height="20"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="dlg__body" id="dlg-body"></div>
+    <div class="dlg__ft" id="dlg-ft"></div>
+  </form>
+</dialog>
+
+<script src="portal.js"></script>
+</body>
+</html>
