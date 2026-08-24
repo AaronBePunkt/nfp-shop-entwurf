@@ -425,6 +425,7 @@
         <div class="res"><span class="res__l">Warenwert netto, nach 10&nbsp;% Kundenrabatt</span><span class="res__v" id="o-umsatz">236&nbsp;&euro;</span></div>
         <div class="res"><span class="res__l">Im ersten Monat, als Gef&auml;hrte mit 10&nbsp;%</span><span class="res__v" id="o-start">24&nbsp;&euro;</span></div>
         <div class="res res--gross"><span class="res__l" id="o-endeL">Im zw&ouml;lften Monat</span><span class="res__v" id="o-ende">47&nbsp;&euro;</span></div>
+        <div class="res"><span class="res__l">davon aus Folgebestellungen (halber Satz)</span><span class="res__v" id="o-folge">39&nbsp;&euro;</span></div>
         <div class="res"><span class="res__l">Im ersten Jahr zusammen</span><span class="res__v" id="o-jahr">505&nbsp;&euro;</span></div>
         <p class="calc__st" id="o-stufe">Bei diesem Tempo bist du nach etwa <strong>drei Monaten Begleiter</strong> und bekommst 15&nbsp;%.</p>
       </div>
@@ -436,8 +437,11 @@
       Die Stufen richten sich nach deinem <strong>Gesamtstand</strong>, nicht nach dem einzelnen Monat. Deshalb rechnen wir
       die zw&ouml;lf Monate einzeln durch: Du f&auml;ngst bei 10&nbsp;% an und steigst unterwegs auf &ndash; wir zeigen dir
       also nicht den Endsatz f&uuml;r das ganze Jahr, sondern was wirklich zusammenkommt.</p>
-      <p><strong>Folgebestellungen</strong> derselben Kundschaft verg&uuml;ten wir zw&ouml;lf Monate lang mit dem halben Satz;
-      die sind hier <em>nicht</em> eingerechnet und kommen noch dazu. Ebenfalls nicht eingerechnet: die geplante
+      <p><strong>Folgebestellungen</strong> derselben Kundschaft verg&uuml;ten wir <strong>dauerhaft</strong> mit dem halben Satz &ndash; auch dann, wenn dein Code dabei nicht mehr benutzt wird;
+      sie sind hier <strong>eingerechnet</strong>. Wie oft Kundschaft nachbestellt, ist an unserer eigenen
+      Kundschaft gemessen und nicht gesch&auml;tzt. Auf eine
+      Folgebestellung gibt es keinen Kundenrabatt mehr &ndash; dein Code gilt einmal je Person &ndash;, deshalb
+      liegt der Warenwert dort etwas h&ouml;her. Nicht eingerechnet: die geplante
       Materialpr&auml;mie f&uuml;r Bilder und Videos.</p>
       <p class="fine">Beispielrechnung, keine Zusage. Was am Ende zusammenkommt, h&auml;ngt davon ab, wie oft deine Empfehlung angenommen wird.</p>
     </div>
@@ -842,6 +846,13 @@
     var rB = el('#r-berat'), rQ = el('#r-quote'), rK = el('#r-korb');
     if(!rB) return;
 
+    /* Folgebestellungen: an der EIGENEN Kundschaft gemessen (Stand 24.08.2026), als Kohorte gerechnet —
+       nur Kundschaft mit ausreichender Beobachtungszeit zaehlt. Zuwachs je
+       Kundenalter in Monaten. Monate 10-12 vorsichtig fortgeschrieben: Der Shop
+       ist zu jung fuer eine gemessene Zwoelfmonatsaussage. */
+    var FOLGE_ZUWACHS = [0, 0.0302, 0.0298, 0.0404, 0.0336, 0.0336, 0.0336,
+                         0.0209, 0.0209, 0.0209, 0.0150, 0.0150, 0.0150];
+
     /** Stufe zu einem kumulierten Stand – die höchste erfüllte Stufe gewinnt. */
     function stufeFuer(best, ums){
       var t = STUFEN[0];
@@ -860,12 +871,23 @@
          anzuwenden. Sonst zeigt der Rechner ab dem ersten Monat 20 %, obwohl jeder
          bei 10 % anfängt – das wäre schöngerechnet. Die Schwellen gelten kumuliert,
          maßgeblich ist der Stand VOR dem jeweiligen Monat. */
-      var kumBest = 0, kumUms = 0, jahr = 0, monatsWert = 0, stufe = STUFEN[0];
+      var kumBest = 0, kumUms = 0, jahr = 0, jahrFolge = 0, monatsWert = 0, stufe = STUFEN[0];
       for(var m = 1; m <= 12; m++){
         stufe = stufeFuer(kumBest, kumUms);
-        monatsWert = netto * stufe.satz;
+        /* Folgebestellungen aus der Kundschaft FRUEHERER Monate, jeder
+           Monatsjahrgang mit seinem eigenen Alter. Kein Kundenrabatt: der Code
+           gilt je Person nur einmal. */
+        var folgeBest = 0;
+        for(var k = 1; k < m; k++){
+          var alter = m - k;
+          if(alter < FOLGE_ZUWACHS.length) folgeBest += best * FOLGE_ZUWACHS[alter];
+        }
+        var folgeNetto = folgeBest * (korb / 1.07);
+        var wertFolge = folgeNetto * stufe.satz * 0.5;
+        monatsWert = netto * stufe.satz + wertFolge;
         jahr += monatsWert;
-        kumBest += best; kumUms += netto;
+        jahrFolge += wertFolge;
+        kumBest += best + folgeBest; kumUms += netto + folgeNetto;
       }
       var startWert = netto * STUFEN[0].satz;
 
@@ -877,6 +899,7 @@
       el('#o-start').textContent = eur(startWert);
       el('#o-endeL').textContent = 'Im zwölften Monat, als ' + stufe.name + ' mit ' + Math.round(stufe.satz*100) + ' %';
       el('#o-ende').textContent  = eur(monatsWert);
+      el('#o-folge').textContent = eur(jahrFolge);
       el('#o-jahr').textContent  = eur(jahr);
 
       /* Wie lange bis zur nächsten Stufe? Ehrlich formulieren, wenn es nie reicht. */

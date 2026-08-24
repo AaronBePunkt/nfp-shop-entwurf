@@ -794,7 +794,7 @@
       '</div>' +
       '<div class="card">' + tabelleBestellungen(a.bestellungen) + '</div>' +
       '<div class="note"><strong>Warum manche Bestellungen den halben Satz haben:</strong> Bestellt dieselbe Kundin oder derselbe Kunde erneut, ' +
-      'vergüten wir 12 Monate lang die Hälfte. So lohnt sich deine Betreuung, ohne dass wir Bestandskunden doppelt bezahlen. ' +
+      'vergüten wir dauerhaft die Hälfte – auch ohne deinen Code. So lohnt sich deine Betreuung, ohne dass wir Bestandskunden doppelt bezahlen. ' +
       '<strong>Stornierte Bestellungen</strong> entstehen bei Widerruf oder Rücksendung – dafür entfällt die Beteiligung.</div>';
   }
 
