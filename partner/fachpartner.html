@@ -125,6 +125,9 @@
 .res--gross .res__v{font-size:2rem;color:var(--gold-light)}
 .calc__st{margin-top:1.3rem;padding-top:1.1rem;border-top:1px solid rgba(227,200,140,.28);font-size:.9rem;color:#DCD2C2}
 .calc__st strong{color:var(--gold-light)}
+/* .fine ist fuer helle Flaechen gebaut (dunkles --ink-soft). Im dunklen
+   Rechnerfeld traegt es nur 1,81:1 - deshalb hier auf den Panel-Ton heben. */
+.calc__out .fine{color:#DCD2C2}
 
 /* ---- Aussagenband ueber Bild: Text liegt auf deckender Flaeche ---- */
 .claim{position:relative;background:var(--green-900)}
@@ -300,7 +303,7 @@
     <div class="fp-hero__in">
       <div>
         <p class="eyebrow eyebrow--deep">Partnerprogramm f&uuml;r Fachleute</p>
-        <h1>Du empfiehlst sowieso.<br>Ab jetzt verdienst du mit.</h1>
+        <h1>Deine Empfehlung z&auml;hlt.<br>Auch beim zweiten Mal.</h1>
         <p class="lede" style="margin-top:1.15rem">
           Physiotherapie, Tierheilpraxis, Hundeschule, Ern&auml;hrungsberatung, Fachhandel:
           Du sprichst jeden Tag mit Hundehaltern &uuml;ber Bewegung und F&uuml;tterung.
@@ -310,6 +313,7 @@
         <ul class="ticks" style="margin-top:1.6rem">
           <li><span>Dein eigener Code &ndash; funktioniert auch im Gespr&auml;ch, nicht nur online</span></li>
           <li><span>Kein Lager, keine Vorkasse, kein Warenrisiko</span></li>
+          <li><span><strong>Die H&auml;lfte deines Satzes gibt es dauerhaft auch auf Folgebestellungen</strong> deiner Kundschaft</span></li>
           <li><span>Fachunterlagen und gepr&uuml;fte Formulierungen, die du bedenkenlos nutzen darfst</span></li>
           <li><span>Eine Ansprechperson mit Namen statt eines Ticketsystems</span></li>
         </ul>
@@ -420,13 +424,17 @@
       </div>
 
       <div class="calc__out">
-        <h3>Deine Rechnung</h3>
+        <h3>Was du vermittelst</h3>
         <div class="res"><span class="res__l">Bestellungen im Monat</span><span class="res__v" id="o-best">4</span></div>
         <div class="res"><span class="res__l">Warenwert netto, nach 10&nbsp;% Kundenrabatt</span><span class="res__v" id="o-umsatz">236&nbsp;&euro;</span></div>
+        <p class="fine">Das ist der Warenwert, den du uns bringst &ndash; nicht dein Verdienst.
+        Deine Beteiligung daraus steht darunter.</p>
+
+        <h3 style="margin-top:1.6rem">Deine Beteiligung</h3>
         <div class="res"><span class="res__l">Im ersten Monat, als Gef&auml;hrte mit 10&nbsp;%</span><span class="res__v" id="o-start">24&nbsp;&euro;</span></div>
-        <div class="res res--gross"><span class="res__l" id="o-endeL">Im zw&ouml;lften Monat</span><span class="res__v" id="o-ende">47&nbsp;&euro;</span></div>
+        <div class="res"><span class="res__l" id="o-endeL">Im zw&ouml;lften Monat</span><span class="res__v" id="o-ende">47&nbsp;&euro;</span></div>
+        <div class="res res--gross"><span class="res__l">Im ersten Jahr zusammen</span><span class="res__v" id="o-jahr">505&nbsp;&euro;</span></div>
         <div class="res"><span class="res__l">davon aus Folgebestellungen (halber Satz)</span><span class="res__v" id="o-folge">39&nbsp;&euro;</span></div>
-        <div class="res"><span class="res__l">Im ersten Jahr zusammen</span><span class="res__v" id="o-jahr">505&nbsp;&euro;</span></div>
         <p class="calc__st" id="o-stufe">Bei diesem Tempo bist du nach etwa <strong>drei Monaten Begleiter</strong> und bekommst 15&nbsp;%.</p>
       </div>
     </div>
@@ -562,7 +570,7 @@
         <ul class="ticks" style="margin-top:1.5rem">
           <li><span><strong>Hochladen per Ziehen und Ablegen</strong> &ndash; Bilder und Videos, bis 200&nbsp;MB pro Datei.</span></li>
           <li><span><strong>Antwort in der Regel in drei Werktagen</strong>, mit Begr&uuml;ndung, wenn wir etwas nicht verwenden k&ouml;nnen.</span></li>
-          <li><span><strong>Die Rechte bleiben bei dir.</strong> Du gibst uns ein Nutzungsrecht, keine &Uuml;bertragung &ndash; und kannst es widerrufen.</span></li>
+          <li><span><strong>Deine Aufnahmen bleiben deine</strong> &ndash; du darfst sie weiter selbst nutzen. Was du uns hochl&auml;dst, d&uuml;rfen wir dauerhaft verwenden: die Nutzungsrechte daran gehen unbefristet und &uuml;bertragbar an uns.</span></li>
           <li><span><strong>Deine Profile hinterlegst du selbst</strong> (Instagram, TikTok, YouTube, Newsletter &hellip;). Danach richten wir aus, was wir bei dir anfragen.</span></li>
         </ul>
 
@@ -687,7 +695,7 @@
       <details class="acc"><summary class="acc__b">Wie wird meine Empfehlung erkannt?</summary><div class="acc__c"><p>&Uuml;ber deinen pers&ouml;nlichen Code, den deine Kundschaft beim Bestellen eingibt. Das funktioniert auch dann, wenn die Empfehlung im Gespr&auml;ch f&auml;llt &ndash; anders als bei reinen Werbelinks, die von Browsereinstellungen abh&auml;ngen. Zus&auml;tzlich bekommst du einen Link f&uuml;r Website oder Newsletter.</p><p>Ehrlich dazu: Beim <em>Link</em> kann die Zuordnung ausfallen, wenn jemand das Tracking ablehnt. Beim <em>Code</em> nicht &ndash; er wird mit der Bestellung gespeichert. Deshalb ist der Code unser Hauptweg.</p></div></details>
       <details class="acc"><summary class="acc__b">Muss ich eine Rechnung schreiben?</summary><div class="acc__c"><p>Nein. Wir rechnen im Gutschriftverfahren nach &sect;&nbsp;14 Abs.&nbsp;2 UStG ab und stellen dir die Abrechnung monatlich bereit. Wenn du Kleinunternehmerin oder Kleinunternehmer bist, gib das bitte bei der Bewerbung an &ndash; dann weisen wir keine Umsatzsteuer aus.</p></div></details>
       <details class="acc"><summary class="acc__b">Was passiert bei einer R&uuml;cksendung?</summary><div class="acc__c"><p>Dann entf&auml;llt die Beteiligung f&uuml;r diese Bestellung. Damit bei dir nie etwas zur&uuml;ckgefordert werden muss, rechnen wir erst nach Ablauf der Widerrufsfrist ab. Im Partnerbereich siehst du bei jeder Bestellung, wie lange sie noch in Pr&uuml;fung ist.</p></div></details>
-      <details class="acc"><summary class="acc__b">Was passiert mit den Bildern und Videos, die ich hochlade?</summary><div class="acc__c"><p>Du beh&auml;ltst die Rechte an deinen Aufnahmen. Beim Hochladen r&auml;umst du uns ein <em>einfaches</em> Nutzungsrecht ein &ndash; wir d&uuml;rfen sie also f&uuml;r Shop, Newsletter, Social Media und Werbung verwenden, du darfst sie weiterhin selbst nutzen und kannst das Recht widerrufen.</p><p>Wir pr&uuml;fen jeden Upload, bevor er verwendet wird. Zwei Dinge f&uuml;hren regelm&auml;&szlig;ig zur Ablehnung: krankheitsbezogene Aussagen im Ton und fremde Musik. Du bekommst dann eine konkrete Begr&uuml;ndung und kannst eine neue Fassung schicken.</p></div></details>
+      <details class="acc"><summary class="acc__b">Was passiert mit den Bildern und Videos, die ich hochlade?</summary><div class="acc__c"><p>Deine Aufnahmen bleiben deine und du darfst sie weiterhin selbst nutzen. Mit dem Hochladen gehen die <strong>Nutzungsrechte daran an uns &uuml;ber</strong> &ndash; unbefristet, &uuml;bertragbar und ohne r&auml;umliche Grenze; wir d&uuml;rfen sie also f&uuml;r Shop, Newsletter, Social Media und Werbung verwenden. Das gilt nur f&uuml;r Dateien, die du uns wirklich gibst &ndash; du entscheidest bei jeder neu.</p><p>Wir pr&uuml;fen jeden Upload, bevor er verwendet wird. Zwei Dinge f&uuml;hren regelm&auml;&szlig;ig zur Ablehnung: krankheitsbezogene Aussagen im Ton und fremde Musik. Du bekommst dann eine konkrete Begr&uuml;ndung und kannst eine neue Fassung schicken.</p></div></details>
       <details class="acc"><summary class="acc__b">Muss ich Social Media haben?</summary><div class="acc__c"><p>Nein. Die Profile und die Followerzahl sind freiwillige Angaben und spielen f&uuml;r die Aufnahme keine Rolle &ndash; wir suchen Fachlichkeit, nicht Reichweite. Wir fragen es nur, damit wir wissen, wen wir wof&uuml;r ansprechen k&ouml;nnen: Wer gern filmt, bekommt andere Anfragen als jemand, der ausschlie&szlig;lich in der Praxis ber&auml;t.</p></div></details>
       <details class="acc"><summary class="acc__b">Darf ich als Tier&auml;rztin oder Tierarzt teilnehmen?</summary><div class="acc__c"><p>Ja. Wir werben allerdings bewusst nicht mit deinem Namen und deiner Berufsbezeichnung &ndash; das Berufsrecht setzt hier Grenzen. Dein Code bleibt eine stille Empfehlung an deine Kundschaft. M&ouml;chtest du stattdessen selbst einkaufen und weiterverkaufen, sprich uns an.</p></div></details>
       <details class="acc"><summary class="acc__b">Kann ich jederzeit aufh&ouml;ren?</summary><div class="acc__c"><p>Ja, ohne Frist und ohne Begr&uuml;ndung. Bereits verdiente Beteiligungen rechnen wir selbstverst&auml;ndlich noch ab.</p></div></details>
