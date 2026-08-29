@@ -315,6 +315,15 @@ main,header,footer,.drawer,.toast{position:relative}
 .team-card h3{margin-top:.9rem;font-size:1.0625rem}
 .team-card p{margin-top:.2rem;font-size:.9375rem;color:var(--ink-soft)}
 
+/* Personenfotos in Teamkarten. Eigene Klasse statt .ph, damit die
+   Platzhalter-Optik (gestrichelter Rahmen, Schraffur) nicht mitkommt.
+   object-fit:cover, weil die Quellen 3:4 bzw. 1:1 sind, die Slots aber
+   4:5 bzw. 1:1 rendern (am Live-Entwurf gemessen). */
+.teamfoto{border-radius:var(--r-md);overflow:hidden;background:var(--cream);aspect-ratio:4/5}
+.teamfoto img{width:100%;height:100%;object-fit:cover;display:block}
+.team-card .teamfoto{flex:1}
+.supp-scroll .teamfoto{aspect-ratio:1/1}
+
 /* ---------- 15. Garantie ---------- */
 .guar{display:grid;grid-template-columns:auto 1fr auto;gap:clamp(1.5rem,4vw,3rem);align-items:center;
   background:var(--green-800);color:var(--card);border-radius:var(--r-xl);padding:clamp(2rem,4vw,3.25rem);
