@@ -1057,3 +1057,80 @@ main,header,footer,.drawer,.toast{position:relative}
    Schrift). Die Zeile "120 Tage Geld zurueck" war praktisch nicht lesbar.
    #EFE4D2 auf #1C4036 = 9,09:1. -------------------------------------------- */
 .guar h2,.guar h3{color:#EFE4D2}
+
+/* ============================================================ BILD-LIGHTBOX
+   Auftrag Aaron 2026-09-01: "die Bilder sind nicht zoombar".
+   Die Galerie versprach mit dem Hinweis "Zum Vergroessern tippen" bereits
+   eine Vergroesserung, hatte aber keine. Zwei Gruende, warum das mehr ist
+   als Kosmetik:
+     1. `.gal__main img` steht auf `object-fit:cover` und SCHNEIDET damit
+        jedes nicht-quadratische Bild an. Betroffen sind vor allem die 21
+        Infografiken (Wirkstoffe, Fuetterung, Anwendung) - dort lagen Zahlen
+        ausserhalb des sichtbaren Ausschnitts.
+     2. Die Dateien liegen in 1100-2048 px vor, angezeigt wurden ~560 px.
+   Die Lightbox zeigt `contain`, also das VOLLSTAENDIGE Bild, und erlaubt
+   zusaetzlich eine 2fache Lupe mit Verschieben. */
+.lbox{border:0;padding:0;background:transparent;width:100vw;max-width:100vw;
+      height:100vh;max-height:100vh;overflow:hidden}
+/* .92 liess auf dem Handy den Seitentext durchscheinen - der Bildzaehler
+   stand lesbar ueber dem Entwurfs-Banner. Am Screenshot gesehen, nicht
+   gerechnet. */
+.lbox::backdrop{background:rgba(14,34,27,.975)}
+.lbox__in{position:relative;width:100vw;height:100vh;display:grid;
+          grid-template-rows:auto minmax(0,1fr) auto;outline:0}
+.lbox__hd{display:flex;align-items:center;justify-content:space-between;
+          gap:1rem;padding:.9rem 1.1rem;color:var(--cream)}
+.lbox__count{font-family:var(--ff-body);font-size:.875rem;letter-spacing:.04em;
+             color:var(--cream);opacity:.85}
+/* Flex, NICHT Grid: bei `display:grid` waechst die implizite Zeile auf die
+   Bildhoehe (gemessen: 1100px in einer 697px hohen Buehne), und `max-height:100%`
+   des Bildes bezieht sich dann auf SICH SELBST statt auf den Bildschirm - das
+   Bild lief unten aus dem Bild. Im Flex-Container ist die Hoehe definit. */
+.lbox__stage{position:relative;display:flex;align-items:center;
+             justify-content:center;overflow:hidden;
+             padding:0 1rem;
+             /* Ohne minmax(0,1fr) an der Zeile UND min-height:0 hier waechst
+                die Grid-Zeile auf die Bildhoehe: ein 1100-px-Bild sprengte
+                einen 900-px-Schirm. Gemessen, nicht vermutet. */
+             min-height:0}
+/* `contain` ist der eigentliche Punkt: nichts wird mehr abgeschnitten. */
+.lbox__img{max-width:100%;max-height:100%;width:auto;height:auto;
+           object-fit:contain;border-radius:var(--r-sm);
+           transition:transform .25s var(--ease);transform-origin:center center;
+           cursor:zoom-in;touch-action:pinch-zoom}
+.lbox__img[data-lupe="1"]{transform:scale(2);cursor:zoom-out}
+.lbox__cap{padding:.85rem 1.4rem 1.3rem;text-align:center;color:var(--cream);
+           font-size:.9375rem;line-height:1.5;max-width:60ch;margin:0 auto;
+           opacity:.92}
+/* Bedienknoepfe: Kontrast gegen den fast schwarzen Grund gerechnet,
+   Cremeweiss #F5EDE0 auf rgba(18,45,36,.92) ergibt 13,4:1. */
+.lbox__btn{display:grid;place-items:center;width:48px;height:48px;flex:0 0 auto;
+           border:1px solid rgba(245,237,224,.34);border-radius:999px;
+           background:rgba(18,45,36,.55);color:var(--cream);cursor:pointer;
+           transition:background .18s var(--ease),border-color .18s var(--ease)}
+.lbox__btn:hover{background:rgba(245,237,224,.16);border-color:rgba(245,237,224,.6)}
+.lbox__btn:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
+.lbox__btn svg{width:22px;height:22px;fill:none;stroke:currentColor;
+               stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.lbox__nav{position:absolute;top:50%;transform:translateY(-50%);z-index:2}
+.lbox__nav--prev{left:.65rem}
+.lbox__nav--next{right:.65rem}
+.lbox__thumbs{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;
+              padding:0 1rem 1.1rem}
+.lbox__thumbs button{width:52px;height:52px;padding:0;border-radius:var(--r-sm);
+                     border:2px solid transparent;overflow:hidden;cursor:pointer;
+                     background:none;opacity:.55;transition:opacity .18s var(--ease)}
+.lbox__thumbs button[aria-current="true"]{border-color:var(--gold-light);opacity:1}
+.lbox__thumbs button:hover{opacity:1}
+.lbox__thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+/* Der Hinweis in der Galerie sagt jetzt die Wahrheit - er ist ein Knopf. */
+.gal__main{cursor:zoom-in}
+.gal__main:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media (max-width:640px){
+  .lbox__thumbs{display:none}          /* auf dem Handy fuehren die Pfeile */
+  .lbox__cap{font-size:.875rem;padding:.7rem 1rem 1rem}
+  .lbox__btn{width:44px;height:44px}
+}
+@media (prefers-reduced-motion:reduce){
+  .lbox__img{transition:none}
+}

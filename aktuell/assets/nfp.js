@@ -609,3 +609,162 @@
 
   render();
 })();
+
+/* ============================================================ BILD-LIGHTBOX
+   Auftrag Aaron 2026-09-01. Eigene Kapsel, damit sie den Rest nicht beruehrt.
+
+   Bewusst OHNE Markup-Aenderung an den 19 Seiten: der Dialog wird zur
+   Laufzeit gebaut und speist sich aus den vorhandenen `[data-thumb]`-Knoepfen.
+   Kommt eine Seite oder ein Bild dazu, ist die Lightbox automatisch dabei.
+
+   Drei Dinge, die hier bewusst so sind:
+   - `<dialog>` statt eigenem Overlay: Esc, Fokusfalle und `::backdrop`
+     kommen vom Browser und sind damit nicht selbst gebaut.
+   - Das Bild wird mit `contain` gezeigt. Die Galerie schneidet mit `cover`
+     alles Nicht-Quadratische an - genau das war bei den Infografiken das
+     Problem.
+   - Die Lupe (2x) verschiebt sich nach der Zeigerposition, damit man auf
+     dem Schreibtisch auch in eine Ecke sehen kann. Auf dem Handy uebernimmt
+     die native Pinch-Geste (`touch-action:pinch-zoom`). */
+(function () {
+  'use strict';
+  var haupt = document.querySelector('[data-gal-main]');
+  if (!haupt) return;                       /* keine Galerie -> keine Lightbox */
+
+  var thumbs = [].slice.call(document.querySelectorAll('[data-thumb]'));
+  /* Ohne Miniaturen bleibt genau ein Bild - die Lightbox lohnt trotzdem,
+     weil sie es unbeschnitten und in voller Aufloesung zeigt. */
+  var bilder = thumbs.length
+    ? thumbs.map(function (b) {
+        return { src: b.getAttribute('data-thumb'),
+                 alt: b.getAttribute('data-alt') || '',
+                 label: (b.getAttribute('aria-label') || '').replace(/^Bild \d+:\s*/, '') };
+      })
+    : [{ src: haupt.getAttribute('src'), alt: haupt.getAttribute('alt') || '', label: '' }];
+
+  var i = 0, dlg = null, bild = null, cap = null, zaehler = null, lbthumbs = null;
+
+  function ikon(d) {
+    return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="' + d + '"/></svg>';
+  }
+
+  function bauen() {
+    dlg = document.createElement('dialog');
+    dlg.className = 'lbox';
+    dlg.setAttribute('aria-label', 'Bildansicht');
+    var mehrere = bilder.length > 1;
+    dlg.innerHTML =
+      '<div class="lbox__in" tabindex="-1">' +
+        '<div class="lbox__hd">' +
+          '<span class="lbox__count" data-lbox-count aria-live="polite"></span>' +
+          '<button class="lbox__btn" type="button" data-lbox-close aria-label="Bildansicht schliessen">' +
+            ikon('M6 6l12 12M18 6L6 18') + '</button>' +
+        '</div>' +
+        '<div class="lbox__stage">' +
+          (mehrere ? '<button class="lbox__btn lbox__nav lbox__nav--prev" type="button" data-lbox-prev aria-label="Vorheriges Bild">' + ikon('M15 5l-7 7 7 7') + '</button>' : '') +
+          '<img class="lbox__img" data-lbox-img alt="">' +
+          (mehrere ? '<button class="lbox__btn lbox__nav lbox__nav--next" type="button" data-lbox-next aria-label="Naechstes Bild">' + ikon('M9 5l7 7-7 7') + '</button>' : '') +
+        '</div>' +
+        '<div>' +
+          '<p class="lbox__cap" data-lbox-cap></p>' +
+          (mehrere ? '<div class="lbox__thumbs" data-lbox-thumbs></div>' : '') +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(dlg);
+    bild = dlg.querySelector('[data-lbox-img]');
+    cap = dlg.querySelector('[data-lbox-cap]');
+    zaehler = dlg.querySelector('[data-lbox-count]');
+    lbthumbs = dlg.querySelector('[data-lbox-thumbs]');
+
+    if (lbthumbs) {
+      bilder.forEach(function (b, n) {
+        var t = document.createElement('button');
+        t.type = 'button';
+        t.setAttribute('data-lbox-go', String(n));
+        t.setAttribute('aria-label', 'Bild ' + (n + 1) + (b.label ? ': ' + b.label : ''));
+        t.innerHTML = '<img src="' + b.src + '" alt="" loading="lazy">';
+        lbthumbs.appendChild(t);
+      });
+    }
+
+    /* Klick auf das Bild schaltet die Lupe. Klick auf den freien Grund
+       schliesst - aber NUR dort, sonst schliesst jeder Bildklick mit. */
+    bild.addEventListener('click', function (e) {
+      e.stopPropagation();
+      lupe(bild.getAttribute('data-lupe') !== '1');
+    });
+    bild.addEventListener('mousemove', function (e) {
+      if (bild.getAttribute('data-lupe') !== '1') return;
+      var r = bild.getBoundingClientRect();
+      bild.style.transformOrigin =
+        (((e.clientX - r.left) / r.width) * 100) + '% ' +
+        (((e.clientY - r.top) / r.height) * 100) + '%';
+    });
+    dlg.addEventListener('click', function (e) {
+      if (!e.target.closest('.lbox__btn') && !e.target.closest('[data-lbox-go]')) schliessen();
+    });
+    dlg.addEventListener('close', function () { lupe(false); });
+    dlg.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); blaettern(1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); blaettern(-1); }
+    });
+    dlg.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-lbox-close],[data-lbox-prev],[data-lbox-next],[data-lbox-go]');
+      if (!t) return;
+      if (t.hasAttribute('data-lbox-close')) schliessen();
+      else if (t.hasAttribute('data-lbox-prev')) blaettern(-1);
+      else if (t.hasAttribute('data-lbox-next')) blaettern(1);
+      else zeigen(parseInt(t.getAttribute('data-lbox-go'), 10));
+    });
+  }
+
+  function lupe(an) {
+    bild.setAttribute('data-lupe', an ? '1' : '0');
+    if (!an) bild.style.transformOrigin = 'center center';
+  }
+
+  function zeigen(n) {
+    i = (n + bilder.length) % bilder.length;
+    var b = bilder[i];
+    lupe(false);
+    bild.setAttribute('src', b.src);
+    bild.setAttribute('alt', b.alt);
+    cap.textContent = b.alt;
+    zaehler.textContent = bilder.length > 1 ? (i + 1) + ' von ' + bilder.length : '';
+    if (lbthumbs) {
+      [].slice.call(lbthumbs.children).forEach(function (t, n2) {
+        t.setAttribute('aria-current', n2 === i ? 'true' : 'false');
+      });
+    }
+    /* Die Galerie dahinter mitziehen, damit nach dem Schliessen dasselbe
+       Bild sichtbar ist, das man zuletzt betrachtet hat. */
+    if (thumbs[i]) thumbs[i].click();
+  }
+
+  /* War beim ersten Wurf schlicht vergessen - die Pfeile warfen einen
+     ReferenceError und taten nichts. Gefunden hat es der Prueflauf. */
+  function blaettern(richtung) { zeigen(i + richtung); }
+
+  function schliessen() { if (dlg && dlg.open) dlg.close(); }
+
+  function oeffnen() {
+    if (!dlg) bauen();
+    /* Start beim aktuell in der Galerie gewaehlten Bild, nicht bei Bild 1. */
+    var aktiv = thumbs.filter(function (b) { return b.getAttribute('aria-current') === 'true'; })[0];
+    zeigen(aktiv ? thumbs.indexOf(aktiv) : 0);
+    dlg.showModal();
+    dlg.querySelector('.lbox__in').focus();
+  }
+
+  /* Das Hauptbild wird bedienbar: Klick, Tastatur und Vorlesehilfe.
+     Vorher war es ein reines <img> mit `cursor:zoom-in` - also eine
+     Hand, die etwas verspricht, was nicht passiert. */
+  var rahmen = haupt.closest('.gal__main') || haupt;
+  rahmen.setAttribute('role', 'button');
+  rahmen.setAttribute('tabindex', '0');
+  rahmen.setAttribute('aria-label', 'Bild vergroessern');
+  rahmen.addEventListener('click', oeffnen);
+  rahmen.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); oeffnen(); }
+  });
+})();

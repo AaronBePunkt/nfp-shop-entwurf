@@ -521,7 +521,7 @@
     <ul>
       <li><b>Echte Daten, aus dem Live-Shop gezogen (31.07.2026):</b> alle Preise und Gr&ouml;&szlig;en, die Bewertungen samt Verteilung (4,82 &oslash; aus 17.206), die vollst&auml;ndige Deklaration der Gelenk-Tabletten (daraus sind die Milligramm-Werte je Tablette gerechnet), die F&uuml;tterungsempfehlung und die Gratisversand-Schwelle von 40&nbsp;&euro;. <b>Korrektur gegen&uuml;ber B4.3:</b> Die Gelenk-Tabletten kosten 29,95&nbsp;&euro; statt 27,95&nbsp;&euro;, und die Schwelle liegt bei 40&nbsp;&euro;, nicht bei 49&nbsp;&euro;.</li>
       <li><b>Kundenstimmen sind echt.</b> Wortlaut und Sterne stammen unver&auml;ndert aus dem Bewertungssystem des Live-Shops, Nachnamen auf den Anfangsbuchstaben gek&uuml;rzt. Erfundene Bewertungen sind ein &bdquo;Blacklist&ldquo;-Tatbestand nach UWG und kommen hier nicht vor &ndash; auch nicht als Platzhalter.</li>
-      <li><b>Anpassung:</b> Abo-Rabatt auf 20&nbsp;% angepasst (war 10&nbsp;% in Fassung B4.4), gem&auml;&szlig; Dev-Briefing Abschnitt 5. Versandkostenfrei und Intervalle 4/6/8/12 Wochen unver&auml;ndert. Finale Headline-Schrift weiterhin offen (liegt bei Kai).</li>
+      <li><b>Anpassung:</b> Die Abo-Funktion ist auf Wunsch vollst&auml;ndig ausgebaut (Kaufbox-Auswahl, Hinweis-Dialog, Abo-FAQ, Kontaktseiten-Abschnitt und alle Textstellen). Sie l&auml;sst sich jederzeit wieder einsetzen. Finale Headline-Schrift weiterhin offen (liegt bei Kai).</li>
       <li><b>Alle Produktbilder sind KI-Konzeptbilder</b> (Higgsfield) mit der Packshot-Vorlage als Stil-Referenz &ndash; keine Fotos existierender Verpackungen, keine Druckvorlagen. Gleiches gilt f&uuml;r die Lifestyle-, Ratgeber- und Wissenschaftsbilder.</li>
       <li><b>Bewusst keine erfundenen Portr&auml;ts:</b> Aaron und Evi werden im Text vorgestellt, aber nicht durch ein generiertes Gesicht dargestellt. Hier geh&ouml;ren echte Fotos hin.</li>
       <li><b>Rechtstexte</b> (Impressum, Datenschutz, AGB) verlinken auf den Live-Shop, statt tote Entwurfsseiten anzulegen.</li>
@@ -557,7 +557,6 @@
         <li><a href="kontakt.html">Kontakt &amp; Beratung</a></li>
         <li><a href="kontakt.html#versand">Versand &amp; R&uuml;ckgabe</a></li>
         <li><a href="kontakt.html#garantie">120-Tage-Garantie</a></li>
-        <li><a href="kontakt.html#abo">Abo verwalten</a></li>
       </ul></div>
     </div>
     <div class="ft__bot">
@@ -608,49 +607,6 @@
   </div>
 </dialog>
 
-<!-- ===== Abo-Hinweis beim Einmalkauf ========================================
-     Erscheint einmal je Sitzung. Bewusst ohne Countdown und ohne Schuldsprache;
-     beide Knöpfe sind gleichwertig erreichbar. -->
-<dialog class="dlg" data-aboad aria-labelledby="aboad-titel">
-  <div class="dlg__in" tabindex="-1" autofocus>
-    <div class="dlg__hd">
-      <div>
-        <p class="eyebrow eyebrow--deep">Kurz bevor du weitergehst</p>
-        <h2 id="aboad-titel">Im Abo w&auml;re das g&uuml;nstiger</h2>
-        <p data-aboad-produkt></p>
-      </div>
-      <button class="iconbtn dlg__x" type="button" data-dlg-close aria-label="Hinweis schlie&szlig;en"><svg><use href="#ic-close"/></svg></button>
-    </div>
-    <div class="dlg__body">
-      <div class="aboad__num">
-        <div class="aboad__c"><b data-aboad-einzel></b><span>Einmalkauf</span></div>
-        <div class="aboad__c aboad__c--hi"><b data-aboad-abo></b><span>im Abo, dauerhaft &minus;20 %</span></div>
-        <div class="aboad__c"><b data-aboad-jahr></b><span><b style="font-weight:600">Ersparnis pro Jahr</b><br data-aboad-jahrbr><span data-aboad-jahrtext></span></span></div>
-      </div>
-      <p class="rec__lead" style="margin-top:1.2rem" data-aboad-versand></p>
-      <ul class="aboad__list">
-        <li><svg><use href="#ic-check"/></svg> <span>20 % auf <b>jede</b> Lieferung &ndash; kein Lockangebot nur f&uuml;r die erste Bestellung</span></li>
-        <li><svg><use href="#ic-repeat"/></svg> <span>Intervall &auml;ndern, verschieben, pausieren oder k&uuml;ndigen &ndash; jederzeit im Kundenkonto, ohne Frist</span></li>
-        <li><svg><use href="#ic-clock"/></svg> <span>Erinnerung drei Tage vor jeder Lieferung, damit nichts &uuml;berrascht</span></li>
-        <li><svg><use href="#ic-return"/></svg> <span>Die 120-Tage-Garantie gilt im Abo genauso</span></li>
-      </ul>
-      <div class="aboad__iv">
-        <p>Wie oft soll geliefert werden?</p>
-        <div class="ivals" role="radiogroup" aria-label="Lieferintervall f&uuml;rs Abo">
-          <label class="ival"><input type="radio" name="aboad-iv" value="4"><span>alle 4 Wochen</span></label>
-          <label class="ival"><input type="radio" name="aboad-iv" value="6" checked><span>alle 6 Wochen</span></label>
-          <label class="ival"><input type="radio" name="aboad-iv" value="8"><span>alle 8 Wochen</span></label>
-          <label class="ival"><input type="radio" name="aboad-iv" value="12"><span>alle 12 Wochen</span></label>
-        </div>
-      </div>
-      <p class="aboad__fine">Warum wir das zeigen: Eine Gelenkkur wirkt erst nach drei bis sechs Wochen. Wer nach der ersten Packung aufh&ouml;rt, weil das Nachbestellen untergeht, hat das Geld f&uuml;r die erste Packung umsonst ausgegeben. Deshalb dieser Hinweis &ndash; und deshalb l&auml;sst sich das Abo mit einem Klick wieder beenden.</p>
-    </div>
-    <div class="dlg__ft">
-      <button class="btn btn--ghost" type="button" data-aboad-no>Einmalig kaufen</button>
-      <button class="btn btn--primary" type="button" data-aboad-yes>Aufs Abo wechseln</button>
-    </div>
-  </div>
-</dialog>
 
 <script src="assets/nfp.js"></script>
 <script src="assets/nfp-dialoge.js"></script>

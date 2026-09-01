@@ -395,7 +395,6 @@
         '<span>Tagesmenge<b>' + mengeText(rec.key, kg) + '</b></span>' +
         '<span>Empfohlene Größe<b>' + v.label + '</b></span>' +
         '<span>Reicht etwa<b>' + tage + ' Tage</b></span>' +
-        '<span>Passendes Abo<b>' + N.intervalText(iv) + '</b></span>' +
         '</div>' +
         '<div class="rec__buy"><span class="rec__price">' + N.eur(preis) +
         '<small>' + (N.unitPrice(p, v, false) || 'je Packung') + '</small></span></div>' +
@@ -410,12 +409,10 @@
     body.scrollTop = 0;
     dlg.__zeilen = zeilen;
 
-    var sparen = summe * N.SUB_DISCOUNT;
     /* Reihenfolge im Markup = Reihenfolge am Schirm: Haupt-Knopf zuletzt,
        damit er mobil unten (Daumen) und am Schreibtisch rechts steht. */
     ft.innerHTML =
       '<button class="btn btn--ghost" type="button" data-wiz-restart>Noch einmal</button>' +
-      '<button class="btn btn--ghost" type="button" data-wiz-add-abo>Als Abo, ' + N.eur(sparen) + ' sparen</button>' +
       '<button class="btn btn--primary" type="button" data-wiz-add>' +
       (r.recs.length === 1 ? 'In den Warenkorb' : 'Alle ' + r.recs.length + ' in den Warenkorb') + '</button>';
   }
