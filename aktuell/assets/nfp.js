@@ -636,7 +636,13 @@
      weil sie es unbeschnitten und in voller Aufloesung zeigt. */
   var bilder = thumbs.length
     ? thumbs.map(function (b) {
-        return { src: b.getAttribute('data-thumb'),
+        /* Die Quelle kommt aus dem INNEREN <img>, nicht aus `data-thumb`:
+           im Shopify-Theme steht dort der Entwurfspfad "img/...", der auf
+           dem Shop nicht aufloest (die Bilder liegen als Theme-Assets).
+           `data-thumb` bleibt nur als Rueckfallebene. */
+        var innen = b.querySelector('img');
+        return { src: (innen && (innen.currentSrc || innen.getAttribute('src'))) ||
+                      b.getAttribute('data-thumb'),
                  alt: b.getAttribute('data-alt') || '',
                  label: (b.getAttribute('aria-label') || '').replace(/^Bild \d+:\s*/, '') };
       })
