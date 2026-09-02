@@ -40,9 +40,15 @@
 
 /* ---------- 2. Reset ---------- */
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--hdr-h) + 1rem)}
+/* overflow-x:clip steht hier am <html>, NICHT am <body>: am body macht es
+   den body zum Clip-Container und `position:sticky` der Kopfzeile wirkungslos -
+   sie scrollte trotz `position:sticky;top:0` weg. Am 2026-09-01 gemessen
+   (nach 2000 px Scroll klebte nichts oben). Auftrag Aaron: Menue soll oben
+   bleiben wie im Live-Theme. */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:clip;
+  scroll-padding-top:calc(var(--hdr-h) + 1rem)}
 body{margin:0;background:var(--card);color:var(--ink);font-family:var(--ff-body);
-  font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:clip}
+  font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased}
 img,svg,video{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit}
@@ -809,13 +815,27 @@ main,header,footer,.drawer,.toast{position:relative}
 .evi__lvl{font-family:var(--ff-head);font-weight:800;font-size:.6875rem;letter-spacing:.11em;
   text-transform:uppercase;padding:.28rem .6rem;border-radius:99px;align-self:flex-start}
 .lvl--hart{background:#1C4036;color:var(--gold-light)}
-.lvl--mittel{background:var(--gold);color:var(--green-900)}
+/* Orange statt Gold (Aaron 2026-09-01): die drei Stufen sollen Gruen /
+   Orange / Beige sein. #E08A2B traegt mit #122D24 einen Kontrast von
+   5,5:1 - gerechnet, nicht geschaetzt (Gold lag bei 6,12:1, war aber
+   von Beige kaum zu unterscheiden). */
+.lvl--mittel{background:#E08A2B;color:var(--green-900)}
 .lvl--weich{background:var(--cream-deep);color:var(--ink-soft);border:1px solid var(--line-strong)}
 .evi p{font-size:.9375rem;color:var(--ink-soft);line-height:1.6}
 .evi__src{font-size:.75rem;color:var(--ink-soft);margin-top:auto;padding-top:.9rem;border-top:1px solid var(--line);min-height:calc(.9rem + 3rem + 1px)}
 .sec--green .evi{background:rgba(251,248,243,.06);border-color:rgba(227,200,140,.24)}
 .sec--green .evi p{color:#D8E2D8}
 .sec--green .evi__src{color:#BBC9BA;border-top-color:rgba(227,200,140,.2)}
+
+/* Quellenangaben je Wirkstoff (PubMed). Bewusst klein und unter der
+   Mengenangabe - sie sind Beleg, nicht Verkaufsargument. */
+.evi__quellen{font-size:.75rem;line-height:1.55;margin:.7rem 0 0;color:var(--ink-soft)}
+.evi__quellen b{color:var(--ink);font-weight:600}
+.evi__quellen a{color:var(--gold-deep);text-decoration:underline;text-underline-offset:2px}
+.evi__quellen a:hover{color:var(--green-800)}
+.sec--green .evi__quellen{color:#BBC9BA}
+.sec--green .evi__quellen b{color:var(--cream)}
+.sec--green .evi__quellen a{color:var(--gold-light)}
 .sec--green .lvl--weich{background:rgba(251,248,243,.1);color:#D8E2D8;border-color:rgba(227,200,140,.3)}
 
 /* ---- 25.8 Kontakt ---- */
@@ -1134,3 +1154,24 @@ main,header,footer,.drawer,.toast{position:relative}
 @media (prefers-reduced-motion:reduce){
   .lbox__img{transition:none}
 }
+
+
+/* ===================================================== RECHTSTEXT-SEITEN
+   Impressum, Datenschutz, AGB, Rueckgabe, Versand (Aaron 2026-09-01).
+   Der Inhalt kommt woertlich aus dem Live-Shop - hier wird ausschliesslich
+   die Lesbarkeit gesetzt: begrenzte Zeilenlaenge, ruhige Abstaende.
+   Zeilenlaenge bewusst ~75 Zeichen: bei Rechtstexten liest niemand ueber
+   die volle 1280-px-Breite. */
+.rechtstext{max-width:75ch;margin-top:var(--sp-3);color:var(--ink);font-size:1rem;line-height:1.75}
+.rechtstext h2{font-size:1.5rem;line-height:1.3;margin:var(--sp-4) 0 .7rem;color:var(--green-900)}
+.rechtstext h3{font-size:1.15rem;line-height:1.35;margin:var(--sp-3) 0 .5rem;color:var(--green-800)}
+.rechtstext h2:first-child,.rechtstext h3:first-child{margin-top:0}
+.rechtstext p{margin:0 0 1rem}
+.rechtstext ul,.rechtstext ol{margin:0 0 1rem;padding-left:1.35rem}
+.rechtstext li{margin-bottom:.45rem}
+.rechtstext a{color:var(--gold-deep);text-decoration:underline;text-underline-offset:2px}
+.rechtstext a:hover{color:var(--green-800)}
+.rechtstext strong,.rechtstext b{font-weight:600;color:var(--green-900)}
+.rechtstext table{width:100%;border-collapse:collapse;margin:0 0 1rem;font-size:.9375rem}
+.rechtstext th,.rechtstext td{border:1px solid var(--line);padding:.5rem .65rem;text-align:left;vertical-align:top}
+.rechtstext th{background:var(--cream);font-weight:600}
