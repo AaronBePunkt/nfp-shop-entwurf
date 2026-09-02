@@ -149,9 +149,9 @@
       </button>
 
       <div class="buy__price">
-        <span class="price" data-price>24,95 &euro;</span>
-        <s class="buy__was" data-was hidden></s>
-        <span class="buy__unit" data-unit>49,90 &euro; pro l</span>
+        <span class="price" data-price>32,95 &euro;</span>
+        <s class="buy__was" data-was hidden>32,95 &euro;</s>
+        <span class="buy__unit" data-unit>65,90 &euro; pro l</span>
       </div>
       <p class="buy__tax">Inkl. MwSt., zzgl. Versand &middot; Lieferzeit 1&ndash;3 Werktage</p>
 
@@ -161,20 +161,20 @@
           <input type="radio" name="variant" value="500" data-key="gelenkoel" checked>
           <span class="var__dot" aria-hidden="true"></span>
           <span class="var__t"><b>500 ml</b><span>Zum Ausprobieren</span></span>
-          <span class="var__p">24,95 &euro;<small>49,90 &euro; pro l</small></span>
+          <span class="var__p">32,95 &euro;<small>65,90 &euro; pro l</small></span>
         </label>
         <label class="var">
           <input type="radio" name="variant" value="1000" data-key="gelenkoel">
           <span class="var__dot" aria-hidden="true"></span>
           <span class="var__t"><b>1.000 ml</b><span>2 &times; 500 ml</span></span>
-          <span class="var__p">44,95 &euro;<small>44,95 &euro; pro l</small></span>
+          <span class="var__p">57,95 &euro;<small>57,95 &euro; pro l</small></span>
           <span class="var__tag">Beliebteste Gr&ouml;&szlig;e</span>
         </label>
         <label class="var">
           <input type="radio" name="variant" value="2000" data-key="gelenkoel">
           <span class="var__dot" aria-hidden="true"></span>
           <span class="var__t"><b>2.000 ml</b><span>4 &times; 500 ml &middot; bester Grundpreis</span></span>
-          <span class="var__p">79,95 &euro;<small>39,98 &euro; pro l</small></span>
+          <span class="var__p">99,95 &euro;<small>49,98 &euro; pro l</small></span>
         </label>
       </div>
 
@@ -390,8 +390,8 @@
         <div class="prod__b">
           <p class="prod__ing">Setzt am Bindegewebe an</p>
           <div class="hair"></div>
-          <p class="prod__title"><a href="produkt-gelenk-kollagen.html">Gelenk Kollagen</a><span class="dash">&ndash;</span>47,95 &euro;</p>
-          <p class="prod__unit">250 g &middot; 191,80 &euro; pro kg</p>
+          <p class="prod__title"><a href="produkt-gelenk-kollagen.html">Gelenk Kollagen</a><span class="dash">&ndash;</span>59,95 &euro;</p>
+          <p class="prod__unit">250 g &middot; 239,80 &euro; pro kg</p>
           <div class="prod__cta"><a class="btn btn--ghost btn--sm" href="produkt-gelenk-kollagen.html">Ansehen</a></div>
         </div>
       </article>
@@ -434,7 +434,7 @@
 </main>
 
 <div class="satc">
-  <span class="satc__p" data-satc-price>24,95 &euro;<small>500 ml</small></span>
+  <span class="satc__p" data-satc-price>32,95 &euro;<small>500 ml</small></span>
   <button class="btn btn--primary" data-add="gelenkoel">In den Warenkorb</button>
 </div>
 
@@ -477,7 +477,7 @@
 <div class="scrim" data-scrim></div>
 <aside class="drawer" data-drawer aria-hidden="true" aria-label="Warenkorb">
   <div class="drawer__hd">
-    <h2>Dein Warenkorb</h2>
+    <h2>Dein Warenkorb<span data-cart-count-title></span></h2>
     <button class="iconbtn" data-drawer-close aria-label="Warenkorb schlie&szlig;en"><svg><use href="#ic-close"/></svg></button>
   </div>
   <div class="drawer__body" data-cart-body></div>
@@ -486,10 +486,18 @@
       <p class="ship__txt" data-ship-txt></p>
       <div class="ship__bar"><div class="ship__fill" data-ship-fill></div></div>
     </div>
-    <div class="sum"><span>Zwischensumme</span><b data-subtotal>0,00 &euro;</b></div>
+    <div class="gutschein">
+      <label class="vh" for="gutschein-code">Gutscheincode</label>
+      <input id="gutschein-code" type="text" placeholder="Rabattcode" autocomplete="off" data-gutschein>
+      <button class="btn btn--ghost btn--sm" type="button" data-gutschein-anwenden>Anwenden</button>
+    </div>
+    <p class="sum sum--sm" data-rabatt-zeile hidden><span>Rabatt</span><span class="sum__rabatt" data-rabatt></span></p>
+    <div class="sum"><span>Zwischensumme</span><b><s class="sum__was" data-subtotal-was hidden></s> <span data-subtotal>0,00 &euro;</span></b></div>
     <p class="sum sum--sm"><span>Versand</span><span>wird im Checkout berechnet</span></p>
-    <button class="btn btn--primary btn--block" type="button" data-checkout style="margin-top:.9rem">Zur Kasse</button>
-    <p class="drawer__note">Inkl. MwSt. &middot; Keine versteckten Kosten &middot; 120 Tage R&uuml;ckgaberecht</p>
+    <button class="btn btn--primary btn--block" type="button" data-checkout style="margin-top:.9rem"><svg class="btn__lock" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="5" y="11" width="14" height="9" rx="2"/></svg>Zur Kasse</button>
+    <ul class="trustchips">
+      <li>Sichere Zahlung</li><li>120 Tage R&uuml;ckgabe</li><li>Deutsche Qualit&auml;t</li>
+    </ul>
   </div>
 </aside>
 

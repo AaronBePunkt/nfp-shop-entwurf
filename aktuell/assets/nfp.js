@@ -34,9 +34,9 @@
       ing: 'Grünlippmuschel · Glucosamin · MSM · Chondroitin · Ingwer · Teufelskralle',
       unit: 'Tablette',
       variants: [
-        { id: '100', label: '100 Tabletten', sub: 'ca. 1 Monat', price: 29.95, per: 100 },
-        { id: '200', label: '200 Tabletten', sub: '2 × 100 Stück', price: 49.95, per: 200, best: true },
-        { id: '400', label: '400 Tabletten', sub: '4 × 100 Stück', price: 84.95, per: 400 }
+        { id: '100', label: '100 Tabletten', sub: 'ca. 1 Monat', price: 34.95, was: 44.95, was: 44.95, per: 100 },
+        { id: '200', label: '200 Tabletten', sub: '2 × 100 Stück', price: 57.95, was: 89.90, was: 89.90, per: 200, best: true },
+        { id: '400', label: '400 Tabletten', sub: '4 × 100 Stück', price: 99.95, was: 179.80, was: 179.80, per: 400 }
       ]
     },
     'gruenlippmuschelpulver': {
@@ -44,9 +44,9 @@
       img: 'img/p-gruenlippmuschelpulver.webp', alt: 'img/zutaten-flatlay.webp',
       ing: '100 % Perna canaliculus, ohne Zusätze', unit: 'g',
       variants: [
-        { id: '500', label: '500 g', sub: '', price: 32.95, per: 500 },
-        { id: '1000', label: '1.000 g', sub: '', price: 59.95, per: 1000, best: true },
-        { id: '2000', label: '2.000 g', sub: '2 × 1.000 g', price: 99.95, per: 2000 }
+        { id: '500', label: '500 g', sub: '', price: 32.95, was: 44.95, was: 44.95, per: 500 },
+        { id: '1000', label: '1.000 g', sub: '', price: 59.95, was: 89.90, per: 1000, best: true },
+        { id: '2000', label: '2.000 g', sub: '2 × 1.000 g', price: 99.95, was: 179.80, per: 2000 }
       ]
     },
     'gelenk-kollagen': {
@@ -54,9 +54,9 @@
       img: 'img/p-gelenk-kollagen.webp', alt: 'img/pdp-macro.webp',
       ing: 'Kollagenhydrolysat 36 %, Kolostrum, Boswellia', unit: 'g',
       variants: [
-        { id: '250', label: '250 g', sub: '', price: 47.95, per: 250 },
-        { id: '500', label: '500 g', sub: '2 × 250 g', price: 79.95, per: 500, best: true },
-        { id: '1000', label: '1.000 g', sub: '4 × 250 g', price: 139.99, per: 1000 }
+        { id: '250', label: '250 g', sub: '', price: 59.95, was: 74.95, was: 74.95, per: 250 },
+        { id: '500', label: '500 g', sub: '2 × 250 g', price: 99.95, was: 149.90, per: 500, best: true },
+        { id: '1000', label: '1.000 g', sub: '4 × 250 g', price: 174.95, was: 299.80, per: 1000 }
       ]
     },
     'gelenkoel': {
@@ -64,9 +64,9 @@
       img: 'img/p-gelenkoel.webp', alt: 'img/zutaten-flatlay.webp',
       ing: 'Lachs-, Lein-, Raps-, Hanf- und Borretschöl', unit: 'ml',
       variants: [
-        { id: '500', label: '500 ml', sub: '', price: 24.95, per: 500 },
-        { id: '1000', label: '1.000 ml', sub: '2 × 500 ml', price: 44.95, per: 1000, best: true },
-        { id: '2000', label: '2.000 ml', sub: '4 × 500 ml', price: 79.95, per: 2000 }
+        { id: '500', label: '500 ml', sub: '', price: 32.95, was: 44.95, was: 44.95, per: 500 },
+        { id: '1000', label: '1.000 ml', sub: '2 × 500 ml', price: 57.95, was: 89.90, per: 1000, best: true },
+        { id: '2000', label: '2.000 ml', sub: '4 × 500 ml', price: 99.95, was: 179.80, per: 2000 }
       ]
     },
     'teufelskralle-liquid': {
@@ -74,9 +74,9 @@
       img: 'img/p-teufelskralle-liquid.webp', alt: 'img/zutaten-flatlay.webp',
       ing: 'Teufelskrallenwurzel, flüssig hochkonzentriert', unit: 'ml',
       variants: [
-        { id: '100', label: '100 ml', sub: '', price: 19.95, per: 100 },
-        { id: '300', label: '300 ml', sub: '', price: 49.95, per: 300 },
-        { id: '500', label: '500 ml', sub: '', price: 69.95, per: 500, best: true }
+        { id: '100', label: '100 ml', sub: '', price: 19.95, was: 29.95, was: 29.95, per: 100 },
+        { id: '300', label: '300 ml', sub: '', price: 49.95, was: 59.90, per: 300 },
+        { id: '500', label: '500 ml', sub: '', price: 69.95, was: 119.80, per: 500, best: true }
       ]
     },
     'relax-calm-tabletten': {
@@ -84,9 +84,9 @@
       img: 'img/p-relax-calm-tabletten.webp', alt: 'img/pdp-macro.webp',
       ing: 'L-Tryptophan, Ashwagandha, Hanf, Passionsblume, Baldrian', unit: 'Tablette',
       variants: [
-        { id: '60', label: '60 Tabletten', sub: '', price: 29.95, per: 60 },
-        { id: '120', label: '120 Tabletten', sub: '', price: 49.95, per: 120, best: true },
-        { id: '240', label: '240 Tabletten', sub: '', price: 84.95, per: 240 }
+        { id: '60', label: '60 Tabletten', sub: '', price: 34.95, was: 44.95, was: 44.95, per: 60 },
+        { id: '120', label: '120 Tabletten', sub: '', price: 57.95, was: 89.90, per: 120, best: true },
+        { id: '240', label: '240 Tabletten', sub: '', price: 99.95, was: 179.80, per: 240 }
       ]
     },
     'praebiotikum-probiotikum': {
@@ -94,9 +94,9 @@
       img: 'img/p-praebiotikum-probiotikum.webp', alt: 'img/pdp-macro.webp',
       ing: 'B. subtilis, FOS, MOS, Pektin, Flohsamenschalen', unit: 'Tablette',
       variants: [
-        { id: '120', label: '120 Tabletten', sub: '', price: 24.95, per: 120 },
-        { id: '240', label: '240 Tabletten', sub: '2 × 120', price: 44.95, per: 240, best: true },
-        { id: '480', label: '480 Tabletten', sub: '4 × 120', price: 79.95, per: 480 }
+        { id: '120', label: '120 Tabletten', sub: '', price: 29.95, was: 34.95, was: 34.95, per: 120 },
+        { id: '240', label: '240 Tabletten', sub: '2 × 120', price: 49.95, was: 69.90, per: 240, best: true },
+        { id: '480', label: '480 Tabletten', sub: '4 × 120', price: 94.95, was: 139.80, per: 480 }
       ]
     },
     'gelenk-kur-s': {
@@ -223,8 +223,11 @@
         '<div class="ci__fig"><img src="' + p.img + '" alt="' + p.name + '" width="74" height="74" loading="lazy"></div>' +
         '<div><h3>' + p.name + '</h3>' +
         '<p class="ci__var">' + v.label + (isSub ? ' · Abo ' + intervalText(l.iv) : ' · Einmalkauf') + '</p>' +
-        '<p class="ci__price">' + eur(linePrice(v, isSub) * l.qty) +
-          (isSub ? ' <span style="font-weight:400;font-size:.75rem;color:var(--ink-soft)">(−10 %)</span>' : '') + '</p>' +
+        '<p class="ci__price">' +
+          (v.was && !isSub ? '<s class="ci__was">' + eur(v.was * l.qty) + '</s> ' : '') +
+          eur(linePrice(v, isSub) * l.qty) + '</p>' +
+        (v.was && !isSub
+          ? '<p class="ci__save">Du sparst ' + eur((v.was - v.price) * l.qty) + '</p>' : '') +
         '<div class="qty">' +
         '<button type="button" data-dec="' + i + '" aria-label="Menge verringern">&minus;</button>' +
         '<span aria-live="polite">' + l.qty + '</span>' +
@@ -238,13 +241,14 @@
     var inCart = cart.map(function (l) { return l.key; });
     var offers = XSELL.filter(function (k) { return inCart.indexOf(k) === -1; }).slice(0, 2);
     if (offers.length) {
-      html += '<div class="xsell"><h3>Passt dazu</h3>';
+      html += '<div class="xsell"><h3>Passt perfekt dazu</h3>';
       offers.forEach(function (k) {
         var p = PRODUCTS[k], v = p.variants[0];
         html +=
           '<div class="xsell__i">' +
           '<img src="' + p.img + '" alt="' + p.name + '" width="52" height="52" loading="lazy">' +
-          '<div><p>' + p.name + '</p><span>' + v.label + ' · ' + eur(v.price) + '</span></div>' +
+          '<div><p>' + p.name + '</p><span>' + v.label + ' · ' +
+            (v.was ? '<s>' + eur(v.was) + '</s> ' : '') + eur(v.price) + '</span></div>' +
           '<button type="button" class="btn btn--ghost btn--sm" data-add="' + k + '" data-var="' + v.id + '">Dazu</button>' +
           '</div>';
       });
@@ -267,6 +271,26 @@
       else txt.innerHTML = check + '<b>Versand kostenlos</b> – Schwelle erreicht';
     }
     var st = $('[data-subtotal]'); if (st) st.textContent = eur(sub);
+
+    /* Ersparnis, Streich-Zwischensumme und Artikelzahl - alles wie im
+       Live-Drawer am 2026-09-01 gemessen. */
+    var ohne = 0, gespart = 0;
+    cart.forEach(function (l) {
+      var p2 = PRODUCTS[l.key], v2 = findVariant(l.key, l.vid);
+      if (!p2 || !v2) return;
+      var voll = (v2.was && !l.iv) ? v2.was : linePrice(v2, !!l.iv);
+      ohne += voll * l.qty;
+      gespart += (voll - linePrice(v2, !!l.iv)) * l.qty;
+    });
+    var sw = $('[data-subtotal-was]');
+    if (sw) { if (gespart > 0.005) { sw.textContent = eur(ohne); sw.removeAttribute('hidden'); }
+              else sw.setAttribute('hidden', ''); }
+    var rz = $('[data-rabatt-zeile]'), rw = $('[data-rabatt]');
+    if (rz) { if (gespart > 0.005) { rz.removeAttribute('hidden'); if (rw) rw.textContent = '−' + eur(gespart); }
+              else rz.setAttribute('hidden', ''); }
+    var anz = cart.reduce(function (s, l) { return s + l.qty; }, 0);
+    var zt = $('[data-cart-count-title]');
+    if (zt) zt.textContent = anz ? ' (' + anz + ')' : '';
   }
 
   /* --------------------------------------------------------- Drawer / Scrim */
@@ -309,11 +333,22 @@
 
   /* ------------------------------------------------------- Globale Klicks */
   document.addEventListener('click', function (e) {
-    var t = e.target.closest ? e.target.closest('[data-add],[data-inc],[data-dec],[data-rm],[data-cart-open],[data-drawer-close],[data-scrim],[data-thumb],[data-scroll-to],[data-more],[data-checkout]') : null;
+    var t = e.target.closest ? e.target.closest('[data-add],[data-inc],[data-dec],[data-rm],[data-cart-open],[data-drawer-close],[data-scrim],[data-thumb],[data-scroll-to],[data-more],[data-checkout],[data-gutschein-anwenden]') : null;
     if (!t) return;
 
     /* Der Entwurf hat keinen Checkout. Ein Knopf, der nichts tut, ist besser
        als ein href="#", das die Seite nach oben springen lässt. */
+    /* Gutscheinfeld: Der Entwurf hat keinen Checkout und damit keine echte
+       Rabattpruefung. Es wird deshalb KEIN Rabatt vorgetaeuscht - der Code
+       wird angenommen und ehrlich auf den Checkout verwiesen. */
+    if (t.hasAttribute('data-gutschein-anwenden')) {
+      var feld = $('[data-gutschein]');
+      var code = feld && feld.value.trim();
+      toast(code ? 'Code „' + code + '" wird im Checkout geprüft.'
+                 : 'Bitte zuerst einen Rabattcode eingeben.');
+      return;
+    }
+
     if (t.hasAttribute('data-checkout')) {
       toast('Im Entwurf gibt es noch keinen Checkout.');
       return;

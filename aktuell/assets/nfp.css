@@ -1175,3 +1175,25 @@ main,header,footer,.drawer,.toast{position:relative}
 .rechtstext table{width:100%;border-collapse:collapse;margin:0 0 1rem;font-size:.9375rem}
 .rechtstext th,.rechtstext td{border:1px solid var(--line);padding:.5rem .65rem;text-align:left;vertical-align:top}
 .rechtstext th{background:var(--cream);font-weight:600}
+
+
+/* ============================================== WARENKORB - LIVE-ABGLEICH
+   Am Live-Drawer gemessen (2026-09-01): Streichpreis je Zeile mit Ersparnis,
+   Gutscheinfeld, Rabattzeile, drei Vertrauens-Chips, Schloss am Kaufknopf. */
+.ci__was{color:var(--ink-soft);font-weight:400;margin-right:.35rem}
+.ci__save{font-size:.75rem;color:#1C4036;font-weight:600;margin:.15rem 0 0}
+.xsell__i s{color:var(--ink-soft);margin-right:.25rem}
+.gutschein{display:flex;gap:.5rem;margin:0 0 .8rem}
+.gutschein input{flex:1;min-width:0;border:1px solid var(--line-strong);border-radius:var(--r-sm);
+  padding:.6rem .7rem;font:inherit;font-size:.9375rem;background:var(--card);color:var(--ink)}
+.gutschein input:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+.gutschein .btn{flex:0 0 auto}
+.sum__was{color:var(--ink-soft);font-weight:400}
+.sum__rabatt{color:#1C4036;font-weight:600}
+.btn__lock{width:16px;height:16px;margin-right:.45rem;vertical-align:-3px;
+  fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.trustchips{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;list-style:none;
+  margin:.85rem 0 0;padding:0}
+.trustchips li{font-size:.75rem;color:var(--ink-soft);background:var(--cream);
+  border:1px solid var(--line);border-radius:999px;padding:.3rem .65rem}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}

@@ -256,7 +256,7 @@
 <div class="scrim" data-scrim></div>
 <aside class="drawer" data-drawer aria-hidden="true" aria-label="Warenkorb">
   <div class="drawer__hd">
-    <h2>Dein Warenkorb</h2>
+    <h2>Dein Warenkorb<span data-cart-count-title></span></h2>
     <button class="iconbtn" data-drawer-close aria-label="Warenkorb schlie&szlig;en"><svg><use href="#ic-close"/></svg></button>
   </div>
   <div class="drawer__body" data-cart-body></div>
@@ -265,10 +265,18 @@
       <p class="ship__txt" data-ship-txt></p>
       <div class="ship__bar"><div class="ship__fill" data-ship-fill></div></div>
     </div>
-    <div class="sum"><span>Zwischensumme</span><b data-subtotal>0,00 &euro;</b></div>
+    <div class="gutschein">
+      <label class="vh" for="gutschein-code">Gutscheincode</label>
+      <input id="gutschein-code" type="text" placeholder="Rabattcode" autocomplete="off" data-gutschein>
+      <button class="btn btn--ghost btn--sm" type="button" data-gutschein-anwenden>Anwenden</button>
+    </div>
+    <p class="sum sum--sm" data-rabatt-zeile hidden><span>Rabatt</span><span class="sum__rabatt" data-rabatt></span></p>
+    <div class="sum"><span>Zwischensumme</span><b><s class="sum__was" data-subtotal-was hidden></s> <span data-subtotal>0,00 &euro;</span></b></div>
     <p class="sum sum--sm"><span>Versand</span><span>wird im Checkout berechnet</span></p>
-    <button class="btn btn--primary btn--block" type="button" data-checkout style="margin-top:.9rem">Zur Kasse</button>
-    <p class="drawer__note">Inkl. MwSt. &middot; Keine versteckten Kosten &middot; 120 Tage R&uuml;ckgaberecht</p>
+    <button class="btn btn--primary btn--block" type="button" data-checkout style="margin-top:.9rem"><svg class="btn__lock" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="5" y="11" width="14" height="9" rx="2"/></svg>Zur Kasse</button>
+    <ul class="trustchips">
+      <li>Sichere Zahlung</li><li>120 Tage R&uuml;ckgabe</li><li>Deutsche Qualit&auml;t</li>
+    </ul>
   </div>
 </aside>
 

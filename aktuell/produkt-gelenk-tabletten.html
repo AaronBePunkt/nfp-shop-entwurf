@@ -157,9 +157,9 @@
       </button>
 
       <div class="buy__price">
-        <span class="price" data-price>29,95 &euro;</span>
-        <s class="buy__was" data-was hidden>29,95 &euro;</s>
-        <span class="buy__unit" data-unit>0,30 &euro; pro Tablette</span>
+        <span class="price" data-price>34,95 &euro;</span>
+        <s class="buy__was" data-was hidden>34,95 &euro;</s>
+        <span class="buy__unit" data-unit>0,35 &euro; pro Tablette</span>
       </div>
       <p class="buy__tax">Inkl. MwSt., zzgl. Versand &middot; Lieferzeit 1&ndash;3 Werktage</p>
 
@@ -169,20 +169,20 @@
           <input type="radio" name="variant" value="100" data-key="gelenk-tabletten" checked>
           <span class="var__dot" aria-hidden="true"></span>
           <span class="var__t"><b>100 Tabletten</b><span>Zum Ausprobieren &middot; ca. 1 Monat bei 30 kg</span></span>
-          <span class="var__p">29,95 &euro;<small>0,30 &euro;/Stk.</small></span>
+          <span class="var__p">34,95 &euro;<small>0,35 &euro;/Stk.</small></span>
         </label>
         <label class="var">
           <input type="radio" name="variant" value="200" data-key="gelenk-tabletten">
           <span class="var__dot" aria-hidden="true"></span>
           <span class="var__t"><b>200 Tabletten</b><span>2 &times; 100 St&uuml;ck</span></span>
-          <span class="var__p">49,95 &euro;<small>0,25 &euro;/Stk.</small></span>
+          <span class="var__p">57,95 &euro;<small>0,29 &euro;/Stk.</small></span>
           <span class="var__tag">Beliebteste Gr&ouml;&szlig;e</span>
         </label>
         <label class="var">
           <input type="radio" name="variant" value="400" data-key="gelenk-tabletten">
           <span class="var__dot" aria-hidden="true"></span>
           <span class="var__t"><b>400 Tabletten</b><span>4 &times; 100 St&uuml;ck &middot; bester Grundpreis</span></span>
-          <span class="var__p">84,95 &euro;<small>0,21 &euro;/Stk.</small></span>
+          <span class="var__p">99,95 &euro;<small>0,25 &euro;/Stk.</small></span>
         </label>
       </div>
 
@@ -414,8 +414,8 @@
         <div class="prod__b">
           <p class="prod__ing">Omega-3 aus f&uuml;nf &Ouml;len, f&uuml;r Fell und Gelenke</p>
           <div class="hair"></div>
-          <p class="prod__title"><a href="produkt-gelenkoel.html">Gelenk&ouml;l</a><span class="dash">&ndash;</span>24,95 &euro;</p>
-          <p class="prod__unit">500 ml &middot; 49,90 &euro; pro l</p>
+          <p class="prod__title"><a href="produkt-gelenkoel.html">Gelenk&ouml;l</a><span class="dash">&ndash;</span>32,95 &euro;</p>
+          <p class="prod__unit">500 ml &middot; 65,90 &euro; pro l</p>
           <div class="prod__cta"><button class="btn btn--ghost btn--sm" data-add="gelenkoel" data-var="500">In den Warenkorb</button></div>
         </div>
       </article>
@@ -458,7 +458,7 @@
 
 <!-- Sticky Kauf-Leiste f&uuml;rs Handy (SOP B4.3) -->
 <div class="satc">
-  <span class="satc__p" data-satc-price>29,95 &euro;<small>100 Tabletten</small></span>
+  <span class="satc__p" data-satc-price>34,95 &euro;<small>100 Tabletten</small></span>
   <button class="btn btn--primary" data-add="gelenk-tabletten">In den Warenkorb</button>
 </div>
 
@@ -501,7 +501,7 @@
 <div class="scrim" data-scrim></div>
 <aside class="drawer" data-drawer aria-hidden="true" aria-label="Warenkorb">
   <div class="drawer__hd">
-    <h2>Dein Warenkorb</h2>
+    <h2>Dein Warenkorb<span data-cart-count-title></span></h2>
     <button class="iconbtn" data-drawer-close aria-label="Warenkorb schlie&szlig;en"><svg><use href="#ic-close"/></svg></button>
   </div>
   <div class="drawer__body" data-cart-body></div>
@@ -510,10 +510,18 @@
       <p class="ship__txt" data-ship-txt></p>
       <div class="ship__bar"><div class="ship__fill" data-ship-fill></div></div>
     </div>
-    <div class="sum"><span>Zwischensumme</span><b data-subtotal>0,00 &euro;</b></div>
+    <div class="gutschein">
+      <label class="vh" for="gutschein-code">Gutscheincode</label>
+      <input id="gutschein-code" type="text" placeholder="Rabattcode" autocomplete="off" data-gutschein>
+      <button class="btn btn--ghost btn--sm" type="button" data-gutschein-anwenden>Anwenden</button>
+    </div>
+    <p class="sum sum--sm" data-rabatt-zeile hidden><span>Rabatt</span><span class="sum__rabatt" data-rabatt></span></p>
+    <div class="sum"><span>Zwischensumme</span><b><s class="sum__was" data-subtotal-was hidden></s> <span data-subtotal>0,00 &euro;</span></b></div>
     <p class="sum sum--sm"><span>Versand</span><span>wird im Checkout berechnet</span></p>
-    <button class="btn btn--primary btn--block" type="button" data-checkout style="margin-top:.9rem">Zur Kasse</button>
-    <p class="drawer__note">Inkl. MwSt. &middot; Keine versteckten Kosten &middot; 120 Tage R&uuml;ckgaberecht</p>
+    <button class="btn btn--primary btn--block" type="button" data-checkout style="margin-top:.9rem"><svg class="btn__lock" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="5" y="11" width="14" height="9" rx="2"/></svg>Zur Kasse</button>
+    <ul class="trustchips">
+      <li>Sichere Zahlung</li><li>120 Tage R&uuml;ckgabe</li><li>Deutsche Qualit&auml;t</li>
+    </ul>
   </div>
 </aside>
 
